@@ -3,18 +3,15 @@
 <html>
 <head>
     <%@include file="/template/headTag.jsp"%>
-    <title>管理员-<%=homeName%></title>
+    <title>学习专区-<%=homeName%></title>
 </head>
 <body>
 <%@include file="/template/header.jsp"%>
 <div class="main bkcolorhalf">
     <div class="bigContainer">
-        <div class="col-xs-12 col-sm-2">
-            <%@include file="menu.jsp"%>
-        </div>
-        <div class="col-xs-12 col-sm-10">
-            管理员功能介绍:
-        </div>
+
+        学习页面,分为算法学习和考研，考研专区使用文件系统，并增加保护功能，特权用户才能访问
+
     </div>
 </div>
 <%@include file="/template/footer.jsp"%>

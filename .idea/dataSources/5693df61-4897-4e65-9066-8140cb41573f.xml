@@ -918,433 +918,319 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="231" parent="7" name="match"/>
-    <table id="232" parent="7" name="news"/>
-    <table id="233" parent="7" name="oj_contest"/>
-    <table id="234" parent="7" name="oj_type"/>
-    <table id="235" parent="7" name="oj_user"/>
-    <table id="236" parent="7" name="sql_file"/>
-    <table id="237" parent="7" name="user"/>
-    <column id="238" parent="231" name="id">
+    <table id="231" parent="7" name="contest"/>
+    <table id="232" parent="7" name="match"/>
+    <table id="233" parent="7" name="news"/>
+    <table id="234" parent="7" name="sql_file"/>
+    <table id="235" parent="7" name="user"/>
+    <column id="236" parent="231" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="239" parent="231" name="news_id">
+    <column id="237" parent="231" name="title">
+      <Position>2</Position>
+      <DataType>varchar(80)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="238" parent="231" name="describe">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="239" parent="231" name="start">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="240" parent="231" name="end">
+      <Position>5</Position>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="241" parent="231" name="url">
+      <Position>6</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="242" parent="231" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="243" parent="232" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="244" parent="232" name="news_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="240" parent="231" name="title">
+    <column id="245" parent="232" name="title">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="231" name="date">
+    <column id="246" parent="232" name="date">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="231" name="prize1">
+    <column id="247" parent="232" name="prize1">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="231" name="prize2">
+    <column id="248" parent="232" name="prize2">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="231" name="prize3">
+    <column id="249" parent="232" name="prize3">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="231" name="prize4">
+    <column id="250" parent="232" name="prize4">
       <Position>8</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="246" parent="231" name="id">
+    <index id="251" parent="232" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="247" parent="231" name="PRIMARY">
+    <key id="252" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="248" parent="232" name="id">
+    <column id="253" parent="233" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="232" name="title">
+    <column id="254" parent="233" name="title">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="232" name="content">
+    <column id="255" parent="233" name="content">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="232" name="user_id">
+    <column id="256" parent="233" name="is_public">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="232" name="is_public">
+    <column id="257" parent="233" name="views">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="232" name="views">
+    <column id="258" parent="233" name="created">
       <Position>6</Position>
-      <DataType>int(11)|0s</DataType>
-      <DefaultExpression>0</DefaultExpression>
+      <DataType>datetime|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="232" name="created">
+    <column id="259" parent="233" name="modified">
       <Position>7</Position>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="232" name="modified">
-      <Position>8</Position>
-      <DataType>datetime|0s</DataType>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="256" parent="232" name="id">
+    <index id="260" parent="233" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="257" parent="232" name="user_id">
-      <ColNames>user_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="258" parent="232" name="PRIMARY">
+    <key id="261" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="259" parent="232" name="news_ibfk_1">
-      <ColNames>user_id</ColNames>
-      <RefSchemaName>team</RefSchemaName>
-      <RefTableName>user</RefTableName>
-      <RefColNames>id</RefColNames>
-      <OnUpdate>set-null</OnUpdate>
-      <OnDelete>set-null</OnDelete>
-    </foreign-key>
-    <column id="260" parent="233" name="id">
-      <Position>1</Position>
-      <DataType>int(10)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="261" parent="233" name="oj_type_id">
-      <Position>2</Position>
-      <DataType>int(10)|0s</DataType>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="262" parent="233" name="title">
-      <Position>3</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <DefaultExpression>&apos;&apos;</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="263" parent="233" name="id">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="264" parent="233" name="oj_type_id">
-      <ColNames>oj_type_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="265" parent="233" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="266" parent="233" name="oj_type_id">
-      <ColNames>oj_type_id</ColNames>
-      <RefSchemaName>team</RefSchemaName>
-      <RefTableName>oj_type</RefTableName>
-      <RefColNames>id</RefColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <column id="267" parent="234" name="id">
+    <column id="262" parent="234" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="268" parent="234" name="title">
-      <Position>2</Position>
-      <DataType>varchar(30)|0s</DataType>
-      <DefaultExpression>&apos;&apos;</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="269" parent="234" name="url">
-      <Position>3</Position>
-      <DataType>varchar(80)|0s</DataType>
-      <DefaultExpression>&apos;&apos;</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="270" parent="234" name="id">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="271" parent="234" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="272" parent="235" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="273" parent="235" name="user_id">
-      <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="274" parent="235" name="oj_type_id">
-      <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
-      <DefaultExpression>0</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="275" parent="235" name="oj_username">
-      <Position>4</Position>
-      <DataType>varchar(30)|0s</DataType>
-      <DefaultExpression>&apos;&apos;</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="276" parent="235" name="is_public">
-      <Position>5</Position>
-      <DataType>int(10)|0s</DataType>
-      <DefaultExpression>1</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="277" parent="235" name="id">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="278" parent="235" name="user_id">
-      <ColNames>user_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="279" parent="235" name="oj_type_id_0">
-      <ColNames>oj_type_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="280" parent="235" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="281" parent="235" name="user_id">
-      <ColNames>user_id</ColNames>
-      <RefSchemaName>team</RefSchemaName>
-      <RefTableName>user</RefTableName>
-      <RefColNames>id</RefColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <foreign-key id="282" parent="235" name="oj_type_id_0">
-      <ColNames>oj_type_id</ColNames>
-      <RefSchemaName>team</RefSchemaName>
-      <RefTableName>oj_type</RefTableName>
-      <RefColNames>id</RefColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <column id="283" parent="236" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="284" parent="236" name="name">
+    <column id="263" parent="234" name="name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="236" name="path">
+    <column id="264" parent="234" name="path">
       <Position>3</Position>
       <Comment>文件相对路径，相对于项目根目录</Comment>
       <DataType>varchar(255)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="236" name="username">
+    <column id="265" parent="234" name="username">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="236" name="created">
+    <column id="266" parent="234" name="created">
       <Position>5</Position>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="288" parent="236" name="id">
+    <index id="267" parent="234" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="289" parent="236" name="user_id">
+    <index id="268" parent="234" name="user_id">
       <ColNames>username</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="290" parent="236" name="PRIMARY">
+    <key id="269" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="291" parent="237" name="id">
+    <column id="270" parent="235" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="237" name="username">
+    <column id="271" parent="235" name="username">
       <Position>2</Position>
       <DataType>varchar(16)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="237" name="password">
+    <column id="272" parent="235" name="password">
       <Position>3</Position>
       <DataType>varchar(24)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="237" name="email">
+    <column id="273" parent="235" name="email">
       <Position>4</Position>
       <Comment>邮箱</Comment>
       <DataType>varchar(30)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="237" name="nick_name">
+    <column id="274" parent="235" name="nick_name">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="237" name="is_super">
+    <column id="275" parent="235" name="is_super">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="237" name="is_public">
+    <column id="276" parent="235" name="is_public">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="237" name="photo_id">
+    <column id="277" parent="235" name="photo_id">
       <Position>8</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="237" name="tag">
+    <column id="278" parent="235" name="tag">
       <Position>9</Position>
       <Comment>用户角色：0外部 1退役 2现役 3教师</Comment>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="237" name="grade">
+    <column id="279" parent="235" name="grade">
       <Position>10</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="237" name="major">
+    <column id="280" parent="235" name="major">
       <Position>11</Position>
       <DataType>varchar(16)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="237" name="work">
+    <column id="281" parent="235" name="work">
       <Position>12</Position>
       <DataType>varchar(30)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="237" name="blog_url">
+    <column id="282" parent="235" name="blog_url">
       <Position>13</Position>
       <DataType>varchar(80)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="237" name="resume">
+    <column id="283" parent="235" name="resume">
       <Position>14</Position>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="305" parent="237" name="username">
-      <ColNames>username</ColNames>
+    <index id="284" parent="235" name="id">
+      <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="306" parent="237" name="id">
-      <ColNames>id</ColNames>
+    <index id="285" parent="235" name="username">
+      <ColNames>username</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="307" parent="237" name="email">
+    <index id="286" parent="235" name="email">
       <ColNames>email</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="308" parent="237" name="tag">
+    <index id="287" parent="235" name="tag">
       <ColNames>tag</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="309" parent="237" name="grade">
+    <index id="288" parent="235" name="grade">
       <ColNames>grade</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="310" parent="237" name="PRIMARY">
+    <key id="289" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 username</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="311" parent="237" name="username">
-      <ColNames>username</ColNames>
-      <UnderlyingIndexName>username</UnderlyingIndexName>
+    <key id="290" parent="235" name="id">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

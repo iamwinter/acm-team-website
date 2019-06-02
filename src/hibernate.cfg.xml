@@ -16,6 +16,8 @@
         <mapping class="models.User"/>
         <mapping class="models.SqlFile"/>
         <mapping class="models.News"/>
+        <mapping class="models.Contest"/>
+        <mapping class="models.Match"/>
 
 
         <!-- DB schema will be updated if needed -->
