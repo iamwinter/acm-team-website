@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.multipart.maxSize" value="2000100100" /> <!-- 2G -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="false"/>
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"/> <!-- 允许前台访问类静态属性 -->
+
+    <package name="user_oper" namespace="/" extends="struts-default,json-default" strict-method-invocation="false">
+
+        <action name="user_*" class="action.UserAction" method="{1}">
+            <result name="json" type="json">
+                <!-- 返回到前台json数据 action里有一个String result-->
+                <param name="root">result</param>
+            </result>
+            <result name="success">/userpage/success.jsp</result>
+            <result name="login">/userpage/login.jsp</result>
+            <result name="register">/userpage/register.jsp</result>
+            <result name="modify">/userpage/modify.jsp</result>
+            <result name="user">/userpage/user.jsp</result>
+            <result name="members">/members.jsp</result>
+            <result name="error">/error.jsp</result>
+
+            <interceptor-ref name="fileUpload"> <!-- 当前action文件上传大小限制8M -->
+                <param name="maximumSize">8000000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" /> <!-- 默认拦截器 -->
+
+        </action>
+
+        <action name="admin_*" class="action.AdminAction" method="{1}">
+            <result name="json" type="json">
+                <param name="root">result</param>
+            </result>
+            <result name="error">error.jsp</result>
+            <result name="login">/userpage/login.jsp</result>
+            <result name="admin">/admin/index.jsp</result>
+            <result name="users">/admin/users.jsp</result>
+            <result name="editNews">/admin/editNews.jsp</result>
+        </action>
+
+        <action name="file_*" class="action.FileAction" method="{1}">
+            <result name="json" type="json">
+                <param name="root">result</param>
+            </result>
+            <result name="error">error.jsp</result>
+            <result name="login">/userpage/login.jsp</result>
+
+            <interceptor-ref name="fileUpload"> <!-- 当前action文件上传大小限制8M -->
+                <param name="maximumSize">10000000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" /> <!-- 默认拦截器 -->
+        </action>
+
+        <action name="news_*" class="action.NewsAction" method="{1}">
+            <result name="json" type="json">
+                <param name="root">result</param>
+            </result>
+            <result name="error">error.jsp</result>
+            <result name="login">/userpage/login.jsp</result>
+            <result name="success">success.jsp</result>
+            <result name="news">news.jsp</result>
+        </action>
+    </package>
+
+</struts>

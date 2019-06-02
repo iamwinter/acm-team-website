@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="team:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/team_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="team/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="team" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Struts 2-2.5.14.1" />
+          <element id="library" level="project" name="Hibernate 5.4.2-5.4.2" />
+          <element id="library" level="project" name="api" />
+          <element id="library" level="project" name="file" />
+          <element id="library" level="project" name="htmlunit" />
+          <element id="library" level="project" name="json" />
+          <element id="library" level="project" name="mysql" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
