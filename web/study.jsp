@@ -10,8 +10,24 @@
 <div class="main bkcolorhalf">
     <div class="bigContainer">
 
-        学习页面,分为算法学习和考研，考研专区使用文件系统，并增加保护功能，特权用户才能访问
-
+        <form action="">
+            <ul class="breadcrumb">
+                <li><a href="#">2020</a></li>
+                <li><a href="#">2019</a></li>
+            </ul>
+            <ul class="breadcrumb">
+                <li><a href="#">高等数学</a></li>
+                <li><a href="#">线性代数</a></li>
+            </ul>
+        </form>
+        <div class="">
+            <div class="col-xs-12 col-sm-3" style="background-color: red;height: 60px">
+                这是一个文件夹
+            </div>
+            <div class="col-xs-12 col-sm-3" style="background-color: red;height: 60px">
+                这是一个文件夹
+            </div>
+        </div>
     </div>
 </div>
 <%@include file="/template/footer.jsp"%>

@@ -13,7 +13,7 @@
             <%@include file="menu.jsp"%>
         </div>
         <div class="col-xs-12 col-sm-10">
-            管理员功能介绍
+            管理员功能介绍:
         </div>
     </div>
 </div>

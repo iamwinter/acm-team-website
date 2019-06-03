@@ -49,7 +49,7 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 
 	public String editNews(){
 		if(admin()==ERROR)return ERROR;
-		String edit = request.getParameter("edit");
+		String edit = request.getParameter("id");
 		if(edit!=null && edit.length()>0){  //编辑新闻
 			int editId = Integer.valueOf(edit);
 			News news = new NewsDao().findById(editId);

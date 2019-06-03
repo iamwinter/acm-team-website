@@ -1,5 +1,6 @@
 package action;
 
+import Tools.IntegerTool;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import dao.NewsDao;
@@ -69,7 +70,25 @@ public class NewsAction extends ActionSupport implements ModelDriven<News>,Servl
 
 	public String news(){
 		//获取所有公开的新闻，前台展示
+		int num = IntegerTool.strToInt(request.getParameter("pageNum"),1);
+		List<News> list = new NewsDao().findPublicPage(num,20);
+		request.setAttribute("newsList",list);
 		return "news";
+	}
+
+	public String show(){
+		//获取所有公开的新闻，前台展示
+		int id = IntegerTool.strToInt(request.getParameter("id"),0);
+		News  news = new NewsDao().findById(id);
+		if(news==null || news.getIsPublic()==0){
+			request.setAttribute("result",false);
+			request.setAttribute("msg","没有找到该新闻！");
+			return ERROR;
+		}
+		request.setAttribute("news",news);
+		news.setViews(news.getViews()+1); // 浏览量+1
+		new NewsDao().update(news);
+		return "show";
 	}
 
 	@Override
