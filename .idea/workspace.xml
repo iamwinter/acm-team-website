@@ -7,55 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83cb3420-eabc-49bb-a064-45ff4b18acb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/admin/subject.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/second/study_file_show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5693df61-4897-4e65-9066-8140cb41573f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5693df61-4897-4e65-9066-8140cb41573f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/action/AdminAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/action/AdminAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/action/FileAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/action/FileAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/dao/BaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/dao/BaseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/dao/FileDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/dao/FileDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/models/News.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/models/News.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/models/SqlFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/models/SqlFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/admin/menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/admin/menu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/admin/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/admin/users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/members.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/members.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/template/headTag.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/template/headTag.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/template/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/template/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/userpage/modify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/userpage/modify.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/action/AdminAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/action/AdminAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/action/FileAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/action/FileAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/dao/BaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/dao/BaseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/dao/FileDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/dao/FileDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/models/News.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/models/News.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/models/SqlFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/models/SqlFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/AdminAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/AdminAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/FileAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/FileAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/MatchAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/MatchAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/StudyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/StudyAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/FileDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/FileDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/StudyNodeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/StudyNodeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/StudySubjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/StudySubjectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Contest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Contest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Match.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/News.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/SqlFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/SqlFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/StudyNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/StudyNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/StudySubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/StudySubject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/menu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/members.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/members.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/study.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/study.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/template/headTag.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/template/headTag.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userpage/modify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/userpage/modify.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -109,20 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/action/StudyAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1596">
-              <caret line="72" column="39" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="39" />
+            <state relative-caret-position="252">
+              <caret line="73" column="23" lean-forward="true" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/second/study_file_show.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="15" column="90" lean-forward="true" selection-start-line="15" selection-start-column="90" selection-end-line="15" selection-end-column="90" />
+            <state relative-caret-position="268">
+              <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#video#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -272,6 +216,24 @@
             <path>
               <item name="team" type="b2602c69:ProjectViewProjectNode" />
               <item name="team" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="team" type="b2602c69:ProjectViewProjectNode" />
+              <item name="team" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="team" type="b2602c69:ProjectViewProjectNode" />
+              <item name="team" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="team" type="b2602c69:ProjectViewProjectNode" />
+              <item name="team" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="team_war_exploded" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="team" type="b2602c69:ProjectViewProjectNode" />
@@ -506,7 +468,7 @@
       <workItem from="1559559005323" duration="5127000" />
       <workItem from="1559571932749" duration="1789000" />
       <workItem from="1559606767365" duration="33072000" />
-      <workItem from="1559645004435" duration="1342000" />
+      <workItem from="1559645004435" duration="1611000" />
     </task>
     <task id="LOCAL-00001" summary="ACM/ICPC程序设计实验室网站">
       <created>1559443286655</created>
@@ -529,15 +491,21 @@
       <option name="project" value="LOCAL" />
       <updated>1559564018332</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ACM/ICPC程序设计实验室网站">
+      <created>1559646424887</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1559646424887</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107175000" />
+    <option name="totallyTimeSpent" value="107444000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.59" visible="true" weight="0.14075068" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -551,13 +519,13 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32956153" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" visible="true" weight="0.2549575" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.2549575" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.1768034" />
       <window_info anchor="bottom" id="Database Console" order="8" weight="0.32956153" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067025" side_tool="true" weight="0.36209336" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
@@ -1013,22 +981,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/action/StudyAction.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1596">
-          <caret line="72" column="39" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="81">
+          <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/second/study_file_show.jsp">
+    <entry file="file://$PROJECT_DIR$/src/struts.xml">
+      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="15" column="90" lean-forward="true" selection-start-line="15" selection-start-column="90" selection-end-line="15" selection-end-column="90" />
+        <state relative-caret-position="279">
+          <caret line="77" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/action/StudyAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="73" column="23" lean-forward="true" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
           <folding>
-            <element signature="n#style#0;n#video#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1043,18 +1016,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/struts.xml">
-      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
+    <entry file="file://$PROJECT_DIR$/web/second/study_file_show.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="77" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+        <state relative-caret-position="268">
+          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#video#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
