@@ -16,6 +16,9 @@ public class MatchAction implements ModelDriven<Match>, ServletRequestAware, Ses
 
 	//TO DO 在这里写功能函数
 
+	public String getResult() {
+		return result;
+	}
 	@Override
 	public Match getModel() {
 		return match;

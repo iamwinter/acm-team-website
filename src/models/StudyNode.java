@@ -1,29 +1,30 @@
 package models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.lang.annotation.Native;
 
 @Entity
 @Table(name = "study_node")
 public class StudyNode {
 	@Id
-	@Native
+	@GeneratedValue(generator = "id")
+	@GenericGenerator(name = "id", strategy = "increment")
 	private int id;
-	@Column(name = "father_id")
-	private int fatherId;
-	@Column(name = "year")
-	private int year;
-	@Column(name = "subject_id")
-	private int subjectId;
 	@Column(name = "title")
 	private String title;
-	@Column(name = "describe")
-	private String describe;
+	@Column(name = "resume")
+	private String resume;
+	@Column(name = "for_year")
+	private Integer forYear;
+	@Column(name = "subject_id")
+	private Integer subjectId;
+	@Column(name = "father_id")
+	private Integer fatherId;
 	@Column(name = "file_id")
-	private int fileId;
+	private Integer fileId;
+
 
 	public int getId() {
 		return id;
@@ -31,30 +32,6 @@ public class StudyNode {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getFatherId() {
-		return fatherId;
-	}
-
-	public void setFatherId(int fatherId) {
-		this.fatherId = fatherId;
-	}
-
-	public int getYear() {
-		return year;
-	}
-
-	public void setYear(int year) {
-		this.year = year;
-	}
-
-	public int getSubjectId() {
-		return subjectId;
-	}
-
-	public void setSubjectId(int subjectId) {
-		this.subjectId = subjectId;
 	}
 
 	public String getTitle() {
@@ -65,19 +42,43 @@ public class StudyNode {
 		this.title = title;
 	}
 
-	public String getDescribe() {
-		return describe;
+	public String getResume() {
+		return resume;
 	}
 
-	public void setDescribe(String describe) {
-		this.describe = describe;
+	public void setResume(String resume) {
+		this.resume = resume;
 	}
 
-	public int getFileId() {
+	public Integer getForYear() {
+		return forYear;
+	}
+
+	public void setForYear(Integer forYear) {
+		this.forYear = forYear;
+	}
+
+	public Integer getSubjectId() {
+		return subjectId;
+	}
+
+	public void setSubjectId(Integer subjectId) {
+		this.subjectId = subjectId;
+	}
+
+	public Integer getFatherId() {
+		return fatherId;
+	}
+
+	public void setFatherId(Integer fatherId) {
+		this.fatherId = fatherId;
+	}
+
+	public Integer getFileId() {
 		return fileId;
 	}
 
-	public void setFileId(int fileId) {
+	public void setFileId(Integer fileId) {
 		this.fileId = fileId;
 	}
 
@@ -85,11 +86,11 @@ public class StudyNode {
 	public String toString() {
 		return "StudyNode{" +
 				"id=" + id +
-				", fatherId=" + fatherId +
-				", year=" + year +
-				", subjectId=" + subjectId +
 				", title='" + title + '\'' +
-				", describe='" + describe + '\'' +
+				", resume='" + resume + '\'' +
+				", forYear=" + forYear +
+				", subjectId=" + subjectId +
+				", fatherId=" + fatherId +
 				", fileId=" + fileId +
 				'}';
 	}

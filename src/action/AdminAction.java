@@ -3,6 +3,7 @@ package action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import dao.NewsDao;
+import dao.StudySubjectDao;
 import dao.UserDao;
 import models.News;
 import models.SqlFile;
@@ -59,6 +60,14 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 			request.setAttribute("addNews",true);//新添加新闻
 		}
 		return "editNews";
+	}
+
+	public String subject(){
+		if(admin()==ERROR)return ERROR;
+		// 向管理员 展示 学习的科目列表
+		List list = new StudySubjectDao().getList();
+		request.setAttribute("subjects",list);
+		return "subject";
 	}
 
 

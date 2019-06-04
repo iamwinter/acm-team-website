@@ -368,7 +368,6 @@
             contentType: false, // 告诉jQuery不要去设置Content-Type请求头
             success:function (result) {
                 result=$.parseJSON(result) //字符串转换为json
-                console.log(result)
                 if(result.res=="true"){
                     $("#photo_alert_s font").text(new Date())
                     $("#photo_alert_s").show()

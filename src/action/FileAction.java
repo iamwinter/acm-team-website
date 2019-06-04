@@ -61,10 +61,6 @@ public class FileAction extends ActionSupport implements ServletRequestAware, Se
 		return result;
 	}
 
-	public void setResult(String result) {
-		this.result = result;
-	}
-
 	public void setUpFile(File upFile) {
 		this.upFile = upFile;
 	}

@@ -1122,30 +1122,29 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="235" name="father_id">
+    <column id="273" parent="235" name="title">
       <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="274" parent="235" name="year">
+    <column id="274" parent="235" name="resume">
       <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
-      <DefaultExpression>0</DefaultExpression>
+      <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="235" name="subject_id">
+    <column id="275" parent="235" name="for_year">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="276" parent="235" name="title">
+    <column id="276" parent="235" name="subject_id">
       <Position>5</Position>
-      <DataType>varchar(80)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="277" parent="235" name="describe">
+    <column id="277" parent="235" name="father_id">
       <Position>6</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="278" parent="235" name="file_id">
@@ -1153,12 +1152,12 @@
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="279" parent="235" name="father_id">
-      <ColNames>father_id</ColNames>
+    <index id="279" parent="235" name="subject_id">
+      <ColNames>subject_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="280" parent="235" name="subject_id">
-      <ColNames>subject_id</ColNames>
+    <index id="280" parent="235" name="father_id">
+      <ColNames>father_id</ColNames>
       <Type>btree</Type>
     </index>
     <index id="281" parent="235" name="file_id">
@@ -1171,15 +1170,15 @@
       <Primary>1</Primary>
     </key>
     <foreign-key id="283" parent="235" name="study_node_ibfk_1">
-      <ColNames>father_id</ColNames>
-      <RefSchemaName>team</RefSchemaName>
-      <RefTableName>study_node</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="284" parent="235" name="study_node_ibfk_2">
       <ColNames>subject_id</ColNames>
       <RefSchemaName>team</RefSchemaName>
       <RefTableName>study_subject</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="284" parent="235" name="study_node_ibfk_2">
+      <ColNames>father_id</ColNames>
+      <RefSchemaName>team</RefSchemaName>
+      <RefTableName>study_node</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="285" parent="235" name="study_node_ibfk_3">
@@ -1192,6 +1191,7 @@
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="287" parent="236" name="name">
@@ -1202,6 +1202,7 @@
     <column id="288" parent="236" name="priority">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
+      <DefaultExpression>10000</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="289" parent="236" name="PRIMARY">

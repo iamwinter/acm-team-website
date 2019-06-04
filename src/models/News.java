@@ -1,6 +1,7 @@
 package models;
 
 import Tools.DateTool;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.lang.annotation.Native;
@@ -11,7 +12,8 @@ import java.util.Objects;
 @Table(name = "news")
 public class News {
 	@Id
-	@Native
+	@GeneratedValue(generator = "id")
+	@GenericGenerator(name = "id", strategy = "increment")
 	private int id;
 	@Column(name = "title")
 	private String title;

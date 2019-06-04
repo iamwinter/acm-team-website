@@ -1,23 +1,23 @@
 package models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.lang.annotation.Native;
 
 @Entity
 @Table(name = "study_subject")
 public class StudySubject {
 	@Id
-	@Native
-	private int id;
+	@GeneratedValue(generator = "id")
+	@GenericGenerator(name = "id", strategy = "increment")
+	private Integer id;
 	@Column(name = "name")
 	private String name;
 	@Column(name = "priority")
-	private int priority;
+	private Integer priority;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -33,7 +33,7 @@ public class StudySubject {
 		this.name = name;
 	}
 
-	public int getPriority() {
+	public Integer getPriority() {
 		return priority;
 	}
 

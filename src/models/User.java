@@ -1,5 +1,6 @@
 package models;
 
+import org.hibernate.annotations.GenericGenerator;
 import sun.misc.BASE64Encoder;
 
 import javax.persistence.*;
@@ -12,7 +13,8 @@ import java.security.NoSuchAlgorithmException;
 @Table(name = "user")
 public class User {
 	@Id
-	@Native
+	@GeneratedValue(generator = "id")
+	@GenericGenerator(name = "id", strategy = "increment")
 	private int id;
 	@Column(name = "username")
 	private String username;

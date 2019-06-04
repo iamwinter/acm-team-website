@@ -39,7 +39,10 @@ public class FileDao extends BaseDao<SqlFile> {
 		sqlFile.setUsername(username);
 		sqlFile.setCreated(new java.sql.Timestamp(new java.util.Date().getTime()));
 
-		super.add(sqlFile);
+		int id= (int) session.save(sqlFile);
+		transaction.commit();
+
+		System.out.println("文件："+sqlFile);
 		return sqlFile;
 	}
 

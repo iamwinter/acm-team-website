@@ -1,11 +1,9 @@
 package models;
 
 import Tools.DateTool;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.lang.annotation.Native;
 import java.sql.Timestamp;
 
@@ -13,7 +11,8 @@ import java.sql.Timestamp;
 @Table(name = "sql_file")
 public class SqlFile {
 	@Id
-	@Native
+	@GeneratedValue(generator = "id")
+	@GenericGenerator(name = "id", strategy = "increment")
 	private int id;
 	@Column(name = "name")
 	private String name;
