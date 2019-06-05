@@ -45,13 +45,22 @@
         </action>
 
         <action name="file_*" class="action.FileAction" method="{1}">
+            <result name="doupload" type="json">
+                <param name="includeProperties">responseInfo</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+            <result name="uploadedSize" type="json">
+                <param name="includeProperties">uploadSize</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+
             <result name="json" type="json">
                 <param name="root">result</param>
             </result>
             <result name="error">error.jsp</result>
             <result name="login">/userpage/login.jsp</result>
 
-            <interceptor-ref name="fileUpload"> <!-- 当前action文件上传大小限制8M -->
+            <interceptor-ref name="fileUpload"> <!-- 当前action文件上传大小限制10M -->
                 <param name="maximumSize">10000000</param>
             </interceptor-ref>
             <interceptor-ref name="defaultStack" /> <!-- 默认拦截器 -->

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="winter" persistUploadOnCheckin="false">
+  <component name="PublishConfigData" serverName="610" persistUploadOnCheckin="false" showDifferentInSync="false" showNewOnTargetInSync="false">
     <serverData>
+      <paths name="610">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$/out/artifacts/team_war_exploded" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="winter">
         <serverdata>
           <mappings>

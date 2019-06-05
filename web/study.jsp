@@ -41,9 +41,64 @@
             </script>
         </form>
 
+        <!-- 模态框（Modal）添加文件夹 -->
+        <s:if test="#session.user.isSuper==1">
+            <a class="btn btn-primary" href="<%=rootPath%>/admin_subject" target="_blank">添加科目</a>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalAddFolder">新建文件夹</a>
+            <div class="modal fade" id="modalAddFolder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <form id="form_addFolder" onsubmit="return addFolder();" class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">添加科目</h4>
+                        </div>
+                        <div class="modal-body" style="overflow: auto">
+
+                            <div class="form-group col-xs-12">
+                                <!-- 年份 -->
+                                <label for="id_year">备考年份</label>
+                                <select name="forYear" id="id_year" class="form-control" required>
+                                    <script type="text/javascript">
+                                        now_year = new Date().getUTCFullYear();
+                                        for(var i=now_year+1;i>=now_year-5;i--)
+                                            $("#id_year").append("<option value='"+i+"'>"+i+"</option>")
+                                    </script>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <!-- 科目 -->
+                                <label for="id_subjectId">所属科目</label>
+                                <select name="subjectId" id="id_subjectId" class="form-control" required>
+                                    <s:iterator value="#request.subjects" var="subject">
+                                        <option value="${subject.id}">${subject.name}</option>
+                                    </s:iterator>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <!-- 主题 -->
+                                <label>文件夹名称</label>
+                                <input type="text" name="title" class="form-control" autocomplete="off" required>
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <!-- 简单描述 -->
+                                <label for="id_subjectId">文件夹简述</label>
+                                <textarea name="resume" rows="4" class="form-control" placeholder="简单描述一下文件夹所存储的资料吧" required></textarea>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary">确认添加</button>
+                        </div>
+                    </form><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+        </s:if>
 
         <table class="table">
-<%--            <caption>标题。。。。</caption>--%>
             <thead>
                 <tr>
                     <th>文件夹</th>
@@ -72,154 +127,10 @@
             </tbody>
         </table>
 
-        <s:if test="#session.user.isSuper==1">
-            <div class="panel panel-default">
-                <div class="panel-heading">分享文件</div>
-                <div class="panel-body">
-                    <div class="alert alert-info">
-                        <a href="#" class="close" data-dismiss="alert">&times;</a>
-                        <strong>温馨提示：</strong>
-                        <p>点击文件框后，您可以按住ctrl键选择多个文件进行上传!</p>
-                        <p>文件上传总和不能超过2G!</p>
-                    </div>
-
-                    <form onsubmit="return studyUpload();" class="panel-body">
-
-                        <div class="form-group col-xs-12">
-                            <!-- 文件夹 -->
-                            <div class="col-xs-12 col-sm-4">
-                                <label for="id_folder">选择文件夹</label>
-                                <select id="id_folder" class="form-control" required>
-                                    <s:iterator value="#request.folders" var="folder">
-                                        <option value="${folder.id}">${folder.title}</option>
-                                    </s:iterator>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group col-xs-12">
-                            <div class="col-xs-12 col-sm-4">
-                                <label for="study_file">资料文件（可批量选择）</label>
-                                <input id="study_file" type="file" class="form-control" multiple required>
-                            </div>
-                        </div>
-                        <button class="btn btn-success">上传</button>
-                    </form>
-
-                    <div class="alert alert-warning">
-                            <%--                <a href="#" class="close" data-dismiss="alert">&times;</a>--%>
-                        <strong>警告！</strong>
-                        <font>上传过程请不要关闭浏览器！也尽量不要关闭此页面</font>
-                    </div>
-
-                    <div id="id_show_progress" class="col-xs-9">
-                        上传进度
-                    </div>
-                </div>
-
-            </div>
-        </s:if>
-
-        <s:if test="#session.user.isSuper==1">
-            <div class="panel panel-default">
-            <div class="panel-heading">创建文件夹</div>
-            <div class="panel-body">
-
-                <form id="form_addFolder" onsubmit="return addFolder();" class="panel-body">
-                    <div class="form-group col-xs-12">
-                        <div class="col-xs-12 col-sm-4">
-                            <!-- 年份 -->
-                            <label for="id_year">备考年份</label>
-                            <select name="forYear" id="id_year" class="form-control" required>
-                                <script type="text/javascript">
-                                    now_year = new Date().getUTCFullYear();
-                                    for(var i=now_year+1;i>=now_year-5;i--)
-                                        $("#id_year").append("<option value='"+i+"'>"+i+"</option>")
-                                </script>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-xs-12">
-                        <!-- 科目 -->
-                        <div class="col-xs-12 col-sm-4">
-                            <label for="id_subjectId">备考科目</label>
-                            <select name="subjectId" id="id_subjectId" class="form-control" required>
-                                <s:iterator value="#request.subjects" var="subject">
-                                    <option value="${subject.id}">${subject.name}</option>
-                                </s:iterator>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-xs-12">
-                        <!-- 主题 -->
-                        <div class="col-xs-12 col-sm-4">
-                            <label>文件夹名称</label>
-                            <input type="text" name="title" class="form-control" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-xs-12">
-                        <!-- 简单描述 -->
-                        <div class="col-xs-12 col-sm-4">
-                            <label for="id_subjectId">文件夹简述</label>
-                            <textarea name="resume" rows="4" class="form-control" placeholder="简单描述一下文件夹所存储的资料吧" required></textarea>
-                        </div>
-                    </div>
-                    <button class="btn btn-success">确定创建文件夹</button>
-                </form>
-            </div>
-
-        </div>
-        </s:if>
     </div>
 </div>
 <%@include file="/template/footer.jsp"%>
 <script type="text/javascript">
-
-    function studyUpload() {
-        var formData = new FormData();
-        files = $("#study_file")[0].files;
-        for(var i=0;i<files.length;i++){
-            formData.append('upFile', files[i]);  //添加图片信息的参数
-        }
-        showProgress();
-        formData.append('fatherId',$("#id_folder").val())
-        alert("文件已经开始上传，请耐心等待，不要关闭此窗口！上传完成后会提示您")
-        $.ajax({
-            url:"<%=rootPath%>/study_upload",
-            type:"post",
-            data:formData,
-            dataType:"json",
-            cache: false, //上传文件不需要缓存
-            processData: false, // 告诉jQuery不要去处理发送的数据
-            contentType: false, // 告诉jQuery不要去设置Content-Type请求头
-            success:function (result) {
-                result=$.parseJSON(result) //字符串转换为json
-                console.log(result)
-                if(result.res==true){
-                    alert("上传完成!")
-                }else{
-                    alert(result.msg)
-                }
-            },
-            error:function (res) {
-                alert("上传失败！未知错误")
-            }
-        })
-        return false;  //一定要return false，否则form会自己提交一次
-    }
-
-    function showProgress() {
-        // 显示文件上传进度
-        for(var i=0;i<$("#study_file")[0].files.length;i++){
-            $("#id_show_progress").append("<div id=\"progress"+i+"\" class=\"progress\">\n" +
-                "\t<div class=\"progress-bar\" style=\"width: 0%;\">\n" +
-                "\t\t<span class=\"sr-only\">40% 完成</span>\n" +
-                "\t</div>\n" +
-                "</div>")
-        }
-    }
 
     function addFolder(){
         $.ajax({

@@ -10,7 +10,7 @@ public class StudySubjectDao extends BaseDao<StudySubject> {
 		session.save(ss);
 		transaction.commit();
 		ss.setPriority(ss.getId());
-		update(ss);
+		super.update(ss);
 	}
 
 	public void swap(int x,int y){
@@ -19,8 +19,8 @@ public class StudySubjectDao extends BaseDao<StudySubject> {
 		int temp = a.getPriority();
 		a.setPriority(b.getPriority());
 		b.setPriority(temp);
-		update(a);
-		update(b);
+		super.update(a);
+		super.update(b);
 	}
 
 	public StudySubject findById(int id){

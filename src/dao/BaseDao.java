@@ -20,25 +20,24 @@ public class BaseDao<Bean> {
 		session = sessionFactory.openSession();  //打开session
 		transaction = session.beginTransaction();  //开启事务
 	}
+
 	public void close(){
 		session.close();
 	}
+
 	public void add(Bean bean){
 		session.save(bean);
 		transaction.commit();
 		System.out.println("新增记录:"+bean);
-		close();
 	}
 	public void update(Bean bean){
 		session.update(bean);
 		transaction.commit();
 		System.out.println("更新："+bean);
-		close();
 	}
 	public void delete(Bean bean){
 		session.delete(bean);
 		transaction.commit();
 		System.out.println("删除："+bean);
-		close();
 	}
 }

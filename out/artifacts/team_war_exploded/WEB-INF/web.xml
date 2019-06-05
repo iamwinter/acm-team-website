@@ -18,7 +18,6 @@
             <web-resource-name>Forbidden</web-resource-name>
             <url-pattern>/admin/*</url-pattern>
             <url-pattern>/second/*</url-pattern>
-            <url-pattern>/template/*</url-pattern>
             <url-pattern>/userpage/*</url-pattern>
             <url-pattern>/achievement.jsp</url-pattern>
             <url-pattern>/contest.jsp</url-pattern>

@@ -7,10 +7,11 @@
 
 <%
     String rootPath = request.getContextPath();
+//    String homeName = "鲁东";
     String homeName = MyConfig.get("siteName");
 %>
 
-<link rel="shortcut icon" href="<%=rootPath%>/template/images/background/favicon.ico" type="image/x-icon">
+<%--<link rel="shortcut icon" href="<%=rootPath%>/template/images/background/favicon.ico" type="image/x-icon">--%>
 <link type="text/css" rel="stylesheet" href="<%=rootPath%>/template/css/main.css">
 <link rel="stylesheet" href="<%=rootPath%>/template/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 

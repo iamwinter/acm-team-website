@@ -7,13 +7,14 @@ import dao.FileDao;
 import dao.StudyNodeDao;
 import dao.StudySubjectDao;
 import models.*;
-import net.sf.json.JSON;
 import net.sf.json.JSONObject;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -23,9 +24,9 @@ public class StudyAction extends ActionSupport implements ModelDriven<StudyNode>
 	private Map<String,Object> session;
 	private String result;  //用于返回json数据
 
-	private File[] upFile; //得到上传的文件
-	private String[] upFileContentType; //得到文件的类型
-	private String[] upFileFileName; //得到文件的名称
+	private File upFile; //得到上传的文件
+	private String upFileContentType; //得到文件的类型
+	private String upFileFileName; //得到文件的名称
 
 	public boolean admin(){
 		// 检测当前用户是否是管理员
@@ -73,10 +74,15 @@ public class StudyAction extends ActionSupport implements ModelDriven<StudyNode>
 		request.setAttribute("subjectId",subjectId);//当前科目编号
 		return "study";
 	}
+
 	public String files(){
 		// 展示具体某一个文件夹下的所有文件,未完成!!
 		if(!check_access())return ERROR;
-		int fatherId = studyNode.getFatherId();
+		Integer fatherId = studyNode.getFatherId();
+		if(fatherId==null){
+			request.setAttribute("msg","未指定文件夹或文件夹不存在");
+			return ERROR;
+		}
 		List list = new StudyNodeDao().findFiles(fatherId);
 		request.setAttribute("files",list);
 		return "file_show";
@@ -92,48 +98,21 @@ public class StudyAction extends ActionSupport implements ModelDriven<StudyNode>
 		result=json.toString();
 		return "json";
 	}
-	public String upload(){
-		//资料文件上传 批量
-		if(!admin())return ERROR;
-		JSONObject json = new JSONObject();
-		User user_on = (User) session.get("user");
-		int folderId = studyNode.getFatherId();	//目标文件夹id
-		StudyNode fatherFolder = new StudyNodeDao().findById(folderId);//获取目标文件夹
-		SqlFile[] sqlFile=new SqlFile[upFile.length]; //数据库记录
-		for (int i=0;i<upFile.length;i++){
-			sqlFile[i]=new FileDao().add(upFile[i],
-					MyConfig.get("upload")+"/study/year"+fatherFolder.getForYear()+"/subject"+fatherFolder.getSubjectId()+"/folder"+folderId,
-					upFileFileName[i],
-					user_on.getUsername()); //上传文件
-			//增加资料记录
-			StudyNode sn = new StudyNode();
-			sn.setTitle("文件");
-			sn.setResume(studyNode.getResume());
-			sn.setForYear(fatherFolder.getForYear());
-			sn.setSubjectId(fatherFolder.getSubjectId());
-			sn.setFatherId(folderId);
-			sn.setFileId(sqlFile[i].getId());
-			new StudyNodeDao().add(sn);	//添加学习资料
-		}
-		json.put("res",true);
-		json.put("msg","文件上传成功");
-		result=json.toString();
-		return "json";
-	}
+
 
 	public String getResult() {
 		return result;
 	}
 
-	public void setUpFile(File[] upFile) {
+	public void setUpFile(File upFile) {
 		this.upFile = upFile;
 	}
 
-	public void setUpFileContentType(String[] upFileContentType) {
+	public void setUpFileContentType(String upFileContentType) {
 		this.upFileContentType = upFileContentType;
 	}
 
-	public void setUpFileFileName(String[] upFileFileName) {
+	public void setUpFileFileName(String upFileFileName) {
 		this.upFileFileName = upFileFileName;
 	}
 

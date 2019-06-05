@@ -53,8 +53,8 @@ public class UserDao extends BaseDao<User> {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		List list=session.createQuery("from User where (username like ?1 or nick_name like ?1)"
-				+ (onlyPublic ? " and is_public=1":""))
+		List list=session.createQuery("from User where (username like ?1 or nickName like ?1)"
+				+ (onlyPublic ? " and isPublic=1":""))
 				.setParameter(1,"%"+key+"%").list();
 		return list;
 	}
