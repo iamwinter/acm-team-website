@@ -10,10 +10,10 @@
     <div class="bigContainer">
         <div class="col-sm-12 col-md-12">
             <h4>
-                目前正在测试新版网站，功能尚不完善，如有建议或发现漏洞，恳请您联系我！谢谢！QQ545734785
+                目前正在测试新版网站，功能尚不完善，如有建议或发现漏洞，恳请您联系我！谢谢！QQ 545734785
             </h4>
             <h3>
-                如需访问旧版网站，请点击<a href="http://icpc.ldu.edu.cn/icpc/">这里</a>
+                如需访问旧版网站，请点击<a href="http://icpc.ldu.edu.cn/acm/">这里</a>
             </h3>
         </div>
     </div>

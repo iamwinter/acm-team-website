@@ -3,9 +3,7 @@
 <html>
 <head>
     <%@include file="/template/headTag.jsp"%>
-    <title>考研资料-</title>
-<%--    视频播放器的css和js--%>
-    <link rel="stylesheet" type="text/css" href="<%=rootPath%>/template/video/css/index.css">
+    <title>考研资料-<%=homeName%></title>
 
 </head>
 <body>
@@ -16,87 +14,30 @@
             <a href="javascript:history.back()">返回上一级</a>
         </div>
 
-        <div class="text-center">
-            <div id="psVideo" class="psVideo">
-                <video src="https://blz-videos.nosdn.127.net/1/HearthStone/f6cd63b590d416821d3e27e0.mp4"
-                       class="my-psVideo"
-                       id="my-video" poster="<%=rootPath%>/template/video/source/1.jpg"
-                       preload="metadata">
-                </video>
-                <div class="psVideo-loading">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div id="id_play" class="psVideo-play-one"></div>
-                <div class="psVideo-shade psVideo-shade-on">
-                    <div class="psVideo-play-footer">
-                        <div class="psVideo-progress">
-                            <span class="psVideo-timeBar"></span>
-                        </div>
-                        <div class="psVideo-play-btn psVideo-stop"></div>
-                        <div class="psVideo-time">
-                            <span id="currentTime">00:00</span>
-                            <span>/</span>
-                            <span id="duration">00:00</span>
-                        </div>
-                        <div class="psVideo-dan">
-                            <input type="text" class="psVideo-dan-input" placeholder="点击输入弹幕,回车键发送"/>
-                            <span class="psVideo-dan-btn">发送</span>
-                        </div>
-                        <div class="psVideo-right-btn">
-                            <div class="psVideo-btn all"></div>
-                            <div class="psVideo-btn loop" id="loop"></div>
-                            <div class="psVideo-btn set">
-                                <div class="set-list">
-                                    <div class="play-speed">播放速度</div>
-                                    <div class="play-speed-list">
-                                        <span id="speed05Btn">X0.5</span>
-                                        <span class="moren" id="speed1Btn">X1</span>
-                                        <span id="speed2Btn">X2</span>
-                                    </div>
-                                </div>
-                                <div class="konge1"></div>
-                            </div>
-                            <div class="psVideo-btn huazhi">自动</div>
-                            <div class="psVideo-btn sound" id="soundBtn">
-                                <div class="sound-list">
-                                    <div class="sound-number">90</div>
-                                    <div class="volume">
-                                        <span class="volumeBar"></span>
-                                    </div>
-                                </div>
-                                <div class="konge"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="player-list">
-                    <div class="player-list-bk">
-                        <div class="player-list-head">播放列表</div>
-                        <div class="player-list-cotent">
-                            <div class="player-list-box">
-                                <div class="player-list-video video-now">炉石传说</div>
-                                <div class="player-list-video">突然之间</div>
-                                <div class="player-list-video">进阶</div>
-                                <div class="player-list-video">渐渐</div>
-                                <div class="player-list-video">年少有为</div>
-                                <div class="player-list-video">爱久见人心</div>
-                                <div class="player-list-video">盗将行</div>
-                                <div class="player-list-video">Lemon</div>
-                                <div class="player-list-video">我的梦</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <script type="text/javascript" src="<%=rootPath%>/template/video/javascript/index.js"></script>
+        <div class="">
+            <script src="<%=rootPath%>/template/ckplayer/ckplayer.js"></script>
+            <div id="video" style="width:700px;height:450px;max-width:100%;margin:auto;display: none;"></div>
+            <script type="text/javascript">
+                var videoObject = {
+                    container: '#video',//“#”代表容器的ID，“.”或“”代表容器的class
+                    variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
+                    flashplayer:false,//如果强制使用flashplayer则设置成true
+                    video:'#'//视频地址
+                };
+                var player=new ckplayer(videoObject);
+                function playVideo(path) {
+                    videoObject.video=path;
+                    player=new ckplayer(videoObject);
+                    $("#video").fadeIn(1000)
+                    $('body,html').animate({scrollTop:0},1000);
+                }
+            </script>
         </div>
 
         <hr>
         <button class="btn btn-primary">下载所有文件</button>
 
-        <table class="table text-nowrap">
+        <table class="table">
             <thead>
                 <tr>
                     <th>文件名</th>
@@ -105,8 +46,8 @@
                 </tr>
             </thead>
             <tbody>
-                <s:iterator value="#request.files" var="file">
-                    <tr>
+                <s:iterator value="#request.files" var="file" status="sta">
+                    <tr id="tr_file_${sta.index}">
                         <td><s:property value="#file.name"/> </td>
                         <td><s:property value="#file.username"/> </td>
                         <td><s:property value="#file.created"/></td>
@@ -119,6 +60,9 @@
                             <s:if test="#session.user.isSuper==1">
                                 /
                                 <a href="#">修改</a>
+                                /
+                                <a href="javascript:void(0)"
+                                   onclick="deleteAStudyFile('${file.id}','tr_file_${sta.index}')">删除</a>
                             </s:if>
                         </td>
                     </tr>
@@ -179,12 +123,31 @@
 <%@include file="/template/footer.jsp"%>
 
 <script type="text/javascript">
-    function playVideo(path) {
-        $("#my-video").attr("src",path)
-        $("#psVideo").fadeIn(1000)
-        $('body,html').animate({scrollTop:0},1000);
-        $("#id_play").click();
+
+    //删除文件
+    function deleteAStudyFile(fileId,tag_id) {
+        if(!confirm('将永久删除此文件？'))
+            return false;
+        $.ajax({
+            url:"<%=rootPath%>/study_delete_file",
+            type:"post",
+            data:{'fileId':fileId},
+            dataType:"json",
+            success:function (result) {
+                result=$.parseJSON(result) //字符串转换为json
+                console.log(result)
+                if(result.res==true){
+                    $("#"+tag_id).fadeOut();
+                }else{
+                    alert(result.msg)
+                }
+            },
+            error:function (res) {
+                alert("提交失败！未知错误")
+            }
+        })
     }
+
 
     //监听选择文件信息，显示文件名、上传进度等
     function fileSelected() {

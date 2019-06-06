@@ -7,7 +7,6 @@
 
 <%
     String rootPath = request.getContextPath();
-//    String homeName = "鲁东";
     String homeName = MyConfig.get("siteName");
 %>
 

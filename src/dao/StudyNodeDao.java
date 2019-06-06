@@ -7,8 +7,10 @@ import java.util.List;
 
 public class StudyNodeDao extends BaseDao<StudyNode> {
 
-	public StudyNode findById(int id){
-		List list=session.createQuery("from StudyNode where id=?1").setParameter(1,id).list();
+	public StudyNode findByFileId(Integer fileId){
+		List list=session.createQuery("from StudyNode where fileId = ?1")
+				.setParameter(1,fileId).list();
+		close();
 		return list.isEmpty() ? null : (StudyNode) list.get(0);
 	}
 
@@ -17,12 +19,14 @@ public class StudyNodeDao extends BaseDao<StudyNode> {
 		List list=session.createQuery("from StudyNode where forYear=?1 and subjectId=?2 and fileId=null")
 				.setParameter(1,year)
 				.setParameter(2,subjectId).list();
+		close();
 		return list;
 	}
 
 	public Integer getMaxYear() {
 		// 获取最大年份
 		List<Integer> list= session.createQuery("select max(forYear) from StudyNode").list();
+		close();
 		return list.size()==0 || list.get(0)==null ? 0 : list.get(0);
 	}
 
@@ -30,6 +34,7 @@ public class StudyNodeDao extends BaseDao<StudyNode> {
 		// 获取某文件夹下的所有文件
 		List list=session.createQuery("select b from StudyNode a,SqlFile b where a.fatherId=?1 and a.fileId=b.id order by b.name asc")
 				.setParameter(1,fatherId).list();
+		close();
 		return list;
 	}
 
@@ -42,6 +47,7 @@ public class StudyNodeDao extends BaseDao<StudyNode> {
 				retList.add(list.get(i));
 			}
 		}
+		close();
 		return retList;
 	}
 }

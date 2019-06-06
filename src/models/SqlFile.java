@@ -4,7 +4,6 @@ import Tools.DateTool;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.lang.annotation.Native;
 import java.sql.Timestamp;
 
 @Entity

@@ -39,29 +39,23 @@ public class FileDao extends BaseDao<SqlFile> {
 		sqlFile.setUsername(username);
 		sqlFile.setCreated(new java.sql.Timestamp(new java.util.Date().getTime()));
 
-		int id= (int) session.save(sqlFile);
+		session.save(sqlFile);
 		transaction.commit();
+		close();
 
-		System.out.println("文件："+sqlFile);
+		System.out.println("新增文件："+sqlFile);
 		return sqlFile;
 	}
 
-	public void delete(int id){
-		SqlFile sqlFile = findById(id);
+	public void delete(SqlFile sqlFile){
 		if(sqlFile==null)return; //没有这条记录
 		String realPath= ServletActionContext.getServletContext().getRealPath(sqlFile.getPath());
 		File storeFile = new java.io.File( realPath );	//创建文件
 		if(storeFile.isFile()){
 			storeFile.delete();
-			System.out.println("从外存中删除文件:"+sqlFile.getPath());
+			System.out.println("从磁盘中删除文件:"+sqlFile.getPath());
 		}
 		super.delete(sqlFile);
-	}
-
-	public SqlFile findById(int id) {
-		List list=session.createQuery("from SqlFile where id=?1")
-				.setParameter(1,id).list();
-		return list.isEmpty() ? null : (SqlFile) list.get(0);
 	}
 
 }

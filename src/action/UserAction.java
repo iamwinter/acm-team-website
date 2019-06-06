@@ -86,7 +86,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 		new UserDao().add(user);
 		request.setAttribute("res","true");
 		request.setAttribute("msg","注册成功");
-		session.put("user",userGet);//登录
+		session.put("user",new UserDao().findByUsername(user.getUsername()));//登录
 		return SUCCESS;
 	}
 
@@ -200,7 +200,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 			int last_photo_id = aimUser.getPhotoId();
 			aimUser.setPhotoId(sqlFile.getId());	//给用户更换图片
 			new UserDao().update(aimUser);
-			new FileDao().delete(last_photo_id); //删除之前的照片
+			new FileDao().delete(new FileDao().findById(last_photo_id)); //删除之前的照片
 			if(user_on.getId()==aimUser.getId()){
 				session.put("user",aimUser);//用户自我修改，强制下线重新上线 覆盖 登录
 			}

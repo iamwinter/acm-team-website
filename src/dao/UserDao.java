@@ -15,35 +15,28 @@ import java.util.List;
 public class UserDao extends BaseDao<User> {
 	public static String[] tagStr={"游客","退役成员","现役成员","指导教师"};
 
-	public User findById(int id){
-		List list=session.createQuery("from User where id = ?1")
-				.setParameter(1,id).list();
-		return list.isEmpty() ? null : (User) list.get(0);
-	}
 	public User findByUsername(String username){
 		List list=session.createQuery("from User where username = ?1")
 				.setParameter(1,username).list();
+		close();
 		return list.isEmpty() ? null : (User) list.get(0);
 	}
 
 	public User findByEmail(String email){
 		List list=session.createQuery("from User where email = ?1")
 				.setParameter(1,email).list();
+		close();
 		return list.isEmpty() ? null : (User) list.get(0);
 	}
 
 	public User loginUser(String usernameOrEmail,String password){
-		User user = findByUsername(usernameOrEmail);
+		User user = new UserDao().findByUsername(usernameOrEmail);
 		if(user==null){ //用户名不存在，则尝试邮箱
-			user=findByEmail(usernameOrEmail);
+			user=new UserDao().findByEmail(usernameOrEmail);
 		}
 		if(user==null)return null;
+		close();
 		return user.getPassword().equals(password) ? user : null;
-	}
-
-	public List<User> findAll(){
-		List list=session.createQuery("from User").list();
-		return list;
 	}
 
 	public List<User> find_members(String key,boolean onlyPublic) {
@@ -56,6 +49,7 @@ public class UserDao extends BaseDao<User> {
 		List list=session.createQuery("from User where (username like ?1 or nickName like ?1)"
 				+ (onlyPublic ? " and isPublic=1":""))
 				.setParameter(1,"%"+key+"%").list();
+		close();
 		return list;
 	}
 }

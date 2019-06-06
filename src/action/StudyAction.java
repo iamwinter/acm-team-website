@@ -1,6 +1,6 @@
 package action;
 
-import Tools.MyConfig;
+import Tools.IntegerTool;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import dao.FileDao;
@@ -13,8 +13,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Map;
 
@@ -98,6 +97,24 @@ public class StudyAction extends ActionSupport implements ModelDriven<StudyNode>
 		result=json.toString();
 		return "json";
 	}
+
+
+	public String delete_file(){
+		//删除一个学习资料
+		if(!admin())return ERROR;
+		JSONObject json=new JSONObject();
+		int fileId = IntegerTool.strToInt(request.getParameter("fileId"));
+		StudyNode sn = new StudyNodeDao().findByFileId(fileId); //文件对应的学习资料记录
+		new StudyNodeDao().delete(sn);
+		new FileDao().delete(new FileDao().findById(fileId));	//此方法将永久删除文件
+		json.put("res",true);
+		json.put("msg","文件删除成功");
+		result=json.toString();
+		return "json";
+	}
+
+
+
 
 
 	public String getResult() {

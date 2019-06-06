@@ -5,6 +5,7 @@ import java.util.List;
 
 public class StudySubjectDao extends BaseDao<StudySubject> {
 
+	@Override
 	public void add(StudySubject ss){
 		// 新增一个科目，优先级默认等于id,此处有错
 		session.save(ss);
@@ -19,17 +20,13 @@ public class StudySubjectDao extends BaseDao<StudySubject> {
 		int temp = a.getPriority();
 		a.setPriority(b.getPriority());
 		b.setPriority(temp);
-		super.update(a);
+		new StudySubjectDao().update(a);
 		super.update(b);
-	}
-
-	public StudySubject findById(int id){
-		List list=session.createQuery("from News where id=?1").setParameter(1,id).list();
-		return list.isEmpty() ? null : (StudySubject) list.get(0);
 	}
 
 	public List<StudySubject> getList() {
 		List list=session.createQuery("from StudySubject order by priority asc").list();
+		close();
 		return list;
 	}
 }
