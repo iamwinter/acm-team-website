@@ -183,7 +183,7 @@
 
             <div class="form-group col-xs-12">
                 <div class="col-xs-6">
-                    <input name="photo" type="file" accept="image/*" class="form-control" onchange="show_photo(this)">
+                    <input name="photo" type="file" accept="image/*" class="form-control" onchange="show_photo(this)" required>
                 </div>
             </div>
 

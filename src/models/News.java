@@ -12,8 +12,7 @@ import java.util.Objects;
 @Table(name = "news")
 public class News {
 	@Id
-	@GeneratedValue(generator = "id")
-	@GenericGenerator(name = "id", strategy = "increment")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name = "title")
 	private String title;

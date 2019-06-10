@@ -4,10 +4,11 @@ import Tools.DateTool;
 import Tools.IntegerTool;
 import Tools.MyConfig;
 import com.opensymphony.xwork2.ActionSupport;
-import dao.FileDao;
-import dao.StudyNodeDao;
-import models.SqlFile;
-import models.StudyNode;
+import com.opensymphony.xwork2.ModelDriven;
+import dao.StudyFileDao;
+import dao.StudyFolderDao;
+import models.StudyFile;
+import models.StudyFolder;
 import models.User;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -17,14 +18,14 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
  * 模型驱动参考：https://blog.csdn.net/SHU15121856/article/details/80089820
  */
 
-public class FileAction extends ActionSupport implements ServletRequestAware, SessionAware {
+public class FileAction extends ActionSupport implements ModelDriven<StudyFile>,ServletRequestAware, SessionAware {
+	private StudyFile studyFile=new StudyFile();
 	private HttpServletRequest request;
 	private Map<String,Object> session;
 	private String result;  //用于返回json数据
@@ -46,10 +47,10 @@ public class FileAction extends ActionSupport implements ServletRequestAware, Se
 		JSONObject json = new JSONObject();
 		JSONArray data = new JSONArray();
 
-		SqlFile sqlFile = new FileDao().add(upFile, MyConfig.get("upload")+"/wangImage",
-				upFileFileName,user_on.getUsername());
-		if(sqlFile!=null){
-			data.add(sqlFile.getPath());
+		StudyFile studyFile = new StudyFileDao().add(upFile, MyConfig.get("upload")+"/wangImage",
+				upFileFileName,user_on);
+		if(studyFile !=null){
+			data.add(studyFile.getPath());
 			json.put("data",data);
 			json.put("errno",0);
 		}else{
@@ -62,19 +63,19 @@ public class FileAction extends ActionSupport implements ServletRequestAware, Se
 
 	//下面是学习专区上传文件  断点续传
 	// 获取当前临时文件的绝对路径的父文件夹
-	private String getTempFilePath(int fatherId){
-		StudyNode folder = new StudyNodeDao().findById(fatherId);
+	private String getTempFilePath(StudyFolder folder){
 		String fpath = MyConfig.get("upload")+"/study/year"+folder.getForYear()+
-				"/subject"+folder.getSubjectId()+"/folder"+fatherId;   //相对父目录
+				"/subject"+folder.getSubjectId()+"/folder"+folder.getId();   //相对父目录
 		String fatherPath= ServletActionContext.getServletContext().getRealPath(fpath); //获取磁盘绝对父路径
-		return fatherPath;// 相对路径，绝对路径
+		return fatherPath;// 绝对路径
 	}
-	// 看一下有没有临时文件，有的话就是断点续传
+	// 看一下有没有临时文件，有的话就是断点续传,返回断点位置
 	public String getUploadedSize() throws IOException {
 		uploadSize = "0";
-
-		Integer fatherId = IntegerTool.strToInt(request.getParameter("fatherId"),0);
-		String fatherPath = getTempFilePath(fatherId);
+		System.out.println("正在检查是否存在断点临时文件...");
+		Integer folderId = IntegerTool.strToInt(request.getParameter("folderId"));
+		StudyFolder folder = new StudyFolderDao().findById(folderId);
+		String fatherPath = getTempFilePath(folder);
 		File fileUploadDetal = new File(fatherPath+"/"+fileName+".rhxy");  //临时文件，记录文件上传的状态
 		if(fileUploadDetal.exists()){
 			//有临时文件，说明是断点续传
@@ -95,16 +96,15 @@ public class FileAction extends ActionSupport implements ServletRequestAware, Se
 		System.out.println(fileName);
 		System.out.println("总大小:"+fileSize+"，已传大小："+uploadSize);
 
-		//构造上传路径
-		Integer fatherId = IntegerTool.strToInt(request.getParameter("fatherId"),0); //父文件夹id
-		String fatherPath = getTempFilePath(fatherId);
-
+		Integer folderId = IntegerTool.strToInt(request.getParameter("folderId"));
+		StudyFolder folder = new StudyFolderDao().findById(folderId);
+		String fatherPath = getTempFilePath(folder);//绝对父目录
 		File fileUploadDetal = new File(fatherPath+"/"+fileName+".rhxy");//读取临时文件，记录文件上传的状态
 
 		String realPath=null;	//文件真实路径
 		if (!fileUploadDetal.exists()) {
 			if(!fileUploadDetal.getParentFile().exists())fileUploadDetal.getParentFile().mkdirs(); //创建父目录
-			fileUploadDetal.createNewFile(); //临时文件不存在，说明是开始上传该文件，要同时写入数据库
+			fileUploadDetal.createNewFile(); //临时文件不存在，说明是开始上传该文件
 			//构造保存名
 			String fileSaveName = DateTool.dateToStr(new Date(),"yyyyMMddhhmmss_");//以上传时间命名
 			fileSaveName += new Random().nextInt(900000)+100000;
@@ -125,34 +125,29 @@ public class FileAction extends ActionSupport implements ServletRequestAware, Se
 		bufferedWriter.close();
 		fileWriter.close();
 
-		//创建新文件并写入
+		//打开文件并写入、追加
 		File newFile = new File(realPath);
 		if(!newFile.exists())
 			newFile.createNewFile();
 		copyFile(upFile,newFile);
 
-		if(uploadSize.equals(fileSize) && fileUploadDetal.exists()){// 上传完成，删除临时文件
+		if(uploadSize.equals(fileSize)){// 上传完成，删除临时文件
 			fileUploadDetal.delete();
 
 			//写入数据库
-			SqlFile sqlFile=new SqlFile();
-			sqlFile.setName(fileName);
-			sqlFile.setPath(realPath.substring(realPath.indexOf(MyConfig.get("upload"))).replace("\\","/")); //相对路径
-			sqlFile.setUsername(((User)session.get("user")).getUsername());
-			sqlFile.setCreated(new java.sql.Timestamp(new java.util.Date().getTime()));
-			new FileDao().add(sqlFile); //保存到数据库
-
-			//增加学习资料记录
-			StudyNode sn = new StudyNode();
-			sn.setTitle(fileName);
-			sn.setFatherId(fatherId);
-			sn.setFileId(sqlFile.getId());
-			new StudyNodeDao().add(sn);	//添加学习资料
+			StudyFile sf =new StudyFile();
+			sf.setName(fileName);
+			sf.setPath(realPath.substring(realPath.indexOf(MyConfig.get("upload")))
+					.replace("\\","/")); //相对路径
+			sf.setCreated(new java.sql.Timestamp(new java.util.Date().getTime()));
+			sf.setFolderId(folder.getId());
+			new StudyFileDao().add(sf); //保存到数据库
 		}
 		responseInfo = "上传成功!";
 		return "doupload";
 	}
 
+	// 文件追加写
 	private void copyFile(File oldFile,File newFile) throws IOException{
 		InputStream in = new FileInputStream(oldFile);
 		OutputStream out = new FileOutputStream(newFile,true);
@@ -226,5 +221,10 @@ public class FileAction extends ActionSupport implements ServletRequestAware, Se
 
 	public void setUpFileFileName(String upFileFileName) {
 		this.upFileFileName = upFileFileName;
+	}
+
+	@Override
+	public StudyFile getModel() {
+		return null;
 	}
 }

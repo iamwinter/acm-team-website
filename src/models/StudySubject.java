@@ -9,8 +9,7 @@ import java.lang.annotation.Native;
 @Table(name = "study_subject")
 public class StudySubject {
 	@Id
-	@GeneratedValue(generator = "id")
-	@GenericGenerator(name = "id", strategy = "increment")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column(name = "name")
 	private String name;

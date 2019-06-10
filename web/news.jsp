@@ -28,10 +28,10 @@
                 </tr>
             </thead>
             <tbody>
-            <s:iterator value="#request.newsList" var="news">
+            <s:iterator value="dataList" var="news">
                 <tr>
                     <td>
-                        <a href="<%=rootPath%>/news_show?id=<s:property value="#request.news.id"/>">
+                        <a href="<%=rootPath%>/news_show?id=<s:property value="#news.id"/>">
                             <s:property value="#news.title"/>
                         </a>
                     </td>
@@ -39,7 +39,7 @@
                     <td class="text-right"><s:property value="#news.created"/></td>
                     <s:if test="#session.user.isSuper==1">
                         <td>
-                            <a href="<%=rootPath%>/admin_editNews?id=<s:property value="#news.id"/>">编辑</a>
+                            <a href="<%=rootPath%>/news_editNews?id=<s:property value="#news.id"/>">编辑</a>
                         </td>
                     </s:if>
                 </tr>

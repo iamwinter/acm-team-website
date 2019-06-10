@@ -13,10 +13,11 @@
             <center><h1>错误请求！</h1></center>
             <div class="alert alert-warning">
                 <a href="#" class="close" data-dismiss="alert">&times;</a>
-                <strong>警告！</strong>
-                <s:property value="#request.msg"/>
+                <h4>${msg}</h4>
             </div>
-            <h3>您可以前往<a href="<%=rootPath%>/">主页</a></h3>
+            <h3 class="text-center">
+                <a href="<%=rootPath%>/">主页</a>
+            </h3>
         </div>
     </div>
 </div>

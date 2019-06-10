@@ -7,7 +7,7 @@ public class StudySubjectDao extends BaseDao<StudySubject> {
 
 	@Override
 	public void add(StudySubject ss){
-		// 新增一个科目，优先级默认等于id,此处有错
+		// 新增一个科目，优先级默认等于id
 		session.save(ss);
 		transaction.commit();
 		ss.setPriority(ss.getId());

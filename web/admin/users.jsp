@@ -13,7 +13,7 @@
             <%@include file="menu.jsp"%>
         </div>
         <div class="col-xs-12 col-sm-10">
-            <form action="<%=rootPath%>/admin_users" method="get">
+            <form action="<%=rootPath%>/user_admin_users" method="get">
 
                 <div class="form-group col-xs-9 col-sm-3">
                     <input type="text" name="key" class="form-control" placeholder="模糊查询" required>
@@ -36,7 +36,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <s:iterator value="#request.users" var="user">
+                    <s:iterator value="dataList" var="user">
                         <tr>
                             <td><a href="<%=rootPath%>/user_user?username=<s:property value="#user.username"/>" target="_blank"><s:property value="#user.username"/></a> </td>
                             <td><s:property value="#user.nickName"/> </td>

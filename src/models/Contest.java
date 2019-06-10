@@ -10,8 +10,7 @@ import java.sql.Timestamp;
 @Table(name = "contest")
 public class Contest {
 	@Id
-	@GeneratedValue(generator = "id")
-	@GenericGenerator(name = "id", strategy = "increment")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name = "title")
 	private String title;

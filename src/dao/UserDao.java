@@ -29,6 +29,14 @@ public class UserDao extends BaseDao<User> {
 		return list.isEmpty() ? null : (User) list.get(0);
 	}
 
+	public void register(User user){
+		user.setGrade(2016);
+		user.setTag(0);
+		user.setIsSuper(user.getUsername()=="admin"?1:0);
+		user.setIsPublic(user.getUsername()=="admin"?1:0);
+		super.add(user);
+	}
+
 	public User loginUser(String usernameOrEmail,String password){
 		User user = new UserDao().findByUsername(usernameOrEmail);
 		if(user==null){ //用户名不存在，则尝试邮箱
@@ -40,7 +48,7 @@ public class UserDao extends BaseDao<User> {
 	}
 
 	public List<User> find_members(String key,boolean onlyPublic) {
-		System.out.println(key);
+		System.out.println(key);//中文查找不到怎么办
 		try {
 			key = new String(key.getBytes("ISO8859_1"), StandardCharsets.UTF_8);
 		} catch (UnsupportedEncodingException e) {

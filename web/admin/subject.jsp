@@ -13,7 +13,7 @@
             <%@include file="menu.jsp"%>
         </div>
         <div class="col-xs-12 col-sm-10">
-            <form action="<%=rootPath%>/admin_#" method="get">
+            <form action="<%=rootPath%>/#" method="get">
 
                 <div class="form-group col-xs-9 col-sm-3">
                     <input type="text" name="key" class="form-control" placeholder="模糊查询" required>
@@ -31,7 +31,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <s:iterator value="#request.subjects" var="subject" status="sta">
+                <s:iterator value="dataList" var="subject" status="sta">
                     <tr>
                         <td><s:property value="#sta.index+1"/> </td>
                         <td><s:property value="#subject.name"/> </td>

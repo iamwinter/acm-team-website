@@ -14,7 +14,6 @@
         </div>
         <div class="col-xs-12 col-sm-10">
             <form action="news_saveNews" onsubmit="return check_news();" class="" method="post">
-                <input name="addNews" type="text" value="${addNews}" hidden>
 
                 <input name="id" type="number" value="${news.id}" hidden>
                 <textarea id="id_content" name="content" class="form-control hidden">${news.content}</textarea>
@@ -108,8 +107,6 @@
         }
     }
     editor.create();
-    //把数据读出来放到输入框
-    //editor.txt.html("");
 </script>
 
 

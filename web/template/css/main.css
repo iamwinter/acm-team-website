@@ -24,7 +24,7 @@ body{
         border-radius: 4px;
     }
     .panel-log{
-        margin:40px auto;
+        margin:40px auto 30px;
         padding: 50px;
         width: 500px;
         box-shadow: 0 0 1px rgba(0,0,0,0.5);

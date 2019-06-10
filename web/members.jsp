@@ -32,7 +32,7 @@
                 </tr>
             </thead>
             <tbody>
-                <s:iterator value="#request.users" var="user">
+                <s:iterator value="dataList" var="user">
                     <tr>
                         <td><a href="<%=rootPath%>/user_user?username=<s:property value="#user.username"/>"><s:property value="#user.username"/></a> </td>
                         <td><s:property value="#user.nickName"/> </td>

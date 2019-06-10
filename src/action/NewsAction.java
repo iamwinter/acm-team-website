@@ -21,49 +21,57 @@ public class NewsAction extends ActionSupport implements ModelDriven<News>,Servl
 	private News news = new News();
 	private HttpServletRequest request;
 	private Map<String,Object> session;
+
 	private String result;  //用于返回json数据
+	private List dataList; //用于返回结果集
+	private boolean res=false;	//执行结果 true or fale
+	private String msg="";		//结果信息
 
-	//文件
-	private File upFile; //得到上传的文件
-	private String upFileContentType; //得到文件的类型
-	private String upFileFileName; //得到文件的名称
 
-	public String check_admin(){
+	public boolean check_admin(){
 		// 检测当前用户是否是管理员
 		User user_on= (User) session.get("user");
 		if(user_on==null || user_on.getIsSuper()==0){
-			request.setAttribute("msg","您没有管理员权限!");
-			return ERROR;
+			msg="您没有管理员权限!";
+			return false;
 		}
-		return "admin";
+		return true;
+	}
+
+	public String editNews(){
+		if(!check_admin())return ERROR;
+		News aimNews = new NewsDao().findById(news.getId());
+		if(aimNews!=null){  //编辑新闻
+			news=aimNews;
+			res=true;
+			System.out.println("正在编辑新闻"+news.getId());
+		}else{
+			res=false;
+			System.out.println("正在添加新闻");
+		}
+		return "editNews";
 	}
 
 	public String saveNews(){
-		if(check_admin()==ERROR)return ERROR;
-		String add = request.getParameter("addNews");
-		if(add!=null && add.equals("true")){
+		if(check_admin()==false)return ERROR;
+		News aimNews = new NewsDao().findById(news.getId());
+		if(aimNews==null){
 			//添加新闻
 			news.setViews(0);
 			news.setCreated(new Timestamp(new Date().getTime()));
 			news.setModified(new Timestamp(new Date().getTime()));
 			new NewsDao().add(news); //添加
-			request.setAttribute("res",true);
-			request.setAttribute("msg","新闻添加成功！");
+			res=true;
+			msg="新闻添加成功！";
 		}else{
 			//编辑新闻
-			News aimNews = new NewsDao().findById(news.getId());
-			if(aimNews==null){
-				request.setAttribute("res",false);
-				request.setAttribute("msg","新闻不存在,可能已被删除！");
-				return ERROR;
-			}
 			aimNews.setTitle(news.getTitle());
 			aimNews.setContent(news.getContent());
 			aimNews.setIsPublic(news.getIsPublic());
 			aimNews.setModified(new Timestamp(new Date().getTime()));
 			new NewsDao().update(aimNews); //更新
-			request.setAttribute("res",true);
-			request.setAttribute("msg","新闻修改成功！");
+			res=true;
+			msg="新闻修改成功！";
 		}
 		return SUCCESS;
 	}
@@ -71,21 +79,18 @@ public class NewsAction extends ActionSupport implements ModelDriven<News>,Servl
 	public String news(){
 		//获取所有公开的新闻，前台展示
 		int num = IntegerTool.strToInt(request.getParameter("pageNum"),1);
-		List<News> list = new NewsDao().findPublicPage(num,20);
-		request.setAttribute("newsList",list);
+		dataList = new NewsDao().findPublicPage(num,20);
 		return "news";
 	}
 
 	public String show(){
 		//获取所有公开的新闻，前台展示
-		int id = IntegerTool.strToInt(request.getParameter("id"),0);
-		News  news = new NewsDao().findById(id);
+		news = new NewsDao().findById(news.getId());
 		if(news==null || news.getIsPublic()==0){
-			request.setAttribute("result",false);
-			request.setAttribute("msg","没有找到该新闻！");
+			res=false;
+			msg="没有找到该新闻！";
 			return ERROR;
 		}
-		request.setAttribute("news",news);
 		news.setViews(news.getViews()+1); // 浏览量+1
 		new NewsDao().update(news);
 		return "show";
@@ -114,17 +119,36 @@ public class NewsAction extends ActionSupport implements ModelDriven<News>,Servl
 		this.result = result;
 	}
 
-	public void setUpFile(File upFile) {
-		this.upFile = upFile;
+	public List getDataList() {
+		return dataList;
 	}
 
-	public void setUpFileContentType(String upFileContentType) {
-		this.upFileContentType = upFileContentType;
+	public void setDataList(List dataList) {
+		this.dataList = dataList;
 	}
 
-	public void setUpFileFileName(String upFileFileName) {
-		this.upFileFileName = upFileFileName;
+	public boolean isRes() {
+		return res;
 	}
 
+	public void setRes(boolean res) {
+		this.res = res;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
+	public News getNews() {
+		return news;
+	}
+
+	public void setNews(News news) {
+		this.news = news;
+	}
 }
 

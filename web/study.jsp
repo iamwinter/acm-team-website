@@ -10,31 +10,29 @@
 <div class="main bkcolorhalf">
     <div class="bigContainer">
 
-        <form id="form_y_s" action="study_study" method="get">
-            <input type="number" name="forYear" hidden>
-            <input type="number" name="subjectId" hidden>
+        <form id="form_y_s" action="study_folders" method="get">
+            <input type="number" name="forYear" value="${forYear}" hidden>
+            <input type="number" name="subjectId" value="${subjectId}" hidden>
             <div>
                 年份：
                 <s:iterator value="#request.years" var="y" status="sta">
                     <s:if test="#sta.index>0">/</s:if>
-                    <a href="javascript:change_year(${y})" class="${y==requestScope.forYear?'bg-success':''}">${y}</a>
+                    <a href="javascript:change_year(${y})" class="${y==forYear?'bg-success':''}">${y}</a>
                 </s:iterator>
             </div>
             <div>
                 科目：
                 <s:iterator value="#request.subjects" var="subject" status="sta">
                     <s:if test="#sta.index>0">/</s:if>
-                    <a href="javascript:change_subject(${subject.id})" class="${subject.id==requestScope.subjectId?'bg-success':''}">${subject.name}</a>
+                    <a href="javascript:change_subject(${subject.id})" class="${subject.id==subjectId?'bg-success':''}">${subject.name}</a>
                 </s:iterator>
             </div>
             <script type="text/javascript">
                 function change_year(y) {
-                    $("input[name='subjectId']").val(${subjectId})
                     $("input[name='forYear']").val(y)
                     $("#form_y_s").submit()
                 }
                 function change_subject(sub) {
-                    $("input[name='forYear']").val(${forYear})
                     $("input[name='subjectId']").val(sub)
                     $("#form_y_s").submit()
                 }
@@ -50,7 +48,7 @@
                     <form id="form_addFolder" onsubmit="return addFolder();" class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">添加科目</h4>
+                            <h4 class="modal-title" id="myModalLabel">文件夹的添加/修改/移动</h4>
                         </div>
                         <div class="modal-body" style="overflow: auto">
 
@@ -61,7 +59,7 @@
                                     <script type="text/javascript">
                                         now_year = new Date().getUTCFullYear();
                                         for(var i=now_year+1;i>=now_year-5;i--)
-                                            $("#id_year").append("<option value='"+i+"'>"+i+"</option>")
+                                            $("#id_year").append("<option value='"+i+"' "+(i==${forYear}?'selected':'')+">"+i+"</option>")
                                     </script>
                                 </select>
                             </div>
@@ -71,7 +69,7 @@
                                 <label for="id_subjectId">所属科目</label>
                                 <select name="subjectId" id="id_subjectId" class="form-control" required>
                                     <s:iterator value="#request.subjects" var="subject">
-                                        <option value="${subject.id}">${subject.name}</option>
+                                        <option value="${subject.id}" ${subjectId==subject.id?'selected':''}>${subject.name}</option>
                                     </s:iterator>
                                 </select>
                             </div>
@@ -85,7 +83,7 @@
                             <div class="form-group col-xs-12">
                                 <!-- 简单描述 -->
                                 <label for="id_subjectId">文件夹简述</label>
-                                <textarea name="resume" rows="4" class="form-control" placeholder="简单描述一下文件夹所存储的资料吧" required></textarea>
+                                <textarea name="resume" rows="4" class="form-control" placeholder="简单描述一下文件夹所存储的资料吧"></textarea>
                             </div>
 
                         </div>
@@ -107,10 +105,10 @@
                 </tr>
             </thead>
             <tbody>
-                <s:iterator value="#request.folders" var="folder">
+                <s:iterator value="dataList" var="folder">
                     <tr>
                         <td>
-                            <a href="<%=rootPath%>/study_files?fatherId=<s:property value="#folder.id"/>">
+                            <a href="<%=rootPath%>/study_files?id=<s:property value="#folder.id"/>">
                                 <s:property value="#folder.title"/>
                             </a>
                         </td>

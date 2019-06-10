@@ -14,12 +14,12 @@
         <property name="hibernate.format_sql">true</property>
 
         <mapping class="models.User"/>
-        <mapping class="models.SqlFile"/>
+        <mapping class="models.StudyFile"/>
+        <mapping class="models.StudyFolder"/>
+        <mapping class="models.StudySubject"/>
         <mapping class="models.News"/>
         <mapping class="models.Contest"/>
         <mapping class="models.Match"/>
-        <mapping class="models.StudyNode"/>
-        <mapping class="models.StudySubject"/>
 
 
         <!-- DB schema will be updated if needed -->

@@ -11,7 +11,7 @@
 <div class="main bkcolorhalf">
     <div class="bigContainer">
         <div class="form-group">
-            <a href="javascript:history.back()">返回上一级</a>
+            <a href="<%=rootPath%>/study_folder?forYear=${forYear}&subjectId=${subjectId}">返回上一级</a>
         </div>
 
         <div class="">
@@ -35,8 +35,10 @@
         </div>
 
         <hr>
-        <button class="btn btn-primary">下载所有文件</button>
-
+        <button class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="暂未实现,敬请期待">下载所有文件</button>
+        <script>
+            $(function () { $("[data-toggle='tooltip']").tooltip(); });
+        </script>
         <table class="table">
             <thead>
                 <tr>
@@ -46,16 +48,19 @@
                 </tr>
             </thead>
             <tbody>
-                <s:iterator value="#request.files" var="file" status="sta">
+                <s:iterator value="dataList" var="file" status="sta">
                     <tr id="tr_file_${sta.index}">
-                        <td><s:property value="#file.name"/> </td>
-                        <td><s:property value="#file.username"/> </td>
-                        <td><s:property value="#file.created"/></td>
                         <td>
                             <s:if test="#file.path.contains('mp4')">
-                                <a onclick="playVideo('<%=rootPath%>/${file.path}')" style="cursor: pointer">播放</a>
-                                /
+                                <a onclick="playVideo('<%=rootPath%>/${file.path}')" style="cursor: pointer">
+                                    ${file.name}
+                                </a>
                             </s:if>
+                            <s:else>${file.name}</s:else>
+                        </td>
+                        <td><s:property value="#file.userId"/> </td>
+                        <td><s:property value="#file.created"/></td>
+                        <td>
                             <a href="<%=rootPath%>/${file.path}" download="${file.name}">下载</a>
                             <s:if test="#session.user.isSuper==1">
                                 /
@@ -80,11 +85,18 @@
                         <p>1.点击文件框后，您可以按住ctrl键选择多个文件进行上传!</p>
                         <p>2.断点续传，如果意外关闭页面，可重新选择文件，系统将继续上次上传位置</p>
                     </div>
+                    <div class="alert alert-danger">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>警告：</strong>
+                        <p>1. 上传过程中，请勿关闭当前网页</p>
+                        <p>2. 上传过程中，请勿点击本网页内任何链接</p>
+                        <p>3. 若不慎关闭或离开此网页，可回到此页，重新选中文件[上传]，系统将从上次断点处续传</p>
+                    </div>
 
                     <form onsubmit="return studyUpload();" class="panel-body">
                         <div class="form-group col-xs-12 col-sm-4 ">
-                                <label for="study_file">资料文件（按住ctrl多选）</label>
-                                <input id="study_file" type="file" class="form-control" onchange="fileSelected()" multiple required>
+                            <label for="study_file">资料文件（按住ctrl多选）</label>
+                            <input id="study_file" type="file" class="form-control" onchange="fileSelected()" multiple required>
                         </div>
                         <div class="form-group col-xs-12">
                             <button type="submit" class="btn btn-success">上传</button>
@@ -189,7 +201,7 @@
     function prepareUpload(file,fileIndex) {
         var testxhr = new XMLHttpRequest(); //使用这个玩意上传
         var formData = new FormData();
-        formData.append('fatherId',${fatherId})
+        formData.append('folderId',${folderId})
         formData.append('fileName',file.name);
         formData.append('fileSize',file.size);
 
@@ -210,7 +222,7 @@
         var xhr = new XMLHttpRequest();
         var fd = new FormData();
         //关联表单数据,可以是自定义参数
-        fd.append('fatherId',${fatherId});    //父文件夹id
+        fd.append('folderId',${folderId});    //父文件夹id
         fd.append("fileName", file.name);
         fd.append("fileSize", file.size);
         var end = start + 1024*1024;//文件分片上传，每片1M

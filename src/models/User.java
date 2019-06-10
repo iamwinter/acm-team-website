@@ -5,7 +5,6 @@ import sun.misc.BASE64Encoder;
 
 import javax.persistence.*;
 import java.io.UnsupportedEncodingException;
-import java.lang.annotation.Native;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -13,9 +12,8 @@ import java.security.NoSuchAlgorithmException;
 @Table(name = "user")
 public class User {
 	@Id
-	@GeneratedValue(generator = "id")
-	@GenericGenerator(name = "id", strategy = "increment")
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	@Column(name = "username")
 	private String username;
 	@Column(name = "password")
@@ -25,15 +23,13 @@ public class User {
 	@Column(name = "nick_name")
 	private String nickName;
 	@Column(name = "is_super")
-	private int isSuper;
+	private Integer isSuper;
 	@Column(name = "is_public")
-	private int isPublic;
-	@Column(name = "photo_id")
-	private int photoId;
+	private Integer isPublic;
 	@Column(name = "tag")
-	private int tag;    //用户角色：0外部 1退役 2现役 3教师
+	private Integer tag;    //用户角色：0外部 1退役 2现役 3教师
 	@Column(name = "grade")
-	private int grade;
+	private Integer grade;
 	@Column(name = "major")
 	private String major;
 	@Column(name = "work")
@@ -42,6 +38,8 @@ public class User {
 	private String blogUrl;
 	@Column(name = "resume")
 	private String resume; //简历
+	@Column(name = "photo_id")
+	private Integer photoId;
 
 
 	public static String encode(String password) //获取密码的密文
@@ -61,7 +59,7 @@ public class User {
 		return enPassword;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -89,15 +87,15 @@ public class User {
 		return isPublic;
 	}
 
-	public int getPhotoId() {
+	public Integer getPhotoId() {
 		return photoId;
 	}
 
-	public int getTag() {
+	public Integer getTag() {
 		return tag;
 	}
 
-	public int getGrade() {
+	public Integer getGrade() {
 		return grade;
 	}
 
@@ -117,7 +115,7 @@ public class User {
 		return resume;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -140,23 +138,23 @@ public class User {
 		this.nickName = nickName;
 	}
 
-	public void setIsSuper(int isSuper) {
+	public void setIsSuper(Integer isSuper) {
 		this.isSuper = isSuper;
 	}
 
-	public void setIsPublic(int isPublic) {
+	public void setIsPublic(Integer isPublic) {
 		this.isPublic = isPublic;
 	}
 
-	public void setPhotoId(int photoId) {
+	public void setPhotoId(Integer photoId) {
 		this.photoId = photoId;
 	}
 
-	public void setTag(int tag) {
+	public void setTag(Integer tag) {
 		this.tag = tag;
 	}
 
-	public void setGrade(int grade) {
+	public void setGrade(Integer grade) {
 		this.grade = grade;
 	}
 

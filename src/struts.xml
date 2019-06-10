@@ -12,18 +12,22 @@
 
     <package name="user_oper" namespace="/" extends="struts-default,json-default" strict-method-invocation="false">
 
+        <global-results>
+            <result name="success">success.jsp</result>
+            <result name="error">error.jsp</result>
+            <result name="login">userpage/login.jsp</result>
+        </global-results>
+
         <action name="user_*" class="action.UserAction" method="{1}">
             <result name="json" type="json">
                 <!-- 返回到前台json数据 action里有一个String result-->
                 <param name="root">result</param>
             </result>
-            <result name="success">/userpage/success.jsp</result>
-            <result name="login">/userpage/login.jsp</result>
             <result name="register">/userpage/register.jsp</result>
             <result name="modify">/userpage/modify.jsp</result>
             <result name="user">/userpage/user.jsp</result>
             <result name="members">/members.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="admin_users">/admin/users.jsp</result>
 
             <interceptor-ref name="fileUpload"> <!-- 当前action文件上传大小限制8M -->
                 <param name="maximumSize">8000000</param>
@@ -36,11 +40,7 @@
             <result name="json" type="json">
                 <param name="root">result</param>
             </result>
-            <result name="error">error.jsp</result>
-            <result name="login">/userpage/login.jsp</result>
             <result name="admin">/admin/index.jsp</result>
-            <result name="users">/admin/users.jsp</result>
-            <result name="editNews">/admin/editNews.jsp</result>
             <result name="subject">/admin/subject.jsp</result>
         </action>
 
@@ -57,8 +57,6 @@
             <result name="json" type="json">
                 <param name="root">result</param>
             </result>
-            <result name="error">error.jsp</result>
-            <result name="login">/userpage/login.jsp</result>
 
             <interceptor-ref name="fileUpload"> <!-- 当前action文件上传大小限制10M -->
                 <param name="maximumSize">10000000</param>
@@ -70,20 +68,15 @@
             <result name="json" type="json">
                 <param name="root">result</param>
             </result>
-            <result name="error">error.jsp</result>
-            <result name="login">/userpage/login.jsp</result>
-            <result name="success">success.jsp</result>
             <result name="news">news.jsp</result>
             <result name="show">second/news_show.jsp</result>
+            <result name="editNews">/admin/editNews.jsp</result>
         </action>
 
-        <action name="study_*" class="action.StudyAction" method="{1}">
+        <action name="study_*" class="action.StudyFolderAction" method="{1}">
             <result name="json" type="json">
                 <param name="root">result</param>
             </result>
-            <result name="error">error.jsp</result>
-            <result name="login">/userpage/login.jsp</result>
-            <result name="success">success.jsp</result>
             <result name="study">study.jsp</result>
             <result name="file_show">/second/study_file_show.jsp</result>
         </action>

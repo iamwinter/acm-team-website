@@ -1,7 +1,7 @@
 package Tools;
 
 public class IntegerTool {
-	public static int strToInt(String num,int defaultNum){
+	public static Integer strToInt(String num,Integer defaultNum){
 		// 字符串转整数，异常则返回defaultNum
 		try{
 			return Integer.valueOf(num);
@@ -9,9 +9,9 @@ public class IntegerTool {
 			return defaultNum;
 		}
 	}
-	public static int strToInt(String num){
+	public static Integer strToInt(String num){
 		// 字符串转整数
-		return strToInt(num,0);
+		return strToInt(num,null);
 	}
 
 }

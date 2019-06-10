@@ -16,13 +16,13 @@
 
 <div class="main">
     <div class="bigContainer">
-        <form action="<%=rootPath%>/user_login.action" class="panel-log" method="post" role="form">
+        <form action="${pageContext.request.contextPath}/user_login.action" class="panel-log" method="post" role="form">
 
-            <s:if test="#request.res==false">
+            <s:if test="res==false">
                 <div class="alert alert-warning">
                     <a href="#" class="close" data-dismiss="alert">&times;</a>
                     <strong>警告！</strong>
-                    <font><s:property value="#request.msg"/> </font>
+                    <font>${msg} </font>
                 </div>
             </s:if>
 
@@ -37,7 +37,7 @@
             </div>
 
             <div class="form-group">
-                <a href="<%=rootPath%>/userpage/register.jsp"><span class="glyphicon glyphicon-log-in"></span>&nbsp;前往注册</a>
+                <a href="${pageContext.request.contextPath}/userpage/user_register"><span class="glyphicon glyphicon-log-in"></span>&nbsp;前往注册</a>
                 /
                 <a href="#">忘记密码</a>
             </div>

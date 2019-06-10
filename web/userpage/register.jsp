@@ -12,24 +12,19 @@
     <div class="bigContainer">
         <form id="form_reg" action="user_register" method="post" onsubmit="return check_reg()" class="panel-log" >
 
-            <s:if test="#request.res==false">
-                <div class="alert alert-warning">
-                    <a href="#" class="close" data-dismiss="alert">&times;</a>
-                    <strong>警告！</strong>
-                    <font><s:property value="#request.msg"/> </font>
-                </div>
-            </s:if>
-            <div id="password_alert" class="alert alert-warning" style="display: none;">
+            <div id="password_alert" class="alert alert-warning"
+                 style="display: ${res==false?"block":"none"};">
                 <a href="#" class="close" data-dismiss="alert">&times;</a>
                 <strong>警告！</strong>
-                <font></font>
+                <font>${msg}</font>
             </div>
 
             <div class="form-group">
                 <input name="username" type="text" class="form-control"
                        required minlength="4" maxlength="30"
                        onkeyup="value=value.replace(/[^\w]/ig,'')"
-                       value="<s:property value="#request.username"/>"
+                       autocomplete="off"
+                       value="${username}"
                        placeholder="*请输入用户名（仅允许使用英文+数字）">
             </div>
 
@@ -45,12 +40,12 @@
 
             <div class="form-group">
                 <input name="email" type="email" class="form-control"
-                       value="<s:property value="#request.email"/>"
+                       value="${email}"
                        placeholder="请输入邮箱，可用于登录">
             </div>
 
             <div class="form-group">
-                <a href="<%=rootPath%>/user_login"><span class="glyphicon glyphicon-log-in"></span>&nbsp;前往登录</a>
+                <a href="${pageContext.request.contextPath}/user_login"><span class="glyphicon glyphicon-log-in"></span>&nbsp;前往登录</a>
             </div>
 
             <div class="form-group">

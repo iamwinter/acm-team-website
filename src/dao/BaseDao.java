@@ -45,6 +45,7 @@ public class BaseDao<Bean>  {
 	}
 
 	public void update(Bean bean){
+
 		session.update(bean);
 		transaction.commit();
 		System.out.println("更新："+bean);
