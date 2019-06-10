@@ -11,7 +11,7 @@
 <div class="main bkcolorhalf">
     <div class="bigContainer">
         <div class="form-group">
-            <a href="<%=rootPath%>/study_folder?forYear=${forYear}&subjectId=${subjectId}">返回上一级</a>
+            <a href="<%=rootPath%>/study_folders?forYear=${forYear}&subjectId=${subjectId}">返回上一级</a>
         </div>
 
         <div class="">

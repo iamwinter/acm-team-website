@@ -20,12 +20,10 @@
       <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/action/UserAction.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/config.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/dao/BaseDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/dao/FileDao.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/dao/NewsDao.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/dao/UserDao.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/hibernate.cfg.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/models/News.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/models/SqlFile.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/models/User.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/struts.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/lib/FastInfoset-1.2.15.jar" beforeDir="false" />
@@ -134,50 +132,11 @@
       <change beforePath="$PROJECT_DIR$/out/production/team/action/NewsAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/action/NewsAction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/team/action/UserAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/action/UserAction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/team/dao/BaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/dao/BaseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/dao/FileDao.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/team/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/dao/UserDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/team/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/team/models/News.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/models/News.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/models/SqlFile.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/team/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/models/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/team/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/IntegerTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools/IntegerTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/AdminAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/AdminAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/ContestAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/ContestAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/FileAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/FileAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/MatchAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/MatchAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/NewsAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/NewsAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/StudyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/StudyFolderAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/UserAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/UserAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/FileDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/StudyFileDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/StudyNodeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/StudyFolderDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/StudySubjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/StudySubjectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Contest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Contest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Match.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/News.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/SqlFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/StudyFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/StudyNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/StudyFolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/StudySubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/StudySubject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/editNews.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/editNews.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/menu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/subject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/subject.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/members.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/members.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/news.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/news.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/second/study_file_show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/second/study_file_show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/study.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/study.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/success.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/template/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/template/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/template/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/template/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userpage/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/userpage/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userpage/modify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/userpage/modify.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userpage/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/userpage/register.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -365,75 +324,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="team" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="team" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="team" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="team" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="action" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="team" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="team" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="team" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="team" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="second" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="team" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="team" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="team" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="userpage" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -616,7 +507,7 @@
       <workItem from="1559904076270" duration="1855000" />
       <workItem from="1559955735686" duration="26000" />
       <workItem from="1559964794849" duration="1924000" />
-      <workItem from="1560154492589" duration="14989000" />
+      <workItem from="1560154492589" duration="15257000" />
     </task>
     <task id="LOCAL-00001" summary="ACM/ICPC程序设计实验室网站">
       <created>1559443286655</created>
@@ -667,16 +558,24 @@
       <option name="project" value="LOCAL" />
       <updated>1559797079422</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ACM/ICPC程序设计实验室网站">
+      <created>1560170521868</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1560170521869</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193572000" />
+    <option name="totallyTimeSpent" value="193840000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.59" visible="true" weight="0.1735925" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.59" visible="true" weight="0.1735925" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" sideWeight="0.41" side_tool="true" weight="0.17426273" />
@@ -688,7 +587,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49865952" visible="true" weight="0.46175638" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49865952" weight="0.46175638" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -701,7 +600,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="15" weight="0.3286119" />
-      <window_info anchor="bottom" id="File Transfer" order="16" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="File Transfer" order="16" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
