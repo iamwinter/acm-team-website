@@ -10,29 +10,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/team/action/UserAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/action/UserAction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/team/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/UserAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/UserAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/achievement.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/achievement.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/editNews.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/editNews.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/menu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/subject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/subject.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/contests.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/contests.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/members.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/members.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/news.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/news.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/second/news_show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/second/news_show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/second/study_file_show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/second/study_file_show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/study.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/study.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/template/headTag.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/template/headTag.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/template/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/template/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userpage/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/userpage/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userpage/modify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/userpage/modify.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userpage/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/userpage/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userpage/success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/userpage/success.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userpage/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/userpage/user.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -458,7 +435,7 @@
       <workItem from="1559964794849" duration="1924000" />
       <workItem from="1560154492589" duration="15402000" />
       <workItem from="1560347383895" duration="2469000" />
-      <workItem from="1560384577955" duration="6218000" />
+      <workItem from="1560384577955" duration="6479000" />
     </task>
     <task id="LOCAL-00001" summary="ACM/ICPC程序设计实验室网站">
       <created>1559443286655</created>
@@ -530,11 +507,18 @@
       <option name="project" value="LOCAL" />
       <updated>1560384833504</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="ACM/ICPC程序设计实验室网站">
+      <created>1560391293160</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1560391293161</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202672000" />
+    <option name="totallyTimeSpent" value="202933000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
