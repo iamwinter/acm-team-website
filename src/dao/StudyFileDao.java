@@ -17,7 +17,7 @@ public class StudyFileDao extends BaseDao<StudyFile> {
 	public StudyFile add(File upFile, String basePath, String filename, User uploadUser){
 		String path = basePath + "/";
 		path += DateTool.dateToStr(new Date(),"yyyyMMddhhmmss_");//以上传时间命名
-		path += new Random().nextInt(9000)+1000;
+		path += new Random().nextInt(90000)+10000;
 		path += filename.substring(filename.lastIndexOf(".")); //后缀
 
 		String realPath= ServletActionContext.getServletContext().getRealPath(path); //获取磁盘绝对路径
@@ -60,7 +60,7 @@ public class StudyFileDao extends BaseDao<StudyFile> {
 
 	public List findByFolderId(int folderId) {
 		// 获取某文件夹下的所有文件
-		List list=session.createQuery("from StudyFile where folderId=?1 order by name asc")
+		List list=session.createQuery("from StudyFile where folder.id=?1 order by name asc")
 				.setParameter(1,folderId).list();
 		close();
 		return list;

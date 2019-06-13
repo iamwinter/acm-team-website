@@ -1,6 +1,5 @@
 package models;
 
-import org.hibernate.annotations.GenericGenerator;
 import sun.misc.BASE64Encoder;
 
 import javax.persistence.*;
@@ -38,8 +37,8 @@ public class User {
 	private String blogUrl;
 	@Column(name = "resume")
 	private String resume; //简历
-	@Column(name = "photo_id")
-	private Integer photoId;
+	@Column(name = "photo_path")
+	private String photoPath;
 
 
 	public static String encode(String password) //获取密码的密文
@@ -79,16 +78,12 @@ public class User {
 		return nickName;
 	}
 
-	public int getIsSuper() {
+	public Integer getIsSuper() {
 		return isSuper;
 	}
 
-	public int getIsPublic() {
+	public Integer getIsPublic() {
 		return isPublic;
-	}
-
-	public Integer getPhotoId() {
-		return photoId;
 	}
 
 	public Integer getTag() {
@@ -146,9 +141,6 @@ public class User {
 		this.isPublic = isPublic;
 	}
 
-	public void setPhotoId(Integer photoId) {
-		this.photoId = photoId;
-	}
 
 	public void setTag(Integer tag) {
 		this.tag = tag;
@@ -174,6 +166,16 @@ public class User {
 		this.resume = resume;
 	}
 
+
+
+	public String getPhotoPath() {
+		return photoPath;
+	}
+
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
+	}
+
 	@Override
 	public String toString() {
 		return "User{" +
@@ -184,13 +186,13 @@ public class User {
 				", nickName='" + nickName + '\'' +
 				", isSuper=" + isSuper +
 				", isPublic=" + isPublic +
-				", photoId=" + photoId +
 				", tag=" + tag +
 				", grade=" + grade +
 				", major='" + major + '\'' +
 				", work='" + work + '\'' +
 				", blogUrl='" + blogUrl + '\'' +
 				", resume='" + resume + '\'' +
+				", photoPath='" + photoPath + '\'' +
 				'}';
 	}
 }

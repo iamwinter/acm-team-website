@@ -65,10 +65,11 @@ public class FileAction extends ActionSupport implements ModelDriven<StudyFile>,
 	// 获取当前临时文件的绝对路径的父文件夹
 	private String getTempFilePath(StudyFolder folder){
 		String fpath = MyConfig.get("upload")+"/study/year"+folder.getForYear()+
-				"/subject"+folder.getSubjectId()+"/folder"+folder.getId();   //相对父目录
+				"/subject"+folder.getSubject().getId()+"/folder"+folder.getId();   //相对父目录
 		String fatherPath= ServletActionContext.getServletContext().getRealPath(fpath); //获取磁盘绝对父路径
 		return fatherPath;// 绝对路径
 	}
+
 	// 看一下有没有临时文件，有的话就是断点续传,返回断点位置
 	public String getUploadedSize() throws IOException {
 		uploadSize = "0";
@@ -140,7 +141,7 @@ public class FileAction extends ActionSupport implements ModelDriven<StudyFile>,
 			sf.setPath(realPath.substring(realPath.indexOf(MyConfig.get("upload")))
 					.replace("\\","/")); //相对路径
 			sf.setCreated(new java.sql.Timestamp(new java.util.Date().getTime()));
-			sf.setFolderId(folder.getId());
+			sf.setFolder(folder);
 			new StudyFileDao().add(sf); //保存到数据库
 		}
 		responseInfo = "上传成功!";

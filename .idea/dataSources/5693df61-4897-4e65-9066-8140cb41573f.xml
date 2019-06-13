@@ -1279,9 +1279,9 @@
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="238" name="photo_id">
+    <column id="302" parent="238" name="photo_path">
       <Position>14</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="303" parent="238" name="id">
@@ -1305,25 +1305,15 @@
       <ColNames>grade</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="308" parent="238" name="photo_id">
-      <ColNames>photo_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="309" parent="238" name="PRIMARY">
+    <key id="308" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 username</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="310" parent="238" name="id">
+    <key id="309" parent="238" name="id">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>id</UnderlyingIndexName>
     </key>
-    <foreign-key id="311" parent="238" name="user_ibfk_1">
-      <ColNames>photo_id</ColNames>
-      <RefSchemaName>team</RefSchemaName>
-      <RefTableName>study_file</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
   </database-model>
 </dataSource>

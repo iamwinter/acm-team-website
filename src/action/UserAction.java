@@ -1,20 +1,21 @@
 package action;
 
+import Tools.DateTool;
 import Tools.MyConfig;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import dao.StudyFileDao;
-import dao.StudyFolderDao;
 import dao.UserDao;
-import models.StudyFile;
 import models.User;
 import net.sf.json.JSONObject;
 import org.apache.commons.collections.map.HashedMap;
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -181,10 +182,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 		User aimUser=new UserDao().findById(user.getId());
 		JSONObject json=new JSONObject();
 		if(aimUser==null){
-			json.put("res","false");
-			json.put("msg","修改失败，你可能已掉线或者用户不存在！");
-			result=json.toString();
-			return "json";
+			aimUser=user_on;
 		}
 		if(upFileFileName==null){
 			json.put("res","false");
@@ -192,27 +190,54 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 			result=json.toString();
 			return "json";
 		}
-		StudyFile studyFile =new StudyFileDao().add(upFile,
-				MyConfig.get("upload")+"/photo/"+aimUser.getUsername(),
-				upFileFileName, user_on); //上传文件
-		if(studyFile ==null){
+		if( !aimUser.getId().equals(user_on.getId()) && user_on.getIsSuper()<=aimUser.getIsSuper() ){
+			//既不是自我修改，也不是管理员超级权限修改，则非法
+			json.put("res","false");
+			json.put("msg","权限不足！");
+			result=json.toString();
+			return "json";
+		}
+
+
+		//构造路径
+		String path = MyConfig.get("upload")+"/photo/"+aimUser.getUsername() + "/";
+		path += DateTool.dateToStr(new Date(),"yyyyMMddhhmmss_");//以上传时间命名
+		path += new Random().nextInt(9000)+1000;
+		path += upFileFileName.substring(upFileFileName.lastIndexOf(".")); //后缀
+
+		String realPath= ServletActionContext.getServletContext().getRealPath(path); //获取磁盘绝对路径
+		System.out.println("相对路径    path: "+path);
+		System.out.println("绝对路径realPath: "+realPath);
+		try {
+			File storeFile = new java.io.File(realPath);	//创建文件
+			if(!storeFile.getParentFile().exists())storeFile.getParentFile().mkdirs();//父目录不存在则创建
+			FileUtils.copyFile(upFile, storeFile);//copy upFile ==> 磁盘文件
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("文件保存异常");
 			json.put("res","false");
 			json.put("msg","文件上传失败！");
-		}else if(user_on.getId()==user.getId() || user_on.getIsSuper()==1 && aimUser.getIsSuper()==0){
-//			用户自我修改 || 管理员修改普通成员
-			Integer last_photo = aimUser.getPhotoId();//之前的头像
-			aimUser.setPhotoId(studyFile.getId());	//给用户更换图片
-			new UserDao().update(aimUser);	//更新到数据库
-			new StudyFileDao().delete(new StudyFileDao().findById(last_photo)); //删除之前的照片
-			if(user_on.getId()==aimUser.getId()){
-				session.put("user",aimUser);//用户自我修改，强制下线重新上线 覆盖 登录
-			}
-			json.put("res","true");
-			json.put("msg","头像修改成功！");
-		}else{
-			json.put("res","false");
-			json.put("msg","您没有权限修改该用户！");
+			result=json.toString();
+			return "json";
 		}
+
+		String last_photo_path = aimUser.getPhotoPath();//之前的头像
+		aimUser.setPhotoPath(path);	//给用户更换图片
+		new UserDao().update(aimUser);	//更新到数据库
+		if(user_on.getId()==aimUser.getId()){
+			session.put("user",aimUser);//用户自我修改，强制下线重新上线 覆盖 登录
+		}
+
+		//下面删除原来的图片
+		String last_realPath= ServletActionContext.getServletContext().getRealPath(last_photo_path);
+		File storeFile = new java.io.File( last_realPath );	//创建文件
+		if(storeFile.isFile()){
+			storeFile.delete();
+			System.out.println("从磁盘中删除文件:"+ last_realPath);
+		}
+
+		json.put("res","true");
+		json.put("msg","头像修改成功！");
 		result=json.toString();
 		return "json";
 	}

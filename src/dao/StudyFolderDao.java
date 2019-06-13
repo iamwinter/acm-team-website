@@ -9,7 +9,7 @@ public class StudyFolderDao extends BaseDao<StudyFolder> {
 
 	public List findFolders(int year, int subjectId) {
 		// 按年份和科目查找文件夹
-		List list=session.createQuery("from StudyFolder where forYear=?1 and subjectId=?2")
+		List list=session.createQuery("from StudyFolder where forYear=?1 and subject.id=?2")
 				.setParameter(1,year)
 				.setParameter(2,subjectId).list();
 		close();

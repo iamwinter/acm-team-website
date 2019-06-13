@@ -31,8 +31,8 @@
         <%--        照片--%>
         <div class="col-sm-12 col-md-4">
             <div class="bkcolorhalf">
-                <s:if test="#request.photo_path!=null">
-                    <img src="${pageContext.request.contextPath}/<s:property value="#request.photo_path"/>" class="img-thumbnail" alt="头像">
+                <s:if test="#request.aimUser.photoPath!=null">
+                    <img src="${pageContext.request.contextPath}/${aimUser.photoPath}" class="img-thumbnail" alt="头像">
                 </s:if>
             </div>
         </div>

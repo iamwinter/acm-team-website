@@ -12,7 +12,7 @@
 
         <form id="form_y_s" action="study_folders" method="get">
             <input type="number" name="forYear" value="${forYear}" hidden>
-            <input type="number" name="subjectId" value="${subjectId}" hidden>
+            <input type="number" name="subjectId" value="${subject.id}" hidden>
             <div>
                 年份：
                 <s:iterator value="#request.years" var="y" status="sta">
@@ -22,9 +22,9 @@
             </div>
             <div>
                 科目：
-                <s:iterator value="#request.subjects" var="subject" status="sta">
+                <s:iterator value="#request.subjects" var="sub" status="sta">
                     <s:if test="#sta.index>0">/</s:if>
-                    <a href="javascript:change_subject(${subject.id})" class="${subject.id==subjectId?'bg-success':''}">${subject.name}</a>
+                    <a href="javascript:change_subject(${sub.id})" class="${sub.id==subject.id?'bg-success':''}">${sub.name}</a>
                 </s:iterator>
             </div>
             <script type="text/javascript">

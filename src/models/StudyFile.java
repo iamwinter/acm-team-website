@@ -1,7 +1,6 @@
 package models;
 
 import Tools.DateTool;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -18,10 +17,12 @@ public class StudyFile {
 	private String path;
 	@Column(name = "created")
 	private Timestamp created;
-	@Column(name = "user_id")
-	private Integer userId;
-	@Column(name = "folder_id")
-	private Integer folderId;
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="user_id",referencedColumnName="id")
+	private User user;
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="folder_id",referencedColumnName="id")
+	private StudyFolder folder;
 
 	public int getId() {
 		return id;
@@ -55,20 +56,20 @@ public class StudyFile {
 		this.created = created;
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public Integer getFolderId() {
-		return folderId;
+	public StudyFolder getFolder() {
+		return folder;
 	}
 
-	public void setFolderId(Integer folderId) {
-		this.folderId = folderId;
+	public void setFolder(StudyFolder folder) {
+		this.folder = folder;
 	}
 
 	@Override
@@ -78,8 +79,8 @@ public class StudyFile {
 				", name='" + name + '\'' +
 				", path='" + path + '\'' +
 				", created=" + created +
-				", userId=" + userId +
-				", folderId=" + folderId +
+				", user=" + user +
+				", folder=" + folder +
 				'}';
 	}
 }

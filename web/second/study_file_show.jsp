@@ -11,7 +11,7 @@
 <div class="main bkcolorhalf">
     <div class="bigContainer">
         <div class="form-group">
-            <a href="${pageContext.request.contextPath}/study_folders?forYear=${forYear}&subjectId=${subjectId}">返回上一级</a>
+            <a href="${pageContext.request.contextPath}/study_folders?forYear=${forYear}&subjectId=${subject.id}">返回上一级</a>
         </div>
 
         <div class="">

@@ -69,7 +69,7 @@ public class StudyFolderAction extends ActionSupport implements ModelDriven<Stud
 		request.setAttribute("subjects",subjects);//当前条件下所有科目
 		request.setAttribute("years",new StudyFolderDao().getAllYears());
 		studyFolder.setForYear(year);
-		studyFolder.setSubjectId(subjectId);
+		studyFolder.setSubject(new StudySubjectDao().findById(subjectId));
 		return "study";
 	}
 
@@ -86,7 +86,7 @@ public class StudyFolderAction extends ActionSupport implements ModelDriven<Stud
 		dataList = new StudyFileDao().findByFolderId(studyFolder.getId());
 		request.setAttribute("folderId",studyFolder.getId());
 		studyFolder.setForYear(sf.getForYear());
-		studyFolder.setSubjectId(sf.getSubjectId());
+		studyFolder.setSubject(sf.getSubject());
 		return "file_show";
 	}
 
@@ -94,6 +94,7 @@ public class StudyFolderAction extends ActionSupport implements ModelDriven<Stud
 		//添加文件夹
 		if(!admin())return ERROR;
 		JSONObject json=new JSONObject();
+		System.out.println(studyFolder);
 		new StudyFolderDao().add(studyFolder);
 		json.put("res",true);
 		json.put("msg","文件夹创建成功");

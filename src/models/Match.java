@@ -12,8 +12,9 @@ public class Match {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "news_id")
-	private Integer newsId;
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="news_id",referencedColumnName="id")
+	private News news;
 	@Column(name = "title")
 	private String title;
 	@Column(name = "date")
@@ -35,13 +36,6 @@ public class Match {
 		this.id = id;
 	}
 
-	public Integer getNewsId() {
-		return newsId;
-	}
-
-	public void setNewsId(int newsId) {
-		this.newsId = newsId;
-	}
 
 	public String getTitle() {
 		return title;
@@ -95,7 +89,7 @@ public class Match {
 	public String toString() {
 		return "Match{" +
 				"id=" + id +
-				", newsId=" + newsId +
+				", newsId=" + news +
 				", title='" + title + '\'' +
 				", date=" + date +
 				", prize1=" + prize1 +
@@ -103,5 +97,13 @@ public class Match {
 				", prize3=" + prize3 +
 				", prize4=" + prize4 +
 				'}';
+	}
+
+	public News getNews() {
+		return news;
+	}
+
+	public void setNews(News news) {
+		this.news = news;
 	}
 }

@@ -1,10 +1,6 @@
 package models;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
-import java.lang.annotation.Native;
-
 @Entity
 @Table(name = "study_folder")
 public class StudyFolder {
@@ -17,8 +13,9 @@ public class StudyFolder {
 	private String resume;
 	@Column(name = "for_year")
 	private Integer forYear;
-	@Column(name = "subject_id")
-	private Integer subjectId;
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="subject_id",referencedColumnName="id")
+	private StudySubject subject;
 
 
 	public int getId() {
@@ -53,12 +50,12 @@ public class StudyFolder {
 		this.forYear = forYear;
 	}
 
-	public Integer getSubjectId() {
-		return subjectId;
+	public StudySubject getSubject() {
+		return subject;
 	}
 
-	public void setSubjectId(Integer subjectId) {
-		this.subjectId = subjectId;
+	public void setSubject(StudySubject subject) {
+		this.subject = subject;
 	}
 
 	@Override
@@ -68,7 +65,7 @@ public class StudyFolder {
 				", title='" + title + '\'' +
 				", resume='" + resume + '\'' +
 				", forYear=" + forYear +
-				", subjectId=" + subjectId +
+				", subject=" + subject +
 				'}';
 	}
 }

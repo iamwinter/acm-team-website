@@ -173,7 +173,7 @@
                 <div class="col-xs-6">
                     <label for="preview">照片预览</label><br>
                     <s:if test="#request.photo_path!=null">
-                        <img id="preview" src="${pageContext.request.contextPath}/<s:property value="#request.photo_path"/>" style="width: 260px">
+                        <img id="preview" src="${pageContext.request.contextPath}/${aimUser.photoPath}" style="width: 260px">
                     </s:if>
                     <s:else>
                         <img id="preview" src="${pageContext.request.contextPath}/template/images/smallPic/defaultphoto.jpg" style="width: 260px">
