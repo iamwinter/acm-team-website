@@ -2,7 +2,7 @@
 <html>
 <head>
   <%@include file="/template/headTag.jsp"%>
-  <title><%=homeName%></title>
+  <title><s:property value="#request.homeName"/></title>
 </head>
 <body>
 <%@include file="/template/header.jsp"%>

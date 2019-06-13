@@ -3,7 +3,7 @@
 <html>
 <head>
     <%@include file="/template/headTag.jsp"%>
-    <title>学习科目-管理员-<%=homeName%></title>
+    <title>学习科目-管理员-<s:property value="#request.homeName"/></title>
 </head>
 <body>
 <%@include file="/template/header.jsp"%>
@@ -13,7 +13,7 @@
             <%@include file="menu.jsp"%>
         </div>
         <div class="col-xs-12 col-sm-10">
-            <form action="<%=rootPath%>/#" method="get">
+            <form action="${pageContext.request.contextPath}/#" method="get">
 
                 <div class="form-group col-xs-9 col-sm-3">
                     <input type="text" name="key" class="form-control" placeholder="模糊查询" required>

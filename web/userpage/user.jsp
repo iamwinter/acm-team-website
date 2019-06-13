@@ -9,7 +9,7 @@
 <html>
 <head>
     <%@include file="/template/headTag.jsp"%>
-    <title>个人主页-<%=homeName%></title>
+    <title>个人主页-<s:property value="#request.homeName"/></title>
 </head>
 <body>
 <%@include file="/template/header.jsp"%>
@@ -32,7 +32,7 @@
         <div class="col-sm-12 col-md-4">
             <div class="bkcolorhalf">
                 <s:if test="#request.photo_path!=null">
-                    <img src="<%=rootPath%>/<s:property value="#request.photo_path"/>" class="img-thumbnail" alt="头像">
+                    <img src="${pageContext.request.contextPath}/<s:property value="#request.photo_path"/>" class="img-thumbnail" alt="头像">
                 </s:if>
             </div>
         </div>

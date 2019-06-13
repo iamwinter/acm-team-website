@@ -3,7 +3,7 @@
 <html>
 <head>
     <%@include file="/template/headTag.jsp"%>
-    <title>管理员-<%=homeName%></title>
+    <title>管理员-<s:property value="#request.homeName"/></title>
 </head>
 <body>
 <%@include file="/template/header.jsp"%>

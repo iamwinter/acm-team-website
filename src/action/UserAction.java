@@ -9,6 +9,7 @@ import dao.UserDao;
 import models.StudyFile;
 import models.User;
 import net.sf.json.JSONObject;
+import org.apache.commons.collections.map.HashedMap;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -230,11 +231,25 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 	public String members(){
 		User user_on= (User) session.get("user");
 		if(user_on==null){
-			msg="您尚未登录，不允许查看个人信息！请先登录";
+			msg="请先登录!";
 			return LOGIN;
 		}
 		String key = request.getParameter("key");
-		dataList = new UserDao().find_members(key==null?"":key,true);
+		List<User> listAll = new UserDao().find_members(key==null?"":key,true);
+		List<User> teacher=new ArrayList<>();	//老师
+		Map<Integer,List<User>> student = new HashedMap();	//按年级分类
+		for(User i:listAll){
+			if(i.getTag()==3)//老师
+				teacher.add(i);
+			else if((i.getTag()==1||i.getTag()==2) && i.getGrade()>=2000){
+				if(!student.containsKey(i.getGrade()))
+					student.put(i.getGrade(),new ArrayList<User>());
+				student.get(i.getGrade()).add(i);	//对应年级
+			}
+		}
+		request.setAttribute("teacher",teacher);
+		request.setAttribute("student",student);
+		listAll.clear();
 		return "members";
 	}
 

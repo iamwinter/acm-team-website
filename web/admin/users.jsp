@@ -3,7 +3,7 @@
 <html>
 <head>
     <%@include file="/template/headTag.jsp"%>
-    <title>用户列表-管理员-<%=homeName%></title>
+    <title>用户列表-管理员-<s:property value="#request.homeName"/></title>
 </head>
 <body>
 <%@include file="/template/header.jsp"%>
@@ -13,7 +13,7 @@
             <%@include file="menu.jsp"%>
         </div>
         <div class="col-xs-12 col-sm-10">
-            <form action="<%=rootPath%>/user_admin_users" method="get">
+            <form action="${pageContext.request.contextPath}/user_admin_users" method="get">
 
                 <div class="form-group col-xs-9 col-sm-3">
                     <input type="text" name="key" class="form-control" placeholder="模糊查询" required>
@@ -38,14 +38,14 @@
                 <tbody>
                     <s:iterator value="dataList" var="user">
                         <tr>
-                            <td><a href="<%=rootPath%>/user_user?username=<s:property value="#user.username"/>" target="_blank"><s:property value="#user.username"/></a> </td>
+                            <td><a href="${pageContext.request.contextPath}/user_user?username=<s:property value="#user.username"/>" target="_blank"><s:property value="#user.username"/></a> </td>
                             <td><s:property value="#user.nickName"/> </td>
                             <td><s:property value="#user.grade"/> </td>
                             <td><s:property value="#user.isSuper"/> </td>
                             <td><s:property value="#user.isPublic"/> </td>
                             <td><a href="<s:property value="#user.blogUrl"/>" target="_blank">博客</a></td>
                             <td>
-                                <a href="<%=rootPath%>/user_modify?username=<s:property value="#user.username"/>" target="_blank">修改更多</a>
+                                <a href="${pageContext.request.contextPath}/user_modify?username=<s:property value="#user.username"/>" target="_blank">修改更多</a>
                             </td>
                         </tr>
                     </s:iterator>

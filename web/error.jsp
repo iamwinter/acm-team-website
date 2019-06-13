@@ -3,7 +3,7 @@
 <html>
 <head>
     <%@include file="/template/headTag.jsp"%>
-    <title><%=homeName%></title>
+    <title><s:property value="#request.homeName"/></title>
 </head>
 <body>
 <%@include file="/template/header.jsp"%>
@@ -16,7 +16,7 @@
                 <h4>${msg}</h4>
             </div>
             <h3 class="text-center">
-                <a href="<%=rootPath%>/">主页</a>
+                <a href="${pageContext.request.contextPath}/">主页</a>
             </h3>
         </div>
     </div>

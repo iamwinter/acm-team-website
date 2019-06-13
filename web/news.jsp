@@ -3,14 +3,14 @@
 <html>
 <head>
     <%@include file="/template/headTag.jsp"%>
-    <title>新闻-<%=homeName%></title>
+    <title>新闻-<s:property value="#request.homeName"/></title>
 </head>
 <body>
 <%@include file="/template/header.jsp"%>
 <div class="main bkcolorhalf">
     <div class="bigContainer">
 
-        <form action="<%=rootPath%>/news_news" method="get">
+        <form action="${pageContext.request.contextPath}/news_news" method="get">
 
             <div class="form-group col-xs-9 col-sm-3">
                 <input type="text" name="key" class="form-control" placeholder="模糊查询" required>
@@ -31,7 +31,7 @@
             <s:iterator value="dataList" var="news">
                 <tr>
                     <td>
-                        <a href="<%=rootPath%>/news_show?id=<s:property value="#news.id"/>">
+                        <a href="${pageContext.request.contextPath}/news_show?id=<s:property value="#news.id"/>">
                             <s:property value="#news.title"/>
                         </a>
                     </td>
@@ -39,7 +39,7 @@
                     <td class="text-right"><s:property value="#news.created"/></td>
                     <s:if test="#session.user.isSuper==1">
                         <td>
-                            <a href="<%=rootPath%>/news_editNews?id=<s:property value="#news.id"/>">编辑</a>
+                            <a href="${pageContext.request.contextPath}/news_editNews?id=<s:property value="#news.id"/>">编辑</a>
                         </td>
                     </s:if>
                 </tr>

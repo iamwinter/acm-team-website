@@ -3,7 +3,7 @@
 <html>
 <head>
     <%@include file="/template/headTag.jsp"%>
-    <title>修改个人信息-<%=homeName%></title>
+    <title>修改个人信息-<s:property value="#request.homeName"/></title>
 </head>
 <body>
 
@@ -173,10 +173,10 @@
                 <div class="col-xs-6">
                     <label for="preview">照片预览</label><br>
                     <s:if test="#request.photo_path!=null">
-                        <img id="preview" src="<%=rootPath%>/<s:property value="#request.photo_path"/>" style="width: 260px">
+                        <img id="preview" src="${pageContext.request.contextPath}/<s:property value="#request.photo_path"/>" style="width: 260px">
                     </s:if>
                     <s:else>
-                        <img id="preview" src="<%=rootPath%>/template/images/smallPic/defaultphoto.jpg" style="width: 260px">
+                        <img id="preview" src="${pageContext.request.contextPath}/template/images/smallPic/defaultphoto.jpg" style="width: 260px">
                     </s:else>
                 </div>
             </div>
@@ -214,7 +214,7 @@
     var E = window.wangEditor;
     var editor = new E('#editor');
     // 图片上传说明书 https://www.kancloud.cn/wangfupeng/wangeditor3/335782
-    editor.customConfig.uploadImgServer = "<%=rootPath%>/file_wangUploadImage.action"
+    editor.customConfig.uploadImgServer = "${pageContext.request.contextPath}/file_wangUploadImage.action"
     editor.customConfig.uploadImgMaxSize=10*1024*1024;
     editor.customConfig.uploadImgMaxLength = 50;
     editor.customConfig.uploadFileName = 'upFile'  //上传文件名，与action中一致
@@ -261,7 +261,7 @@
             console.log("回传图片json数据:");
             console.log(result)
             result=$.parseJSON(result) //字符串转换为json
-            insertImg("<%=rootPath%>/"+result.data);
+            insertImg("${pageContext.request.contextPath}/"+result.data);
 
             // result 必须是一个 JSON 格式字符串！！！否则报错
         }
@@ -284,7 +284,7 @@
             $("#password_alert").show()
         }else{
             $.ajax({
-                url:"<%=rootPath%>/user_modify_pwd",
+                url:"${pageContext.request.contextPath}/user_modify_pwd",
                 type:"post",
                 data:$("#form_pwd").serialize(),
                 success:function (result) {
@@ -307,7 +307,7 @@
         $("#info_alert_s").hide()
         $("#id_resume").val(editor.txt.html())
         $.ajax({
-            url:"<%=rootPath%>/user_modify_info",
+            url:"${pageContext.request.contextPath}/user_modify_info",
             type:"post",
             data:$("#form_info").serialize(),
             success:function (result) {
@@ -359,7 +359,7 @@
         formData.append('id', ${aimUser.id});  //添加图片信息的参数
         console.log(formData.get("upFile"))
         $.ajax({
-            url:"<%=rootPath%>/user_modify_photo",
+            url:"${pageContext.request.contextPath}/user_modify_photo",
             type:"post",
             data:formData,
             dataType:"json",

@@ -9,7 +9,7 @@
 <html>
 <head>
     <%@include file="/template/headTag.jsp"%>
-    <title>登录-<%=homeName%></title>
+    <title>登录-<s:property value="#request.homeName"/></title>
 </head>
 <body>
 <%@include file="/template/header.jsp"%>

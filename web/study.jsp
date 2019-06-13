@@ -3,7 +3,7 @@
 <html>
 <head>
     <%@include file="/template/headTag.jsp"%>
-    <title>学习专区-<%=homeName%></title>
+    <title>学习专区-<s:property value="#request.homeName"/></title>
 </head>
 <body>
 <%@include file="/template/header.jsp"%>
@@ -41,7 +41,7 @@
 
         <!-- 模态框（Modal）添加文件夹 -->
         <s:if test="#session.user.isSuper==1">
-            <a class="btn btn-primary" href="<%=rootPath%>/admin_subject" target="_blank">添加科目</a>
+            <a class="btn btn-primary" href="${pageContext.request.contextPath}/admin_subject" target="_blank">添加科目</a>
             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalAddFolder">新建文件夹</a>
             <div class="modal fade" id="modalAddFolder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -108,7 +108,7 @@
                 <s:iterator value="dataList" var="folder">
                     <tr>
                         <td>
-                            <a href="<%=rootPath%>/study_files?id=<s:property value="#folder.id"/>">
+                            <a href="${pageContext.request.contextPath}/study_files?id=<s:property value="#folder.id"/>">
                                 <s:property value="#folder.title"/>
                             </a>
                         </td>
@@ -132,7 +132,7 @@
 
     function addFolder(){
         $.ajax({
-            url:"<%=rootPath%>/study_addFolder",
+            url:"${pageContext.request.contextPath}/study_addFolder",
             type:"post",
             data:$('#form_addFolder').serialize(),
             dataType:"json",

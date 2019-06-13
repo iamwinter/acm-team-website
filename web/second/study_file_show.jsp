@@ -3,7 +3,7 @@
 <html>
 <head>
     <%@include file="/template/headTag.jsp"%>
-    <title>考研资料-<%=homeName%></title>
+    <title>考研资料-<s:property value="#request.homeName"/></title>
 
 </head>
 <body>
@@ -11,11 +11,11 @@
 <div class="main bkcolorhalf">
     <div class="bigContainer">
         <div class="form-group">
-            <a href="<%=rootPath%>/study_folders?forYear=${forYear}&subjectId=${subjectId}">返回上一级</a>
+            <a href="${pageContext.request.contextPath}/study_folders?forYear=${forYear}&subjectId=${subjectId}">返回上一级</a>
         </div>
 
         <div class="">
-            <script src="<%=rootPath%>/template/ckplayer/ckplayer.js"></script>
+            <script src="${pageContext.request.contextPath}/template/ckplayer/ckplayer.js"></script>
             <div id="video" style="width:700px;height:450px;max-width:100%;margin:auto;display: none;"></div>
             <script type="text/javascript">
                 var videoObject = {
@@ -52,7 +52,7 @@
                     <tr id="tr_file_${sta.index}">
                         <td>
                             <s:if test="#file.path.contains('mp4')">
-                                <a onclick="playVideo('<%=rootPath%>/${file.path}')" style="cursor: pointer">
+                                <a onclick="playVideo('${pageContext.request.contextPath}/${file.path}')" style="cursor: pointer">
                                     ${file.name}
                                 </a>
                             </s:if>
@@ -61,7 +61,7 @@
                         <td><s:property value="#file.userId"/> </td>
                         <td><s:property value="#file.created"/></td>
                         <td>
-                            <a href="<%=rootPath%>/${file.path}" download="${file.name}">下载</a>
+                            <a href="${pageContext.request.contextPath}/${file.path}" download="${file.name}">下载</a>
                             <s:if test="#session.user.isSuper==1">
                                 /
                                 <a href="#">修改</a>
@@ -141,7 +141,7 @@
         if(!confirm('将永久删除此文件？'))
             return false;
         $.ajax({
-            url:"<%=rootPath%>/study_delete_file",
+            url:"${pageContext.request.contextPath}/study_delete_file",
             type:"post",
             data:{'fileId':fileId},
             dataType:"json",
@@ -212,7 +212,7 @@
             else
                 uploadFileWithCut(file,start,fileIndex);  //切割文件并上传
         };
-        testxhr.open("POST", "<%=rootPath%>/file_getUploadedSize");
+        testxhr.open("POST", "${pageContext.request.contextPath}/file_getUploadedSize");
         testxhr.send(formData);
     }
 
@@ -255,7 +255,7 @@
             }
         };
         //发送文件和表单自定义参数
-        xhr.open("POST", "<%=rootPath%>/file_doUpload");
+        xhr.open("POST", "${pageContext.request.contextPath}/file_doUpload");
         xhr.send(fd);
     }
 

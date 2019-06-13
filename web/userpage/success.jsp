@@ -9,7 +9,7 @@
 <html>
 <head>
     <%@include file="/template/headTag.jsp"%>
-    <title>登录成功-<%=homeName%></title>
+    <title>登录成功-<s:property value="#request.homeName"/></title>
 </head>
 <body>
 <%@include file="/template/header.jsp"%>
@@ -22,9 +22,9 @@
             </div>
             <h3>
                 您可以前往
-                <a href="<%=rootPath%>/">主页</a>
+                <a href="${pageContext.request.contextPath}/">主页</a>
                 /
-                <a href="<%=rootPath%>/user_modify">修改个人信息</a>
+                <a href="${pageContext.request.contextPath}/user_modify">修改个人信息</a>
             </h3>
         </div>
     </div>

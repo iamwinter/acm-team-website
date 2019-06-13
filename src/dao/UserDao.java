@@ -55,7 +55,7 @@ public class UserDao extends BaseDao<User> {
 			e.printStackTrace();
 		}
 		List list=session.createQuery("from User where (username like ?1 or nickName like ?1)"
-				+ (onlyPublic ? " and isPublic=1":""))
+				+ (onlyPublic ? " and isPublic=1":"")+" order by grade desc")
 				.setParameter(1,"%"+key+"%").list();
 		close();
 		return list;
