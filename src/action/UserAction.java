@@ -101,11 +101,11 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 		User user_on= (User) session.get("user");
 		if(user_on==null){
 			res=false;
-			msg="您尚未登录，无法进行修改！";
-			return ERROR;
+			msg="请先登录！";
+			return LOGIN;
 		}
 		User aimUser=new UserDao().findByUsername(user.getUsername());//修改目标
-		if(user_on.getIsSuper()==0 || aimUser==null){
+		if((user_on.getPower()&1)==0 || aimUser==null){
 			aimUser=user_on;	//修改他自己
 		}
 		request.setAttribute("aimUser",aimUser);
@@ -124,7 +124,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 
 		User userGet=new UserDao().findById(user.getId());
 		if(userGet.getPassword().equals(User.encode(old_pwd))
-				|| user_on.getIsSuper()==1 && userGet.getIsSuper()==0 ){
+				|| (user_on.getPower()&1)==1 && (user_on.getPower()&1)==0 ){
 			//旧密码对了 或者 管理员在操作普通用户
 			userGet.setPassword(new_pwd);
 			new UserDao().update(userGet);
@@ -150,7 +150,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 		if(user.getEmail().length()>4 && user.getId()!=userGet.getId()){
 			json.put("res","false");
 			json.put("msg","该邮箱已经被别人用过了，换一个吧！");
-		}else if(user_on.getId()==user.getId() || user_on.getIsSuper()==1 && userGet.getIsSuper()==0){
+		}else if(user_on.getId()==user.getId() || (user_on.getPower()&1)==1 && (user_on.getPower()&1)==0){
 //			用户自我修改 || 管理员修改普通成员
 			User aimUser=new UserDao().findById(user.getId());
 			aimUser.setEmail(user.getEmail());
@@ -190,7 +190,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 			result=json.toString();
 			return "json";
 		}
-		if( !aimUser.getId().equals(user_on.getId()) && user_on.getIsSuper()<=aimUser.getIsSuper() ){
+		if( !aimUser.getId().equals(user_on.getId()) && (user_on.getPower()&1)<=(aimUser.getPower()&1) ){
 			//既不是自我修改，也不是管理员超级权限修改，则非法
 			json.put("res","false");
 			json.put("msg","权限不足！");
@@ -230,10 +230,12 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 
 		//下面删除原来的图片
 		String last_realPath= ServletActionContext.getServletContext().getRealPath(last_photo_path);
-		File storeFile = new java.io.File( last_realPath );	//创建文件
-		if(storeFile.isFile()){
-			storeFile.delete();
-			System.out.println("从磁盘中删除文件:"+ last_realPath);
+		if(last_photo_path!=null){
+			File storeFile = new java.io.File( last_realPath );	//创建文件
+			if(storeFile.isFile()){
+				storeFile.delete();
+				System.out.println("从磁盘中删除文件:"+ last_realPath);
+			}
 		}
 
 		json.put("res","true");
@@ -244,25 +246,21 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 
 	public String admin_users(){
 		User user_on= (User) session.get("user");
-		if(user_on==null || user_on.getIsSuper()==0){
+		if( user_on==null || (user_on.getPower()&1)==0 ){
 			msg="权限不足";
 			return ERROR;
 		}
 		String key = request.getParameter("key");
-		dataList = new UserDao().find_members(key==null?"":key,false);
+		dataList = new UserDao().find_members(key==null?"":key);
 		return "admin_users";
 	}
 
 	public String members(){
 		User user_on= (User) session.get("user");
-		if(user_on==null){
-			msg="请先登录!";
-			return LOGIN;
-		}
 		String key = request.getParameter("key");
-		List<User> listAll = new UserDao().find_members(key==null?"":key,true);
+		List<User> listAll = new UserDao().find_members(key==null?"":key);
 		List<User> teacher=new ArrayList<>();	//老师
-		Map<Integer,List<User>> student = new HashedMap();	//按年级分类
+		Map<Integer,List<User>> student = new HashMap<>();	//按年级分类
 		for(User i:listAll){
 			if(i.getTag()==3)//老师
 				teacher.add(i);
@@ -280,12 +278,12 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 
 	public String user(){
 		User user_on= (User) session.get("user");
-		if(user_on==null){
+		User temp=new UserDao().findByUsername(user.getUsername());
+		if(user_on==null&&temp==null){
 			res=false;
-			msg="您尚未登录，不允许查看个人信息！";
+			msg="未找到用户信息！";
 			return ERROR;
 		}
-		User temp=new UserDao().findByUsername(user.getUsername());
 		request.setAttribute("aimUser", temp==null?user_on:temp);
 		return "user";
 	}

@@ -31,7 +31,7 @@ public class NewsAction extends ActionSupport implements ModelDriven<News>,Servl
 	public boolean check_admin(){
 		// 检测当前用户是否是管理员
 		User user_on= (User) session.get("user");
-		if(user_on==null || user_on.getIsSuper()==0){
+		if(user_on==null || (user_on.getPower()&1)==0 ){
 			msg="您没有管理员权限!";
 			return false;
 		}
@@ -78,7 +78,7 @@ public class NewsAction extends ActionSupport implements ModelDriven<News>,Servl
 
 	public String news(){
 		//获取所有公开的新闻，前台展示
-		int num = IntegerTool.strToInt(request.getParameter("pageNum"),1);
+		int num = IntegerTool.strToInt(request.getParameter("page"),1);
 		dataList = new NewsDao().findPublicPage(num,20);
 		return "news";
 	}

@@ -15,6 +15,11 @@
             <h3>
                 如需访问旧版网站，请点击<a href="http://icpc.ldu.edu.cn/acm/">这里</a>
             </h3>
+
+            <s:iterator value="#request.recent_news" var="news">
+                <s:property value="#news.title"/>
+            </s:iterator>
+            <s:debug/>
         </div>
     </div>
 </div>

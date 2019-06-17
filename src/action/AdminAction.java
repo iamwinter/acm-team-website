@@ -1,6 +1,9 @@
 package action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import dao.ContestDao;
+import dao.MatchDao;
+import dao.NewsDao;
 import dao.StudySubjectDao;
 import models.User;
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -22,11 +25,17 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 	private String msg="";		//结果信息
 	private List dataList; //用于返回结果集
 
+	public String index(){
+		request.setAttribute("recent_news", new NewsDao().findPublicPage(1,10));//近期10条新闻
+		request.setAttribute("recent_contest",new ContestDao().findPage(1,10,"start",false));
+		request.setAttribute("recent_match",new MatchDao().findPage(1,10,"date",false)); //近期赛事
+		return "index";
+	}
 
 	public String admin(){
 		// 检测当前用户是否是管理员
 		User user_on= (User) session.get("user");
-		if(user_on==null || user_on.getIsSuper()==0){
+		if(user_on==null || (user_on.getPower()&1)==0){
 			msg="您没有管理员权限!";
 			return ERROR;
 		}
@@ -81,4 +90,5 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 	public void setDataList(List dataList) {
 		this.dataList = dataList;
 	}
+
 }

@@ -12,11 +12,17 @@
 
     <package name="user_oper" namespace="/" extends="struts-default,json-default" strict-method-invocation="false">
 
+        <default-action-ref name="index" /> <!-- 默认首页 -->
+
         <global-results>
             <result name="success">success.jsp</result>
             <result name="error">error.jsp</result>
             <result name="login">userpage/login.jsp</result>
         </global-results>
+
+        <action name="index" class="action.AdminAction" method="index">
+            <result name="index">/home.jsp</result>
+        </action>
 
         <action name="user_*" class="action.UserAction" method="{1}">
             <result name="json" type="json">

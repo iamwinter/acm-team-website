@@ -39,7 +39,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="${pageContext.request.contextPath}/user_user">我的主页</a></li>
                             <li><a href="${pageContext.request.contextPath}/user_modify">修改信息</a></li>
-                            <s:if test="#session.user.isSuper==1">
+                            <s:if test="(#session.user.power&1)>0">
                                 <li><a href="${pageContext.request.contextPath}/admin_admin">管理员</a></li>
                             </s:if>
                             <li class="divider"></li>

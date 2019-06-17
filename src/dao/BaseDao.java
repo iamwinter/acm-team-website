@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -66,7 +67,18 @@ public class BaseDao<Bean>  {
 		return list.isEmpty() ? null : (Bean) list.get(0);
 	}
 
-	public List<Bean> findAll(){
+	// 按页查找
+	public List findPage(int pageId,int pageSize,String column,boolean isAsc){
+		Query query = session.createQuery("from "+beanClass.getName()+" order by ?1 "+(isAsc?"asc":"desc"));
+		query.setParameter(1,column);
+		query.setFirstResult((pageId-1)*pageSize);
+		query.setMaxResults(pageSize);
+		List list=query.getResultList();
+		close();
+		return list;
+	}
+
+	public List findAll(){
 		List list=session.createQuery("from "+beanClass.getName()).list();
 		close();
 		return list;

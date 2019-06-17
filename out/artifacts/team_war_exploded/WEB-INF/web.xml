@@ -24,6 +24,7 @@
             <url-pattern>/members.jsp</url-pattern>
             <url-pattern>/news.jsp</url-pattern>
             <url-pattern>/study.jsp</url-pattern>
+            <url-pattern>/home.jsp</url-pattern>
         </web-resource-collection>
         <auth-constraint/>
     </security-constraint>

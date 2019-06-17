@@ -7,7 +7,7 @@ import java.lang.annotation.Native;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "match")
+@Table(name = "matches")
 public class Match {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

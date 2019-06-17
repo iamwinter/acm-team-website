@@ -21,10 +21,8 @@ public class User {
 	private String email;
 	@Column(name = "nick_name")
 	private String nickName;
-	@Column(name = "is_super")
-	private Integer isSuper;
-	@Column(name = "is_public")
-	private Integer isPublic;
+	@Column(name = "power")
+	private Integer power;
 	@Column(name = "tag")
 	private Integer tag;    //用户角色：0外部 1退役 2现役 3教师
 	@Column(name = "grade")
@@ -78,14 +76,6 @@ public class User {
 		return nickName;
 	}
 
-	public Integer getIsSuper() {
-		return isSuper;
-	}
-
-	public Integer getIsPublic() {
-		return isPublic;
-	}
-
 	public Integer getTag() {
 		return tag;
 	}
@@ -133,14 +123,13 @@ public class User {
 		this.nickName = nickName;
 	}
 
-	public void setIsSuper(Integer isSuper) {
-		this.isSuper = isSuper;
+	public Integer getPower() {
+		return power;
 	}
 
-	public void setIsPublic(Integer isPublic) {
-		this.isPublic = isPublic;
+	public void setPower(Integer power) {
+		this.power = power;
 	}
-
 
 	public void setTag(Integer tag) {
 		this.tag = tag;
@@ -166,8 +155,6 @@ public class User {
 		this.resume = resume;
 	}
 
-
-
 	public String getPhotoPath() {
 		return photoPath;
 	}
@@ -184,8 +171,7 @@ public class User {
 				", password='" + password + '\'' +
 				", email='" + email + '\'' +
 				", nickName='" + nickName + '\'' +
-				", isSuper=" + isSuper +
-				", isPublic=" + isPublic +
+				", power=" + power +
 				", tag=" + tag +
 				", grade=" + grade +
 				", major='" + major + '\'' +

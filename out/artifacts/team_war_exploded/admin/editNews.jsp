@@ -57,7 +57,7 @@
     editor.customConfig.uploadImgServer = "${pageContext.request.contextPath}/file_wangUploadImage.action"
     editor.customConfig.uploadImgMaxSize=10*1024*1024;
     editor.customConfig.uploadImgMaxLength = 50;
-    editor.customConfig.uploadFileName = 'upFile'  //上传文件名，与action中一致
+    editor.customConfig.uploadFileName = 'upFile';  //上传文件名，与action中一致
     editor.customConfig.uploadImgHooks = {
         before: function (xhr, editor, files) {
             // 图片上传之前触发
@@ -105,7 +105,7 @@
 
             // result 必须是一个 JSON 格式字符串！！！否则报错
         }
-    }
+    };
     editor.create();
 </script>
 

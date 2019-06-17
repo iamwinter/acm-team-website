@@ -1,9 +1,12 @@
 package dao;
 
 import models.User;
+import org.hibernate.query.Query;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,10 +33,9 @@ public class UserDao extends BaseDao<User> {
 	}
 
 	public void register(User user){
-		user.setGrade(2016);
+		user.setGrade(Calendar.getInstance().get(Calendar.YEAR));
 		user.setTag(0);
-		user.setIsSuper(user.getUsername()=="admin"?1:0);
-		user.setIsPublic(user.getUsername()=="admin"?1:0);
+		user.setPower(user.getUsername().equals("admin") ?3:0);
 		super.add(user);
 	}
 
@@ -47,15 +49,14 @@ public class UserDao extends BaseDao<User> {
 		return user.getPassword().equals(password) ? user : null;
 	}
 
-	public List<User> find_members(String key,boolean onlyPublic) {
+	public List find_members(String key) {
 		System.out.println(key);//中文查找不到怎么办
 		try {
 			key = new String(key.getBytes("ISO8859_1"), StandardCharsets.UTF_8);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		List list=session.createQuery("from User where (username like ?1 or nickName like ?1)"
-				+ (onlyPublic ? " and isPublic=1":"")+" order by grade desc")
+		List list=session.createQuery("from User where username like ?1 or nickName like ?1 order by grade desc")
 				.setParameter(1,"%"+key+"%").list();
 		close();
 		return list;

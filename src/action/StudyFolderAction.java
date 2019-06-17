@@ -12,7 +12,6 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.*;
 
 import java.util.List;
 import java.util.Map;
@@ -30,7 +29,7 @@ public class StudyFolderAction extends ActionSupport implements ModelDriven<Stud
 	public boolean admin(){
 		// 检测当前用户是否是管理员
 		User user_on= (User) session.get("user");
-		if(user_on==null || user_on.getIsSuper()==0){
+		if(user_on==null || (user_on.getPower()&1)==0){
 			msg="您没有管理员权限!";
 			return false;
 		}
@@ -44,9 +43,9 @@ public class StudyFolderAction extends ActionSupport implements ModelDriven<Stud
 			msg="请先登录!";
 			return LOGIN;
 		}
-		if(user_on.getIsPublic()==0){
+		if((user_on.getPower()&2)==0){
 			res=false;
-			msg="您没有权限查看该页面!";
+			msg="抱歉，您的账号不能使用该功能！<br>如有需要，请联系我们！";
 			return ERROR;
 		}
 		return SUCCESS;
