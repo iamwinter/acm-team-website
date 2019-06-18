@@ -1,12 +1,9 @@
 package dao;
 
 import models.User;
-import org.hibernate.query.Query;
 
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
-import java.util.Date;
+
 import java.util.List;
 
 /**
@@ -49,13 +46,7 @@ public class UserDao extends BaseDao<User> {
 		return user.getPassword().equals(password) ? user : null;
 	}
 
-	public List find_members(String key) {
-		System.out.println(key);//中文查找不到怎么办
-		try {
-			key = new String(key.getBytes("ISO8859_1"), StandardCharsets.UTF_8);
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+	public List<User> find_members(String key) {
 		List list=session.createQuery("from User where username like ?1 or nickName like ?1 order by grade desc")
 				.setParameter(1,"%"+key+"%").list();
 		close();

@@ -16,16 +16,16 @@
 <div class="main">
     <div class="bigContainer">
 
-        <div class="col-sm-12 col-md-8" style="padding: 0 5%">
+        <div class="col-sm-12 col-md-8" style="padding: 0 5%;font-size: 1.1em">
             <h1 style="margin: 0;"><s:property value="#request.aimUser.username"/></h1>
             <hr>
-            <p>身份：<s:property value="@dao.UserDaoImpl@tagStr[#request.aimUser.tag]"/></p>
+            <p>用户标签：<s:property value="@dao.UserDao@tagStr[#request.aimUser.tag]"/></p>
             <p>本科专业：<s:property value="#request.aimUser.major"/></p>
-            <p>年级:<s:property value="#request.aimUser.grade"/></p>
-            <p>姓名:${aimUser.username}</p>
-            <p>学校/工作:${aimUser.work}</p>
-            <p>邮箱:${aimUser.email}</p>
-            <p>博客:<a href="${aimUser.blogUrl}">${aimUser.blogUrl}</a> </p>
+            <p>年级：<s:property value="#request.aimUser.grade"/></p>
+            <p>姓名：${aimUser.nickName}</p>
+            <p>学校/工作：${aimUser.work}</p>
+            <p>邮箱：${aimUser.email}</p>
+            <p>博客：<a href="${aimUser.blogUrl}">${aimUser.blogUrl}</a> </p>
         </div>
 
         <%--        照片--%>

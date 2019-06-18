@@ -48,6 +48,7 @@
             </result>
             <result name="admin">/admin/index.jsp</result>
             <result name="subject">/admin/subject.jsp</result>
+            <result name="subject_oper" type="redirect">admin_subject</result>
         </action>
 
         <action name="file_*" class="action.FileAction" method="{1}">

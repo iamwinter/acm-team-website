@@ -1,6 +1,9 @@
 package dao;
 
+import Tools.IntegerTool;
 import models.StudySubject;
+import org.hibernate.query.Query;
+
 import java.util.List;
 
 public class StudySubjectDao extends BaseDao<StudySubject> {
@@ -11,22 +14,31 @@ public class StudySubjectDao extends BaseDao<StudySubject> {
 		session.save(ss);
 		transaction.commit();
 		ss.setPriority(ss.getId());
-		super.update(ss);
+		close();
+		new StudySubjectDao().update(ss);
 	}
 
-	public void swap(int x,int y){
-		// 优先级交换
-		StudySubject a=findById(x), b=findById(y);
-		int temp = a.getPriority();
-		a.setPriority(b.getPriority());
-		b.setPriority(temp);
-		new StudySubjectDao().update(a);
-		super.update(b);
+	//优先级交换，即移动顺序
+	public void move_pos(Integer id, boolean up) {
+		StudySubject ss=new StudySubjectDao().findById(id);
+		List list=session.createQuery(
+				"from StudySubject where priority"+(up?"<":">")+"?1 order by priority "+(up?"desc":"asc"))
+				.setParameter(1,ss.getPriority()).list();
+		if(!list.isEmpty()){
+			StudySubject aim= (StudySubject) list.get(0);
+			Integer ssPri=ss.getPriority();
+			ss.setPriority(aim.getPriority());
+			aim.setPriority(ssPri);
+			new StudySubjectDao().update(ss);
+			new StudySubjectDao().update(aim);
+		}
 	}
 
+	//按优先级排序，获取科目
 	public List<StudySubject> getList() {
 		List list=session.createQuery("from StudySubject order by priority asc").list();
 		close();
 		return list;
 	}
+
 }

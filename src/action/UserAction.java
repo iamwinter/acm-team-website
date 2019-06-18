@@ -1,13 +1,14 @@
 package action;
 
 import Tools.DateTool;
+import Tools.IntegerTool;
 import Tools.MyConfig;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import dao.UserDao;
 import models.User;
+import net.sf.json.JSON;
 import net.sf.json.JSONObject;
-import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -131,9 +132,9 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 			if(user_on.getId()==userGet.getId()){
 				session.put("user",userGet);//用户自我修改，强制下线重新上线 覆盖 登录
 			}
-			json.put("res","true");
+			json.put("res",true);
 		}else{
-			json.put("res","false");
+			json.put("res",false);
 		}
 		result=json.toString();
 		return "json";
@@ -147,12 +148,13 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 		JSONObject json=new JSONObject();
 
 		User userGet=new UserDao().findByEmail(user.getEmail());
+		User aimUser=new UserDao().findById(user.getId());
 		if(user.getEmail().length()>4 && user.getId()!=userGet.getId()){
-			json.put("res","false");
+			json.put("res",false);
 			json.put("msg","该邮箱已经被别人用过了，换一个吧！");
-		}else if(user_on.getId()==user.getId() || (user_on.getPower()&1)==1 && (user_on.getPower()&1)==0){
-//			用户自我修改 || 管理员修改普通成员
-			User aimUser=new UserDao().findById(user.getId());
+		}else if( (user_on.getId()==user.getId() || (user_on.getPower()&1)==1 && (aimUser.getPower()&1)==0)
+				&& (aimUser.getPower()>>2&1)==0){
+//			(用户自我修改 || 管理员修改普通成员) && 未被锁定
 			aimUser.setEmail(user.getEmail());
 			aimUser.setTag(user.getTag());
 			aimUser.setMajor(user.getMajor());
@@ -165,9 +167,9 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 			if(user_on.getId()==user.getId()){
 				session.put("user",aimUser);//用户自我修改，强制下线重新上线 覆盖 登录
 			}
-			json.put("res","true");
+			json.put("res",true);
 		}else{
-			json.put("res","false");
+			json.put("res",false);
 			json.put("msg","你没有权限修改该用户");
 		}
 		result=json.toString();
@@ -185,14 +187,14 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 			aimUser=user_on;
 		}
 		if(upFileFileName==null){
-			json.put("res","false");
+			json.put("res",false);
 			json.put("msg","您没有选择任何文件！");
 			result=json.toString();
 			return "json";
 		}
 		if( !aimUser.getId().equals(user_on.getId()) && (user_on.getPower()&1)<=(aimUser.getPower()&1) ){
 			//既不是自我修改，也不是管理员超级权限修改，则非法
-			json.put("res","false");
+			json.put("res",false);
 			json.put("msg","权限不足！");
 			result=json.toString();
 			return "json";
@@ -215,7 +217,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("文件保存异常");
-			json.put("res","false");
+			json.put("res",false);
 			json.put("msg","文件上传失败！");
 			result=json.toString();
 			return "json";
@@ -238,21 +240,10 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 			}
 		}
 
-		json.put("res","true");
+		json.put("res",true);
 		json.put("msg","头像修改成功！");
 		result=json.toString();
 		return "json";
-	}
-
-	public String admin_users(){
-		User user_on= (User) session.get("user");
-		if( user_on==null || (user_on.getPower()&1)==0 ){
-			msg="权限不足";
-			return ERROR;
-		}
-		String key = request.getParameter("key");
-		dataList = new UserDao().find_members(key==null?"":key);
-		return "admin_users";
 	}
 
 	public String members(){
@@ -272,6 +263,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 		}
 		request.setAttribute("teacher",teacher);
 		request.setAttribute("student",student);
+		request.setAttribute("key",key);
 		listAll.clear();
 		return "members";
 	}
@@ -286,6 +278,92 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 		}
 		request.setAttribute("aimUser", temp==null?user_on:temp);
 		return "user";
+	}
+
+	//检查是否是admin
+	private boolean check_power(){
+		User user_on= (User) session.get("user");
+		if( user_on==null || (user_on.getPower()&1)==0 )
+			return false;
+		return true;
+	}
+
+	//展示用户信息
+	public String admin_users(){
+		if( !check_power() ){
+			msg="权限不足";
+			return ERROR;
+		}
+		String key = request.getParameter("key");
+		dataList = new UserDao().find_members(key==null?"":key);
+		request.setAttribute("key",key);
+		return "admin_users";
+	}
+
+	//切换用户各种权限
+	public String switch_power(){
+		JSONObject json=new JSONObject();
+		User user_on= (User) session.get("user");
+		if( !check_power() ){
+			json.put("res",false);
+			json.put("msg","您没有权限进行该操作!");
+		}else{
+			Integer x= IntegerTool.strToInt(request.getParameter("x"));
+			user=new UserDao().findById(user.getId());
+			if("admin".equals(user.getUsername()) && ( x==0 || !user_on.getId().equals(user.getId())) ){
+				json.put("res",false);
+				json.put("msg","admin的权限不容侵犯");
+			}else{
+				user.setPower( user.getPower() ^ (1<<x) );
+				new UserDao().update(user);
+				json.put("res",true);
+				json.put("msg",null);
+				if(user_on.getId().equals(user.getId())){
+					session.put("user",user);//用户自我修改，强制下线重新上线 覆盖 登录
+				}
+			}
+		}
+		result=json.toString();
+		return "json";
+	}
+
+	//修改用户身份标签
+	public String change_tag(){
+		JSONObject json=new JSONObject();
+		User user_on= (User) session.get("user");
+		User aimUser=new UserDao().findById(user.getId());
+		if( !check_power() || "admin".equals(aimUser.getUsername()) && !user_on.getId().equals(aimUser.getId())){
+			json.put("res",false);
+			json.put("msg","你的用户权限过低，不能修改该用户!");
+		}else{
+			aimUser.setTag(user.getTag());
+			new UserDao().update(aimUser);
+			json.put("res",true);
+			if(user_on.getId().equals(aimUser.getId())){
+				session.put("user",aimUser);//用户自我修改，强制下线重新上线 覆盖 登录
+			}
+		}
+		result=json.toString();
+		return "json";
+	}
+
+	//删除用户
+	public String delete_user(){
+		JSONObject json=new JSONObject();
+		User user_on= (User) session.get("user");
+		User aimUser=new UserDao().findById(user.getId());
+		if( !check_power() ){
+			json.put("res",false);
+			json.put("msg","权限不足!");
+		}else if( (aimUser.getPower()&1)==1 || user_on.getId().equals(aimUser.getId())){
+			json.put("res",false);
+			json.put("msg","不能删除管理员或自己!");
+		}else{
+			new UserDao().delete(aimUser);
+			json.put("res",true);
+		}
+		result=json.toString();
+		return "json";
 	}
 
 	@Override

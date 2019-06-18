@@ -70,6 +70,14 @@
     <div class="panel panel-default">
         <div class="panel-heading">基本信息</div>
         <form id="form_info" onsubmit="return check_info();" class="panel-body" method="post">
+
+            <s:if test="(#request.aimUser.power>>2&1)==1">
+                <div id="password_alert" class="form-group col-xs-12 alert alert-warning">
+                    <strong>警告！</strong>
+                    <font>用户信息已被锁定，无法修改，详询管理员</font>
+                </div>
+            </s:if>
+
 <%--            id必须--%>
             <input type="number" name="id" value="${aimUser.id}" hidden>
 
@@ -172,7 +180,7 @@
             <div class="form-group col-xs-12">
                 <div class="col-xs-6">
                     <label for="preview">照片预览</label><br>
-                    <s:if test="#request.photo_path!=null">
+                    <s:if test="#request.aimUser.photoPath!=null">
                         <img id="preview" src="${pageContext.request.contextPath}/${aimUser.photoPath}" style="width: 260px">
                     </s:if>
                     <s:else>
@@ -204,7 +212,6 @@
         </form>
 
     </div>
-
 
 </div>
 <%@include file="/template/footer.jsp"%>
@@ -273,6 +280,12 @@
 
 <script type="text/javascript">
 
+    <s:if test="(#request.aimUser.power>>2&1)==1">
+        $("#form_info input").attr("disabled",true)
+        $("#form_info select").attr("disabled",true)
+        $("#form_info button").attr("disabled",true)
+    </s:if>
+
     function check_pwd() {
         $("#password_alert").hide()
         $("#password_alert_s").hide()
@@ -289,7 +302,7 @@
                 data:$("#form_pwd").serialize(),
                 success:function (result) {
                     result=$.parseJSON(result) //字符串转换为json
-                    if(result.res=="true"){
+                    if(result.res==true){
                         $("#password_alert_s font").text(new Date())
                         $("#password_alert_s").show()
                     }else{
@@ -312,7 +325,7 @@
             data:$("#form_info").serialize(),
             success:function (result) {
                 result=$.parseJSON(result) //字符串转换为json
-                if(result.res=="true"){
+                if(result.res==true){
                     $("#info_alert_s font").text(new Date())
                     $("#info_alert_s").show()
                 }else{
@@ -368,7 +381,7 @@
             contentType: false, // 告诉jQuery不要去设置Content-Type请求头
             success:function (result) {
                 result=$.parseJSON(result) //字符串转换为json
-                if(result.res=="true"){
+                if(result.res==true){
                     $("#photo_alert_s font").text(new Date())
                     $("#photo_alert_s").show()
                 }else{

@@ -45,7 +45,7 @@ public class StudyFolderAction extends ActionSupport implements ModelDriven<Stud
 		}
 		if((user_on.getPower()&2)==0){
 			res=false;
-			msg="抱歉，您的账号不能使用该功能！<br>如有需要，请联系我们！";
+			msg="抱歉，这里包含一些重要资料，不便公开！<br>如有需要，请联系我们！";
 			return ERROR;
 		}
 		return SUCCESS;
@@ -93,7 +93,6 @@ public class StudyFolderAction extends ActionSupport implements ModelDriven<Stud
 		//添加文件夹
 		if(!admin())return ERROR;
 		JSONObject json=new JSONObject();
-		System.out.println(studyFolder);
 		new StudyFolderDao().add(studyFolder);
 		json.put("res",true);
 		json.put("msg","文件夹创建成功");
@@ -101,6 +100,16 @@ public class StudyFolderAction extends ActionSupport implements ModelDriven<Stud
 		return "json";
 	}
 
+	public String updateFolder(){
+		//添加文件夹
+		if(!admin())return ERROR;
+		JSONObject json=new JSONObject();
+		new StudyFolderDao().update(studyFolder);
+		json.put("res",true);
+		json.put("msg","文件夹修改成功");
+		result=json.toString();
+		return "json";
+	}
 
 	public String delete_file(){
 		//删除一个学习资料
@@ -113,6 +122,8 @@ public class StudyFolderAction extends ActionSupport implements ModelDriven<Stud
 		result=json.toString();
 		return "json";
 	}
+
+
 
 
 	public StudyFolder getStudyFolder() {

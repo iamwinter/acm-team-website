@@ -10,9 +10,10 @@
     request.setAttribute("homeName","鲁东大学ACM/ICPC程序设计实验室");
 %>
 
-<%--<link rel="shortcut icon" href="${pageContext.request.contextPath}/template/images/background/favicon.ico" type="image/x-icon">--%>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/template/css/main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/template/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<%-- 好看的按钮组件 --%>
+<link href="https://cdn.bootcss.com/titatoggle/2.1.2/titatoggle-dist-min.css" rel="stylesheet">
 
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>

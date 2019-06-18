@@ -43,7 +43,7 @@
                                 <li><a href="${pageContext.request.contextPath}/admin_admin">管理员</a></li>
                             </s:if>
                             <li class="divider"></li>
-                            <li><a href="javascript:logout()"><span class="glyphicon glyphicon-log-out"> Log-out</span></a></li>
+                            <li><a href="javascript:logout()"><span class="glyphicon glyphicon-log-out">退出账号</span></a></li>
                         </ul>
                     </li>
                 </s:else>
