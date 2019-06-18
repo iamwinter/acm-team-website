@@ -37,45 +37,49 @@
         <hr>
         <button class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="暂未实现,敬请期待">下载所有文件</button>
         <script>
-            $(function () { $("[data-toggle='tooltip']").tooltip(); });
+            $(function () { $("[data-toggle='tooltip']").tooltip(); });//提示框
         </script>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>文件名</th>
-                    <th>分享者</th>
-                    <th>上传时间</th>
-                </tr>
-            </thead>
-            <tbody>
-                <s:iterator value="dataList" var="file" status="sta">
-                    <tr id="tr_file_${sta.index}">
-                        <td>
-                            <s:if test="#file.path.contains('mp4')">
-                                <a onclick="playVideo('${pageContext.request.contextPath}/${file.path}')" style="cursor: pointer">
-                                    ${file.name}
-                                </a>
-                            </s:if>
-                            <s:else>${file.name}</s:else>
-                        </td>
-                        <td><s:property value="#file.userId"/> </td>
-                        <td><s:property value="#file.created"/></td>
-                        <td>
-                            <a href="${pageContext.request.contextPath}/${file.path}" download="${file.name}">下载</a>
-                            <s:if test="#session.user.isSuper==1">
-                                /
-                                <a href="#">修改</a>
-                                /
-                                <a href="javascript:void(0)"
-                                   onclick="deleteAStudyFile('${file.id}','tr_file_${sta.index}')">删除</a>
-                            </s:if>
-                        </td>
-                    </tr>
-                </s:iterator>
-            </tbody>
-        </table>
 
-        <s:if test="#session.user.isSuper==1">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>文件名</th>
+                        <th>分享者</th>
+                        <th>上传时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <s:iterator value="dataList" var="file" status="sta">
+                        <tr id="tr_file_${sta.index}">
+                            <td>
+                                <s:if test="#file.path.contains('mp4')">
+                                    <a onclick="playVideo('${pageContext.request.contextPath}/${file.path}')" style="cursor: pointer">
+                                        ${file.name}
+                                    </a>
+                                </s:if>
+                                <s:else>${file.name}</s:else>
+                            </td>
+                            <td class="text-nowrap"> <s:property value="#file.user.nickName"/> </td>
+                            <td><s:property value="#file.created"/></td>
+                            <td class="text-nowrap">
+                                <a href="${pageContext.request.contextPath}/${file.path}" download="${file.name}">下载</a>
+                                <s:if test="(#session.user.power>>3&1)==1">
+                                    /
+                                    <a href="#">修改</a>
+                                    /
+                                    <a href="javascript:void(0)"
+                                       onclick="deleteAStudyFile('${file.id}','tr_file_${sta.index}')">删除</a>
+                                </s:if>
+                            </td>
+                        </tr>
+                    </s:iterator>
+                </tbody>
+            </table>
+        </div>
+
+        <s:if test="(#session.user.power>>3&1)==1">
             <div class="panel panel-default">
                 <div class="panel-heading">上传文件</div>
                 <div class="panel-body">

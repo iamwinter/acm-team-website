@@ -33,7 +33,7 @@
             var a = $(this).find("a:first")[0];
             var url = location.pathname
             url = url.split('?')[0]     //去掉参数
-            if ($(a).attr("href") === url) {
+            if (url.indexOf($(a).attr("href"))!==-1) {
                 $(this).addClass("active");
             } else {
                 $(this).removeClass("active");
