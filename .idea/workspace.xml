@@ -8,39 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="83cb3420-eabc-49bb-a064-45ff4b18acb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/action/AdminAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/action/AdminAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/action/UserAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/action/UserAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/dao/StudySubjectDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/dao/StudySubjectDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/WEB-INF/classes/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/admin/subject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/admin/subject.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/admin/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/admin/users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/members.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/members.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/study.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/study.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/template/headTag.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/template/headTag.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/userpage/modify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/userpage/modify.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/action/AdminAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/action/AdminAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/action/UserAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/action/UserAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/AdminAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/AdminAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/StudyFolderAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/StudyFolderAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/UserAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/UserAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/StudySubjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/StudySubjectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/subject.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/subject.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/members.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/members.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/second/study_file_show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/second/study_file_show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/study.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/study.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/template/headTag.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/template/headTag.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/template/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/template/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userpage/modify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/userpage/modify.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userpage/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/userpage/user.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/team_war_exploded/template/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/team_war_exploded/template/footer.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,12 +56,11 @@
         <entry file="file://$PROJECT_DIR$/src/struts.xml">
           <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="44" column="70" selection-start-line="44" selection-start-column="70" selection-end-line="44" selection-end-column="70" />
+            <state relative-caret-position="195">
+              <caret line="50" column="76" selection-start-line="50" selection-start-column="76" selection-end-line="50" selection-end-column="76" />
               <folding>
                 <element signature="n#action#0;n#package#0;n#struts#0;n#!!top" />
                 <element signature="n#action#1;n#package#0;n#struts#0;n#!!top" />
-                <element signature="n#action#2;n#package#0;n#struts#0;n#!!top" />
                 <element signature="n#action#3;n#package#0;n#struts#0;n#!!top" />
                 <element signature="n#action#4;n#package#0;n#struts#0;n#!!top" />
                 <element signature="n#action#5;n#package#0;n#struts#0;n#!!top" />
@@ -166,7 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/dao/StudyNodeDao.java" />
         <option value="$PROJECT_DIR$/src/models/StudyNode.java" />
         <option value="$PROJECT_DIR$/src/models/SqlFile.java" />
         <option value="$PROJECT_DIR$/src/dao/FileDao.java" />
@@ -203,7 +169,6 @@
         <option value="$PROJECT_DIR$/src/dao/UserDao.java" />
         <option value="$PROJECT_DIR$/web/admin/editNews.jsp" />
         <option value="$PROJECT_DIR$/web/template/headTag.jsp" />
-        <option value="$PROJECT_DIR$/src/struts.xml" />
         <option value="$PROJECT_DIR$/src/action/AdminAction.java" />
         <option value="$PROJECT_DIR$/src/dao/StudySubjectDao.java" />
         <option value="$PROJECT_DIR$/web/admin/subject.jsp" />
@@ -217,6 +182,8 @@
         <option value="$PROJECT_DIR$/web/template/header.jsp" />
         <option value="$PROJECT_DIR$/web/userpage/user.jsp" />
         <option value="$PROJECT_DIR$/src/action/StudyFolderAction.java" />
+        <option value="$PROJECT_DIR$/src/struts.xml" />
+        <option value="$PROJECT_DIR$/web/template/footer.jsp" />
       </list>
     </option>
   </component>
@@ -249,17 +216,7 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="team" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -449,7 +406,7 @@
       <workItem from="1560739119697" duration="8565000" />
       <workItem from="1560759056497" duration="1346000" />
       <workItem from="1560760621304" duration="15196000" />
-      <workItem from="1560817272186" duration="13774000" />
+      <workItem from="1560817272186" duration="14329000" />
     </task>
     <task id="LOCAL-00001" summary="ACM/ICPC程序设计实验室网站">
       <created>1559443286655</created>
@@ -563,15 +520,28 @@
       <option name="project" value="LOCAL" />
       <updated>1560749050065</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="完善用户权限管理">
+      <created>1560831134396</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1560831134396</updated>
+    </task>
+    <task id="LOCAL-00018" summary="a">
+      <created>1560831487007</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1560831487007</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249509000" />
+    <option name="totallyTimeSpent" value="250064000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.59" visible="true" weight="0.1508043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -585,7 +555,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49865952" visible="true" weight="0.33427763" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49865952" weight="0.33427763" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -626,20 +596,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ACM/ICPC程序设计实验室网站" />
-    <option name="LAST_COMMIT_MESSAGE" value="ACM/ICPC程序设计实验室网站" />
+    <MESSAGE value="完善用户权限管理" />
+    <MESSAGE value="a" />
+    <option name="LAST_COMMIT_MESSAGE" value="a" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/template/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/userpage/register.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="839">
@@ -1112,15 +1077,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/template/footer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="38" column="46" lean-forward="true" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/struts.xml">
       <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="44" column="70" selection-start-line="44" selection-start-column="70" selection-end-line="44" selection-end-column="70" />
+        <state relative-caret-position="195">
+          <caret line="50" column="76" selection-start-line="50" selection-start-column="76" selection-end-line="50" selection-end-column="76" />
           <folding>
             <element signature="n#action#0;n#package#0;n#struts#0;n#!!top" />
             <element signature="n#action#1;n#package#0;n#struts#0;n#!!top" />
-            <element signature="n#action#2;n#package#0;n#struts#0;n#!!top" />
             <element signature="n#action#3;n#package#0;n#struts#0;n#!!top" />
             <element signature="n#action#4;n#package#0;n#struts#0;n#!!top" />
             <element signature="n#action#5;n#package#0;n#struts#0;n#!!top" />
