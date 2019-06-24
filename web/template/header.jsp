@@ -20,7 +20,7 @@
                 <li><a href="${pageContext.request.contextPath}/"><span class="glyphicon glyphicon-home"></span>&nbsp;首页</a></li>
                 <li><a href="${pageContext.request.contextPath}/news_news">新闻</a></li>
                 <li><a href="${pageContext.request.contextPath}/#">比赛成绩</a></li>
-                <li><a href="${pageContext.request.contextPath}/#">竞赛汇总</a></li>
+                <li><a href="${pageContext.request.contextPath}/contest_home">竞赛汇总</a></li>
                 <li><a href="${pageContext.request.contextPath}/user_members">团队之星</a></li>
                 <li><a href="${pageContext.request.contextPath}/study_folders">学习专区</a></li>
                 <li><a href="http://icpc.ldu.edu.cn" target="_blank">Online Judge&nbsp;<span class="glyphicon glyphicon-new-window"></span></a></li>

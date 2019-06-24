@@ -77,6 +77,15 @@ public class BaseDao<Bean>  {
 		close();
 		return list;
 	}
+	// 按页查找
+	public List findPage(int pageId,int pageSize,String hql){
+		Query query = session.createQuery(hql);
+		query.setFirstResult((pageId-1)*pageSize);
+		query.setMaxResults(pageSize);
+		List list=query.getResultList();
+		close();
+		return list;
+	}
 
 	public List findAll(){
 		List list=session.createQuery("from "+beanClass.getName()).list();

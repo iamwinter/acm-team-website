@@ -10,7 +10,7 @@
 <div class="main">
     <div class="bigContainer">
         <div class="panel-log center-block">
-            <center><h1>错误请求！</h1></center>
+            <center><h1>出错了~~~~</h1></center>
             <div class="alert alert-warning">
                 <a href="#" class="close" data-dismiss="alert">&times;</a>
                 <h4>${msg}</h4>

@@ -1,5 +1,6 @@
 package models;
 
+import Tools.IntegerTool;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -11,19 +12,17 @@ import java.sql.Timestamp;
 public class Contest {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	@Column(name = "title")
 	private String title;
-	@Column(name = "describe")
-	private String describe;
-	@Column(name = "start")
-	private Timestamp start;
-	@Column(name = "end")
-	private Timestamp end;
+	@Column(name = "startTime")
+	private Timestamp startTime;
+	@Column(name = "endTime")
+	private Timestamp endTime;
 	@Column(name = "url")
 	private String url;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -39,29 +38,6 @@ public class Contest {
 		this.title = title;
 	}
 
-	public String getDescribe() {
-		return describe;
-	}
-
-	public void setDescribe(String describe) {
-		this.describe = describe;
-	}
-
-	public Timestamp getStart() {
-		return start;
-	}
-
-	public void setStart(Timestamp start) {
-		this.start = start;
-	}
-
-	public Timestamp getEnd() {
-		return end;
-	}
-
-	public void setEnd(Timestamp end) {
-		this.end = end;
-	}
 
 	public String getUrl() {
 		return url;
@@ -71,14 +47,29 @@ public class Contest {
 		this.url = url;
 	}
 
+	public Timestamp getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(Timestamp startTime) {
+		this.startTime = startTime;
+	}
+
+	public Timestamp getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(Timestamp endTime) {
+		this.endTime = endTime;
+	}
+
 	@Override
 	public String toString() {
 		return "Contest{" +
 				"id=" + id +
 				", title='" + title + '\'' +
-				", describe='" + describe + '\'' +
-				", start=" + start +
-				", end=" + end +
+				", startTime=" + startTime +
+				", endTime=" + endTime +
 				", url='" + url + '\'' +
 				'}';
 	}

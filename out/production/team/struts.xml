@@ -48,7 +48,7 @@
             </result>
             <result name="admin">/admin/index.jsp</result>
             <result name="subject">/admin/subject.jsp</result>
-            <result name="subject_oper" type="redirect">admin_subject.action</result>
+            <result name="subject_oper" type="redirect">admin_subject.actionwen</result>
         </action>
 
         <action name="file_*" class="action.FileAction" method="{1}">
@@ -86,6 +86,12 @@
             <result name="file_show">/second/study_file_show.jsp</result>
         </action>
 
+        <action name="contest_*" class="action.ContestAction" method="{1}">
+            <result name="json" type="json">
+                <param name="root">result</param>
+            </result>
+            <result name="home">/contests.jsp</result>
+        </action>
     </package>
 
 </struts>

@@ -55,7 +55,7 @@
         <s:iterator value="#request.student.keySet()" var="key">
             <div class="table-responsive">
                 <table class="table">
-                    <caption><s:property value="key"/></caption>
+                    <caption><s:property value="key"/>级</caption>
                     <thead>
                         <tr>
                             <th>用户名</th>
@@ -75,7 +75,7 @@
                             <td><s:property value="#user.major"/> </td>
                             <td><s:property value="#user.work"/> </td>
                             <td><a href="<s:property value="#user.blogUrl"/>">博客主页</a></td>
-                            <s:if test="#session.user.isSuper==1">
+                            <s:if test="(#session.user.power&1)==1">
                                 <td>
                                     <a href="${pageContext.request.contextPath}/user_modify?username=<s:property value="#user.username"/>">修改</a>
                                 </td>
