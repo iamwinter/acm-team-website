@@ -95,7 +95,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 		res=true;
 		msg="注册成功!";
 		session.put("user",new UserDao().findByUsername(user.getUsername()));//登录
-		return SUCCESS;
+		return "modify";//注册成功后 完善个人信息
 	}
 
 	public String modify(){

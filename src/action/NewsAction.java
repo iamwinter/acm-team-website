@@ -6,6 +6,8 @@ import com.opensymphony.xwork2.ModelDriven;
 import dao.NewsDao;
 import models.News;
 import models.User;
+import net.sf.json.JSON;
+import net.sf.json.JSONObject;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +38,45 @@ public class NewsAction extends ActionSupport implements ModelDriven<News>,Servl
 			return false;
 		}
 		return true;
+	}
+
+	public String admin_list(){
+		if(!check_admin())return ERROR;
+		int pageSize=13;
+		String key = request.getParameter("key");
+		int num = IntegerTool.strToInt(request.getParameter("page"),1);
+		dataList = new NewsDao().findPage(num,pageSize,
+				"from News"
+						+(key==null?"":" where title like '%"+key+"%'")
+						+" order by created desc");request.setAttribute("page",num);
+		request.setAttribute("key",key);
+		request.setAttribute("page",num);
+		request.setAttribute("pageCount",new NewsDao().pageCount(pageSize,"from News"+(key==null?"":" where title like '%"+key+"%'")));
+		return "admin_list";
+	}
+
+	public String change_public(){
+		if(!check_admin())return ERROR;
+		JSONObject json=new JSONObject();
+		news=new NewsDao().findById(news.getId());
+		news.setIsPublic(news.getIsPublic()^1);
+		new NewsDao().update(news);
+		json.put("res",true);
+		result=json.toString();
+		return "json";
+	}
+	public String delete(){
+		User user_on = (User) session.get("user");
+		JSONObject json=new JSONObject();
+		if(news.getId()==1){
+			json.put("res",false);
+			json.put("msg","权限不足");
+		}else{
+			new NewsDao().delete(news);
+			json.put("res",true);
+		}
+		result=json.toString();
+		return "json";
 	}
 
 	public String editNews(){
@@ -78,8 +119,17 @@ public class NewsAction extends ActionSupport implements ModelDriven<News>,Servl
 
 	public String news(){
 		//获取所有公开的新闻，前台展示
+		int pageSize=13;
+		String key = request.getParameter("key");
 		int num = IntegerTool.strToInt(request.getParameter("page"),1);
-		dataList = new NewsDao().findPublicPage(num,20);
+		dataList = new NewsDao().findPage(num,pageSize,
+				"from News where isPublic=1"
+						+(key==null?"":" and title like '%"+key+"%'")
+						+" order by created desc");
+		request.setAttribute("page",num);
+		request.setAttribute("key",key);
+		request.setAttribute("pageCount",new NewsDao().pageCount
+				(pageSize,"from News where isPublic=1"+(key==null?"":" and title like '%"+key+"%'")));
 		return "news";
 	}
 

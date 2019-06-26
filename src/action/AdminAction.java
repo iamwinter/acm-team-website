@@ -30,8 +30,7 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 	//网站主页,不是管理员首页
 	public String index(){
 		request.setAttribute("recent_news", new NewsDao().findPublicPage(1,10));//近期10条新闻
-		request.setAttribute("recent_contest",new ContestDao().findPage(1,10,"start",false));
-		request.setAttribute("recent_match",new MatchDao().findPage(1,10,"date",false)); //近期赛事
+		request.setAttribute("mainText",new NewsDao().findById(1));//主页
 		return "index";
 	}
 

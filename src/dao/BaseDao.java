@@ -87,6 +87,12 @@ public class BaseDao<Bean>  {
 		return list;
 	}
 
+	public Integer pageCount(int pageSize,String hql){
+		if(hql==null)hql=" from "+beanClass.getName();
+		Integer ret = Integer.valueOf(String.valueOf(session.createQuery("select count(*) "+hql).list().get(0)));
+		return (ret+pageSize)/pageSize;
+	}
+
 	public List findAll(){
 		List list=session.createQuery("from "+beanClass.getName()).list();
 		close();

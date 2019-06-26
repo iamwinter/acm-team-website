@@ -7,14 +7,23 @@
 </head>
 <body>
 <%@include file="/template/header.jsp"%>
-<div class="main bkcolorhalf">
+<div class="main">
     <div class="bigContainer">
 
-        <h1><s:property value="#request.news.title"/></h1>
-        这里是新闻展示
-        <h4>浏览量：<s:property value="#request.news.views"/> </h4>
-        <p>本文最后更新于<s:property value="#request.news.modified"/></p>
-        <p><s:property value="#request.news.content" escapeHtml="false"/></p>
+        <div class="text-center">
+            <h1><s:property value="#request.news.title"/></h1>
+        </div>
+        <p class="text-center" style="margin: 0;">
+            时间：${news.created}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            点击：${news.views}
+        </p>
+        <hr style="margin-top:5px">
+        <div class="panel-body" style="text-indent:28px;padding: 0 8%;font-size: 1.2em">
+            ${news.content}
+        </div>
+        <hr>
+        <h5>本文最后更新于<s:property value="#request.news.modified"/></h5>
     </div>
 </div>
 <%@include file="/template/footer.jsp"%>

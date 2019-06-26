@@ -114,9 +114,6 @@
 </div>
 <%@include file="/template/footer.jsp"%>
 
-<%-- 弹窗提示工具 --%>
-<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
-<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 <script type="text/javascript">
 

@@ -1,19 +1,25 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ page import="Tools.MyConfig" %><%--
-  Created by IntelliJ IDEA.
-  User: winter
-  Date: 2018/9/25
-  Time: 10:47
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="Tools.MyConfig" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div id="footContainer" class="text-center">
     <hr>
 
+    <div>
+        <p style="margin-bottom: 0;">
+            <a href="https://github.com/iamwinter/acm-team-website">GitHub</a>
+            &nbsp;|&nbsp;
+            <a href="https://blog.csdn.net/winter2121">作者博客</a>
+            &nbsp;|&nbsp;
+            <a href="${pageContext.request.contextPath}/user_user?username=winter2121">联系作者</a>
+            &nbsp;|&nbsp;
+            <a href="#">软工1602 赵京龙 20162203477</a>
+        </p>
+    </div>
+
     <div id="time1"><!-- 时间 --> </div>
 
     <div>
-        <p style="margin-bottom: 0">
+        <p>
             Copyright © 2019 <%=MyConfig.get("siteAuthor")%> All rights reserved.
         </p>
     </div>
@@ -33,7 +39,8 @@
             var a = $(this).find("a:first")[0];
             var url = location.pathname
             url = url.split('?')[0]     //去掉参数
-            if (url.indexOf($(a).attr("href"))!==-1) {
+            url = url.substring(url.lastIndexOf('${pageContext.request.contextPath}'))
+            if ($(a).attr("href")==url) {
                 $(this).addClass("active");
             } else {
                 $(this).removeClass("active");

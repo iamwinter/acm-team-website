@@ -26,24 +26,27 @@ public class ContestAction extends ActionSupport implements ModelDriven<Contest>
 	private List dataList; //用于返回结果集
 
 	public String home(){
+		int pageSize=15;
 		boolean come = !"true".equals(request.getParameter("ending"));
 		int page = IntegerTool.strToInt(request.getParameter("page"),1);
 		String key = request.getParameter("key");
 
 		if(come){
-			dataList = new ContestDao().findPage(page,20,
+			dataList = new ContestDao().findPage(page,2000,
 					"from Contest where startTime>CURRENT_DATE() order by startTime asc");
 			res=true;
 			msg="等你来战";
 		}else{
-			dataList = new ContestDao().findPage(page,20,
+			dataList = new ContestDao().findPage(page,pageSize,
 					"from Contest where endTime<CURRENT_DATE() order by startTime desc");
 			res=false;
 			msg="温故知新";
+			request.setAttribute("pageCount",new ContestDao().pageCount(pageSize,"from Contest where endTime<CURRENT_DATE()"));
+			request.setAttribute("page",page);
 			request.setAttribute("ending","true");
 		}
 
-		List list = new ContestDao().findPage(page,20,
+		List list = new ContestDao().findPage(page,2000,
 				"from Contest where startTime<CURRENT_DATE() and endTime>CURRENT_DATE() order by startTime asc");
 		request.setAttribute("running",list);
 		return "home";

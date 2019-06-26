@@ -42,7 +42,7 @@
                             <td><s:property value="#con.title"/> </td>
                             <td>
                                 <s:if test="#con.url!=null">
-                                    <a href="<s:property value="#con.url"/>" class="alert-link">进入</a>
+                                    <a href="<s:property value="#con.url"/>" target="_blank">进入</a>
                                 </s:if>
                             </td>
                             <s:if test="(#session.user.power>>3&1)==1">
@@ -82,13 +82,13 @@
                             <td><s:property value="@Tools.DateTool@dateToStr(#con.startTime)"/> </td>
                             <td><s:property value="@Tools.DateTool@dateToStr(#con.endTime)"/> </td>
                             <td><s:property value="#con.title"/> </td>
-                            <td>
+                            <td class="text-nowrap">
                                 <s:if test="#con.url!=null">
-                                    <a href="<s:property value="#con.url"/>" class="alert-link">进入</a>
+                                    <a href="<s:property value="#con.url"/>" target="_blank">进入</a>
                                 </s:if>
                             </td>
                             <s:if test="(#session.user.power>>3&1)==1">
-                                <td>
+                                <td class="text-nowrap">
                                     <a href="#" onclick="update_contest(
                                         <s:property value="#con.id"/>,
                                         '<s:property value="@Tools.DateTool@dateToStr(#con.startTime,'yyyy-MM-dd_HH:mm')"/>',
@@ -105,6 +105,22 @@
                 </tbody>
             </table>
         </div>
+
+        <s:if test="res==false">
+            <div class="text-center">
+                <ul class="pagination">
+                    <li><a href="${pageContext.request.contextPath}/contest_home?ending=true&page=<s:property value="#request.page-(#request.page==1?0:1)"/>">&laquo;</a></li>
+                    <s:iterator begin="1" end="#request.pageCount" status="sta">
+                        <li class="<s:property value="#request.page==#sta.index+1?'active':''"/>">
+                            <a href="${pageContext.request.contextPath}/contest_home?page=${sta.index+1}&ending=true">
+                                    ${sta.index+1}
+                            </a>
+                        </li>
+                    </s:iterator>
+                    <li><a href="${pageContext.request.contextPath}/contest_home?ending=true&page=<s:property value="#request.page+(#request.page==#request.pageCount?0:1)"/>">&raquo;</a></li>
+                </ul>
+            </div>
+        </s:if>
 
         <s:if test="(#session.user.power>>3&1)==1">
             <div class="modal fade" id="modalAddFolder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

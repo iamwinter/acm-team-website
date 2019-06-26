@@ -76,6 +76,7 @@
             <result name="news">news.jsp</result>
             <result name="show">second/news_show.jsp</result>
             <result name="editNews">/admin/editNews.jsp</result>
+            <result name="admin_list">/admin/newsList.jsp</result>
         </action>
 
         <action name="study_*" class="action.StudyFolderAction" method="{1}">
@@ -87,9 +88,6 @@
         </action>
 
         <action name="contest_*" class="action.ContestAction" method="{1}">
-            <result name="json" type="json">
-                <param name="root">result</param>
-            </result>
             <result name="home">/contests.jsp</result>
         </action>
     </package>
