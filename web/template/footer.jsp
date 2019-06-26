@@ -12,7 +12,7 @@
             &nbsp;|&nbsp;
             <a href="${pageContext.request.contextPath}/user_user?username=winter2121">联系作者</a>
             &nbsp;|&nbsp;
-            <a href="#">软工1602 赵京龙 20162203477</a>
+            <a href="https://www.runoob.com/">菜鸟教程</a>
         </p>
     </div>
 

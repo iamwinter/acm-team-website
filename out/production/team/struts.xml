@@ -30,6 +30,7 @@
                 <param name="root">result</param>
             </result>
             <result name="register">/userpage/register.jsp</result>
+            <result name="after_reg" type="redirect">user_modify.action</result>
             <result name="modify">/userpage/modify.jsp</result>
             <result name="user">/userpage/user.jsp</result>
             <result name="members">/members.jsp</result>
