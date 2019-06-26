@@ -63,14 +63,14 @@
             <table class="table" style="table-layout:fixed;font-size: 1em">
                 <thead>
                     <tr>
-                        <th>近期新闻</th>
+                        <th width="80%">近期新闻</th>
                         <th class="text-right">更多</th>
                     </tr>
                 </thead>
                 <tbody>
                     <s:iterator value="#request.recent_news" var="news">
                         <tr>
-                            <td class="text-ellipsis" width="60%">
+                            <td class="text-ellipsis">
                                 <a href="${pageContext.request.contextPath}/news_show?id=<s:property value="#news.id"/>">
                                     <s:property value="#news.title"/>
                                 </a>
