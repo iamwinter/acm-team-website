@@ -99,4 +99,8 @@ public class BaseDao<Bean>  {
 		return list;
 	}
 
+	public void executeSQL(String sql){
+		session.createSQLQuery(sql).executeUpdate();
+		close();
+	}
 }

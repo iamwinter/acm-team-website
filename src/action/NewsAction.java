@@ -82,6 +82,11 @@ public class NewsAction extends ActionSupport implements ModelDriven<News>,Servl
 	public String editNews(){
 		if(!check_admin())return ERROR;
 		News aimNews = new NewsDao().findById(news.getId());
+		if(aimNews==null && news.getId()==1){
+			//首页
+			new NewsDao().executeSQL("insert into `news`(id,title,created,modified)" +
+					" values(1,'首页',now(),now())");
+		}
 		if(aimNews!=null){  //编辑新闻
 			news=aimNews;
 			res=true;
