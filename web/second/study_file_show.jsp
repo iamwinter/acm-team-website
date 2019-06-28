@@ -145,6 +145,7 @@
 
         //禁止空格键翻页
         if(event.keyCode==32){
+            $("#video").click();
             return false;
         }
 
