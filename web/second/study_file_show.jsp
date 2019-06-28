@@ -21,6 +21,7 @@
                 var videoObject = {
                     container: '#video',//“#”代表容器的ID，“.”或“”代表容器的class
                     variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
+                    autoplay:true,
                     flashplayer:false,//如果强制使用flashplayer则设置成true
                     video:'#'//视频地址
                 };
@@ -31,6 +32,14 @@
                     $("#video").fadeIn(1000)
                     $('body,html').animate({scrollTop:0},1000);
                 }
+                $("body").bind("keydown",function(e){
+                    e=window.event||e;
+                    //禁止空格键翻页
+                    if(event.keyCode==32){
+                        player.playOrPause();
+                        return false;
+                    }
+                })
             </script>
         </div>
 
@@ -139,17 +148,6 @@
 <%@include file="/template/footer.jsp"%>
 
 <script type="text/javascript">
-
-    $("body").bind("keydown",function(e){
-        e=window.event||e;
-
-        //禁止空格键翻页
-        if(event.keyCode==32){
-            $("#video").click();
-            return false;
-        }
-
-    });
 
     //删除文件
     function deleteAStudyFile(fileId,tag_id) {
