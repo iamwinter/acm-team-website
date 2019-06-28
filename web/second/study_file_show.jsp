@@ -140,6 +140,16 @@
 
 <script type="text/javascript">
 
+    $("body").bind("keydown",function(e){
+        e=window.event||e;
+
+        //禁止空格键翻页
+        if(event.keyCode==32){
+            return false;
+        }
+
+    });
+
     //删除文件
     function deleteAStudyFile(fileId,tag_id) {
         if(!confirm('将永久删除此文件？'))
