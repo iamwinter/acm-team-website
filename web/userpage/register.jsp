@@ -41,7 +41,7 @@
             <div class="form-group">
                 <input name="email" type="email" class="form-control"
                        value="${email}"
-                       placeholder="请输入邮箱，可用于登录">
+                       placeholder="(选填)输入邮箱，可用于登录">
             </div>
 
             <div class="form-group">

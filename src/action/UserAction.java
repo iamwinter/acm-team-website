@@ -149,7 +149,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 
 		User userGet=new UserDao().findByEmail(user.getEmail());
 		User aimUser=new UserDao().findById(user.getId());
-		if(user.getEmail().length()>4 && user.getId()!=userGet.getId()){
+		if(user.getEmail().length()>4 && userGet!=null && user.getId()!=userGet.getId()){
 			json.put("res",false);
 			json.put("msg","该邮箱已经被别人用过了，换一个吧！");
 		}else if( (user_on.getId()==user.getId() || (user_on.getPower()&1)==1 && (aimUser.getPower()&1)==0)
