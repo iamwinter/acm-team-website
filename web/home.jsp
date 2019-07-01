@@ -91,6 +91,8 @@
             <div class="panel-body">
                 ${mainText.content}
             </div>
+            <hr>
+            <p>首页总访问量：${mainText.views}</p>
         </div>
     </div>
 </div>

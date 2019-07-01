@@ -5,6 +5,7 @@ import dao.ContestDao;
 import dao.MatchDao;
 import dao.NewsDao;
 import dao.StudySubjectDao;
+import models.News;
 import models.StudySubject;
 import models.User;
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -30,7 +31,10 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 	//网站主页,不是管理员首页
 	public String index(){
 		request.setAttribute("recent_news", new NewsDao().findPublicPage(1,10));//近期10条新闻
-		request.setAttribute("mainText",new NewsDao().findById(1));//主页
+		News homePage = new NewsDao().findById(1);
+		homePage.setViews(homePage.getViews()+1);
+		new NewsDao().update(homePage);
+		request.setAttribute("mainText",homePage);//主页
 		return "index";
 	}
 

@@ -65,6 +65,7 @@ public class NewsAction extends ActionSupport implements ModelDriven<News>,Servl
 		result=json.toString();
 		return "json";
 	}
+
 	public String delete(){
 		User user_on = (User) session.get("user");
 		JSONObject json=new JSONObject();
