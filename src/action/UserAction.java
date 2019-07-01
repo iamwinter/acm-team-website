@@ -251,7 +251,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 		String key = request.getParameter("key");
 		List<User> listAll = new UserDao().find_members(key==null?"":key);
 		List<User> teacher=new ArrayList<>();	//老师
-		Map<Integer,List<User> > student = new Hashtable<>();	//按年级分类
+		Map<Integer,List<User> > student = new TreeMap<>();	//按年级分类
 		for(User i:listAll){
 			if(i.getTag()==3)//老师
 				teacher.add(i);
