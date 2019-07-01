@@ -6,15 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83cb3420-eabc-49bb-a064-45ff4b18acb5" name="Default Changelist" comment="首页显示总访问量">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5693df61-4897-4e65-9066-8140cb41573f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5693df61-4897-4e65-9066-8140cb41573f.xml" afterDir="false" />
+    <list default="true" id="83cb3420-eabc-49bb-a064-45ff4b18acb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/action/AdminAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/action/AdminAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/team/action/NewsAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/action/NewsAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/AdminAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/AdminAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/action/NewsAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/NewsAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/team/action/UserAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/team/action/UserAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/action/UserAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/UserAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/members.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/members.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,8 +58,8 @@
         <entry file="file://$PROJECT_DIR$/src/struts.xml">
           <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="53" selection-start-line="53" selection-end-line="53" />
+            <state relative-caret-position="18">
+              <caret line="26" column="68" selection-start-line="26" selection-start-column="68" selection-end-line="26" selection-end-column="68" />
               <folding>
                 <element signature="n#global-results#0;n#package#0;n#struts#0;n#!!top" />
                 <element signature="n#action#0;n#package#0;n#struts#0;n#!!top" />
@@ -78,48 +74,31 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/action/NewsAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="141" column="24" selection-start-line="141" selection-start-column="24" selection-end-line="141" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#check_admin#0;class#NewsAction#0" />
-                <element signature="method#admin_list#0;class#NewsAction#0" />
-                <element signature="method#change_public#0;class#NewsAction#0" />
-                <element signature="method#delete#0;class#NewsAction#0" />
-                <element signature="method#editNews#0;class#NewsAction#0" />
-                <element signature="method#saveNews#0;class#NewsAction#0" />
-                <element signature="method#news#0;class#NewsAction#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/action/AdminAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#check_admin#0;class#AdminAction#0" />
-                <element signature="method#admin#0;class#AdminAction#0" />
-                <element signature="method#subject#0;class#AdminAction#0" />
-                <element signature="method#add_subject#0;class#AdminAction#0" />
-                <element signature="method#delete_subject#0;class#AdminAction#0" />
-                <element signature="method#update_subject#0;class#AdminAction#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/home.jsp">
+        <entry file="file://$PROJECT_DIR$/web/members.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="94" column="18" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
+            <state relative-caret-position="172">
+              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/action/UserAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="272" column="55" lean-forward="true" selection-start-line="272" selection-start-column="55" selection-end-line="272" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#login#0;class#UserAction#0" />
+                <element signature="method#logout#0;class#UserAction#0" />
+                <element signature="method#modify_pwd#0;class#UserAction#0" />
+                <element signature="method#modify_info#0;class#UserAction#0" />
+                <element signature="method#modify_photo#0;class#UserAction#0" />
+                <element signature="method#check_power#0;class#UserAction#0" />
+                <element signature="method#admin_users#0;class#UserAction#0" />
+                <element signature="method#switch_power#0;class#UserAction#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -194,7 +173,6 @@
         <option value="$PROJECT_DIR$/src/action/MatchAction.java" />
         <option value="$PROJECT_DIR$/web/template/css/main.css" />
         <option value="$PROJECT_DIR$/web/success.jsp" />
-        <option value="$PROJECT_DIR$/web/userpage/register.jsp" />
         <option value="$PROJECT_DIR$/web/userpage/login.jsp" />
         <option value="$PROJECT_DIR$/src/models/StudySubject.java" />
         <option value="$PROJECT_DIR$/src/action/FileAction.java" />
@@ -215,7 +193,6 @@
         <option value="$PROJECT_DIR$/web/userpage/user.jsp" />
         <option value="$PROJECT_DIR$/src/action/StudyFolderAction.java" />
         <option value="$PROJECT_DIR$/web/error.jsp" />
-        <option value="$PROJECT_DIR$/web/members.jsp" />
         <option value="$PROJECT_DIR$/src/dao/ContestDao.java" />
         <option value="$PROJECT_DIR$/web/study.jsp" />
         <option value="$PROJECT_DIR$/src/models/Contest.java" />
@@ -228,7 +205,6 @@
         <option value="$PROJECT_DIR$/web/news.jsp" />
         <option value="$PROJECT_DIR$/src/action/ContestAction.java" />
         <option value="$PROJECT_DIR$/web/contests.jsp" />
-        <option value="$PROJECT_DIR$/src/action/UserAction.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/web/template/footer.jsp" />
         <option value="$PROJECT_DIR$/web/second/study_file_show.jsp" />
@@ -239,6 +215,9 @@
         <option value="$PROJECT_DIR$/src/action/NewsAction.java" />
         <option value="$PROJECT_DIR$/src/action/AdminAction.java" />
         <option value="$PROJECT_DIR$/web/home.jsp" />
+        <option value="$PROJECT_DIR$/web/userpage/register.jsp" />
+        <option value="$PROJECT_DIR$/src/action/UserAction.java" />
+        <option value="$PROJECT_DIR$/web/members.jsp" />
       </list>
     </option>
   </component>
@@ -279,13 +258,18 @@
             <path>
               <item name="team" type="b2602c69:ProjectViewProjectNode" />
               <item name="team" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="team" type="b2602c69:ProjectViewProjectNode" />
               <item name="team" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="action" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="team" type="b2602c69:ProjectViewProjectNode" />
+              <item name="team" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -315,6 +299,12 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="action" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\software\struts2\team\web" />
+    </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="models" />
       <recent name="" />
@@ -324,12 +314,6 @@
       <recent name="F:\software\struts2\team\web\template\images\carousel" />
       <recent name="F:\software\struts2\team\web\template\wangEditor" />
       <recent name="F:\software\struts2\team\web\second" />
-      <recent name="F:\software\struts2\team\web" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="action" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\software\struts2\team\web" />
     </key>
   </component>
@@ -494,7 +478,7 @@
       <workItem from="1561541443588" duration="1170000" />
       <workItem from="1561689037986" duration="1075000" />
       <workItem from="1561692198662" duration="2626000" />
-      <workItem from="1561973187202" duration="525000" />
+      <workItem from="1561973187202" duration="3064000" />
     </task>
     <task id="LOCAL-00001" summary="ACM/ICPC程序设计实验室网站">
       <created>1559443286655</created>
@@ -706,17 +690,31 @@
       <option name="project" value="LOCAL" />
       <updated>1561707032580</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="首页显示总访问量">
+      <created>1561973773927</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1561973773927</updated>
+    </task>
+    <task id="LOCAL-00032" summary="修复一些bug">
+      <created>1561975006799</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1561975006799</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285397000" />
+    <option name="totallyTimeSpent" value="287936000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.59" visible="true" weight="0.17493297" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.59" visible="true" weight="0.17493297" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" sideWeight="0.41" side_tool="true" weight="0.17426273" />
@@ -728,13 +726,13 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49865952" visible="true" weight="0.33144477" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49865952" visible="true" weight="0.33144477" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.1768034" />
       <window_info anchor="bottom" id="Database Console" order="8" weight="0.32956153" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932975" weight="0.8101983" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932975" weight="0.48441926" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067025" side_tool="true" weight="0.28470254" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
@@ -775,23 +773,15 @@
     <MESSAGE value="ckplayer自动播放+空格播放/暂停" />
     <MESSAGE value="更新" />
     <MESSAGE value="修复部分bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复部分bug" />
+    <MESSAGE value="首页显示总访问量" />
+    <MESSAGE value="修复一些bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复一些bug" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/models/StudyFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Match.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -828,24 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="728">
           <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="48" column="47" selection-start-line="48" selection-start-column="47" selection-end-line="48" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#findByUsername#0;class#UserDao#0" />
-            <element signature="e#0#29#1" expanded="true" />
-            <element signature="method#findByEmail#0;class#UserDao#0" />
-            <element signature="e#0#26#1" expanded="true" />
-            <element signature="method#register#0;class#UserDao#0" />
-            <element signature="method#loginUser#0;class#UserDao#0" />
-            <element signature="method#find_members#0;class#UserDao#0" />
-            <element signature="e#0#72#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -969,13 +941,6 @@
             <element signature="e#1675#1676#0" expanded="true" />
             <element signature="e#1704#1705#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/members.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1117,13 +1082,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/userpage/modify.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="282" column="4" selection-start-line="282" selection-start-column="4" selection-end-line="282" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1196,49 +1154,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/action/UserAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="98" column="5" lean-forward="true" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#login#0;class#UserAction#0" />
-            <element signature="method#logout#0;class#UserAction#0" />
-            <element signature="method#register#0;class#UserAction#0" />
-            <element signature="method#modify#0;class#UserAction#0" />
-            <element signature="method#modify_pwd#0;class#UserAction#0" />
-            <element signature="method#modify_info#0;class#UserAction#0" />
-            <element signature="method#modify_photo#0;class#UserAction#0" />
-            <element signature="method#members#0;class#UserAction#0" />
-            <element signature="method#user#0;class#UserAction#0" />
-            <element signature="method#check_power#0;class#UserAction#0" />
-            <element signature="method#admin_users#0;class#UserAction#0" />
-            <element signature="method#switch_power#0;class#UserAction#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/struts.xml">
-      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="n#global-results#0;n#package#0;n#struts#0;n#!!top" />
-            <element signature="n#action#0;n#package#0;n#struts#0;n#!!top" />
-            <element signature="n#action#1;n#package#0;n#struts#0;n#!!top" />
-            <element signature="n#action#2;n#package#0;n#struts#0;n#!!top" />
-            <element signature="n#action#3;n#package#0;n#struts#0;n#!!top" />
-            <element signature="n#action#4;n#package#0;n#struts#0;n#!!top" />
-            <element signature="n#action#5;n#package#0;n#struts#0;n#!!top" />
-            <element signature="n#action#6;n#package#0;n#struts#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/action/NewsAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
+        <state relative-caret-position="213">
           <caret line="141" column="24" selection-start-line="141" selection-start-column="24" selection-end-line="141" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1249,6 +1167,7 @@
             <element signature="method#editNews#0;class#NewsAction#0" />
             <element signature="method#saveNews#0;class#NewsAction#0" />
             <element signature="method#news#0;class#NewsAction#0" />
+            <element signature="method#show#0;class#NewsAction#0" />
           </folding>
         </state>
       </provider>
@@ -1271,8 +1190,88 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/home.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="94" column="18" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
+        <state relative-caret-position="189">
+          <caret line="87" column="14" lean-forward="true" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#findByUsername#0;class#UserDao#0" />
+            <element signature="e#0#29#1" expanded="true" />
+            <element signature="e#0#26#1" expanded="true" />
+            <element signature="method#register#0;class#UserDao#0" />
+            <element signature="method#loginUser#0;class#UserDao#0" />
+            <element signature="method#find_members#0;class#UserDao#0" />
+            <element signature="e#0#72#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/userpage/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="46" column="36" lean-forward="true" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/userpage/modify.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="368" column="27" selection-start-line="368" selection-start-column="27" selection-end-line="368" selection-end-column="27" />
+          <folding>
+            <element signature="e#12099#13202#0#HTML" />
+            <element signature="e#13230#14070#0#HTML" />
+            <element signature="e#14105#14779#0#HTML" />
+            <element signature="e#14808#15865#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/struts.xml">
+      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="26" column="68" selection-start-line="26" selection-start-column="68" selection-end-line="26" selection-end-column="68" />
+          <folding>
+            <element signature="n#global-results#0;n#package#0;n#struts#0;n#!!top" />
+            <element signature="n#action#0;n#package#0;n#struts#0;n#!!top" />
+            <element signature="n#action#1;n#package#0;n#struts#0;n#!!top" />
+            <element signature="n#action#2;n#package#0;n#struts#0;n#!!top" />
+            <element signature="n#action#3;n#package#0;n#struts#0;n#!!top" />
+            <element signature="n#action#4;n#package#0;n#struts#0;n#!!top" />
+            <element signature="n#action#5;n#package#0;n#struts#0;n#!!top" />
+            <element signature="n#action#6;n#package#0;n#struts#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/action/UserAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="272" column="55" lean-forward="true" selection-start-line="272" selection-start-column="55" selection-end-line="272" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#login#0;class#UserAction#0" />
+            <element signature="method#logout#0;class#UserAction#0" />
+            <element signature="method#modify_pwd#0;class#UserAction#0" />
+            <element signature="method#modify_info#0;class#UserAction#0" />
+            <element signature="method#modify_photo#0;class#UserAction#0" />
+            <element signature="method#check_power#0;class#UserAction#0" />
+            <element signature="method#admin_users#0;class#UserAction#0" />
+            <element signature="method#switch_power#0;class#UserAction#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/members.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
         </state>
       </provider>
     </entry>

@@ -36,8 +36,8 @@
                     <tbody>
                         <s:iterator value="#request.teacher" var="user">
                             <tr>
-                                <td><a href="${pageContext.request.contextPath}/user_user?username=<s:property value="#user.username"/>"><s:property value="#user.username"/></a> </td>
-                                <td><s:property value="#user.nickName"/> </td>
+                                <td><a href="${pageContext.request.contextPath}/user_user?id=<s:property value="#user.id"/>"><s:property value="#user.username"/></a> </td>
+                                <td><a href="${pageContext.request.contextPath}/user_user?id=<s:property value="#user.id"/>"><s:property value="#user.nickName"/></a> </td>
                                 <td><a href="<s:property value="#user.blogUrl"/>">博客主页</a></td>
                                 <s:if test="#session.user.isSuper==1">
                                     <td>
@@ -69,8 +69,8 @@
                     <tbody>
                     <s:iterator value="#request.student.get(#key)" var="user">
                         <tr>
-                            <td><a href="${pageContext.request.contextPath}/user_user?username=<s:property value="#user.username"/>"><s:property value="#user.username"/></a> </td>
-                            <td><s:property value="#user.nickName"/> </td>
+                            <td><a href="${pageContext.request.contextPath}/user_user?id=<s:property value="#user.id"/>"><s:property value="#user.username"/></a> </td>
+                            <td><a href="${pageContext.request.contextPath}/user_user?id=<s:property value="#user.id"/>"><s:property value="#user.nickName"/></a> </td>
                             <td><s:property value="#user.grade"/> </td>
                             <td><s:property value="#user.major"/> </td>
                             <td><s:property value="#user.work"/> </td>
