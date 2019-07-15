@@ -29,7 +29,7 @@ public class StudyFolderAction extends ActionSupport implements ModelDriven<Stud
 	public boolean admin(){
 		// 检测当前用户是否是管理员
 		User user_on= (User) session.get("user");
-		if(user_on==null || (user_on.getPower()&1)==0){
+		if(user_on==null || ((user_on.getPower()>>3)&1)==0){
 			msg="您没有管理员权限!";
 			return false;
 		}

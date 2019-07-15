@@ -96,14 +96,9 @@
                         <a href="#" class="close" data-dismiss="alert">&times;</a>
                         <strong>温馨提示：</strong>
                         <p>1.点击文件框后，您可以按住ctrl键选择多个文件进行上传!</p>
-                        <p>2.断点续传，如果意外关闭页面，可重新选择文件，系统将继续上次上传位置</p>
-                    </div>
-                    <div class="alert alert-danger">
-                        <a href="#" class="close" data-dismiss="alert">&times;</a>
-                        <strong>警告：</strong>
-                        <p>1. 上传过程中，请勿关闭当前网页</p>
-                        <p>2. 上传过程中，请勿点击本网页内任何链接</p>
-                        <p>3. 若不慎关闭或离开此网页，可回到此页，重新选中文件[上传]，系统将从上次断点处续传</p>
+                        <p>2.上传过程中，请勿关闭当前网页或点击页面内链接</p>
+                        <p>3.支持断点续传，如果意外关闭页面，可重新选择文件，从断点处续传</p>
+                        <p>4.请务必保证视频文件的视频编码AVC(H264)，音频编码AAC。若不是，请使用格式工厂进行转码</p>
                     </div>
 
                     <form onsubmit="return studyUpload();" class="panel-body">

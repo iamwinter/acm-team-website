@@ -46,7 +46,7 @@
                     <tbody>
                         <s:iterator value="dataList" var="user" status="sta">
                             <tr id="tr_${sta.index}">
-                                <td><a href="${pageContext.request.contextPath}/user_user?username=<s:property value="#user.username"/>" target="_blank"><s:property value="#user.username"/></a> </td>
+                                <td><a href="${pageContext.request.contextPath}/user_user?id=<s:property value="#user.id"/>" target="_blank"><s:property value="#user.username"/></a> </td>
                                 <td><s:property value="#user.nickName"/> </td>
                                 <td><s:property value="#user.grade"/> </td>
                                 <td>
@@ -100,7 +100,7 @@
                                 </td>
 
                                 <td>
-                                    <a href="${pageContext.request.contextPath}/user_modify?username=<s:property value="#user.username"/>" target="_blank">修改更多</a>
+                                    <a href="${pageContext.request.contextPath}/user_modify?id=<s:property value="#user.id"/>" target="_blank">修改更多</a>
                                     <a href="javascript:void(0)" onclick="delete_user(<s:property value="#user.id"/>,'tr_${sta.index}')">删除</a>
                                 </td>
                             </tr>
@@ -185,6 +185,7 @@
             })
         }
     }
+
 </script>
 </body>
 </html>
