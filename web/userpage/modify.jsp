@@ -42,13 +42,15 @@
                 </div>
             </div>
 
-            <div class="form-group col-xs-12">
-                <div class="col-xs-3 col-sm-2"><label>旧密码</label></div>
-                <div class="col-xs-9 col-sm-5">
-                    <input name="old_password" type="password" class="form-control" required
-                           minlength="4" maxlength="16" placeholder="输入旧密码">
+            <s:if test="#request.aimUser.id==#session.user.id">
+                <div class="form-group col-xs-12">
+                    <div class="col-xs-3 col-sm-2"><label>旧密码</label></div>
+                    <div class="col-xs-9 col-sm-5">
+                        <input name="old_password" type="password" class="form-control" required
+                               maxlength="16" placeholder="输入旧密码">
+                    </div>
                 </div>
-            </div>
+            </s:if>
 
             <div id="password_alert" class="form-group col-xs-12 alert alert-warning" style="display: none;">
                 <a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -72,7 +74,7 @@
         <form id="form_info" onsubmit="return check_info();" class="panel-body" method="post">
 
             <s:if test="(#request.aimUser.power>>2&1)==1">
-                <div id="password_alert" class="form-group col-xs-12 alert alert-warning">
+                <div class="form-group col-xs-12 alert alert-warning">
                     <strong>警告！</strong>
                     <font>用户信息已被锁定，无法修改，详询管理员</font>
                 </div>
@@ -291,7 +293,6 @@
         $("#password_alert_s").hide()
         var p1=$("input[name='password']").val()
         var p2=$("input[name='password2']").val()
-        var pold=$("input[name='old_password']").val()
         if(p1!=p2){
             $("#password_alert font").text("两次输入的新密码不一致！"+new Date())
             $("#password_alert").show()

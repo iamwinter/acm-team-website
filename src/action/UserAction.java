@@ -87,7 +87,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 		}
 		userGet=new UserDao().findByEmail(user.getEmail());
 		if(user.getEmail().length()>0&&userGet!=null){
-			msg="该邮箱已经被注册过了，换一个吧！";
+			msg="该邮箱已注册账号，请联系管理员为您设置[用户名]和[初始密码]";
 			return "register";
 		}
 		//接下来可以注册了
@@ -105,7 +105,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 			msg="请先登录！";
 			return LOGIN;
 		}
-		User aimUser=new UserDao().findByUsername(user.getUsername());//修改目标
+		User aimUser=new UserDao().findById(user.getId());//修改目标
 		if((user_on.getPower()&1)==0 || aimUser==null){
 			aimUser=user_on;	//修改他自己
 		}
@@ -124,9 +124,9 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 		System.out.println("用户输入旧密码："+old_pwd);
 
 		User userGet=new UserDao().findById(user.getId());
-		if(userGet.getPassword().equals(User.encode(old_pwd))
-				|| (user_on.getPower()&1)==1 && (user_on.getPower()&1)==0 ){
-			//旧密码对了 或者 管理员在操作普通用户
+		if((user_on.getPower()&1)==1 && (userGet.getPower()&1)==0
+				|| userGet.getPassword().equals(User.encode(old_pwd)) ){
+			// 管理员在操作普通用户 或者 旧密码对了
 			userGet.setPassword(new_pwd);
 			new UserDao().update(userGet);
 			if(user_on.getId()==userGet.getId()){
@@ -362,6 +362,31 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Serv
 			new UserDao().delete(aimUser);
 			json.put("res",true);
 		}
+		result=json.toString();
+		return "json";
+	}
+
+	//重置用户的用户名
+	public String user_reset(){
+		User aimUser = new UserDao().findById(user.getId());
+		aimUser.setUsername(user.getUsername());
+
+		JSONObject json=new JSONObject();
+		User user_on = (User) session.get("user");
+		if( !check_power() ){
+			json.put("res",false);
+			json.put("msg","权限不足!");
+		}else if( (aimUser.getPower()&1)==1 || user_on.getId().equals(aimUser.getId())){
+			json.put("res",false);
+			json.put("msg","不能修改管理员或自己!");
+		}else if(new UserDao().findByUsername(user.getUsername())!=null) {
+			json.put("res",false);
+			json.put("msg","该用户名已存在!");
+		}else{
+			new UserDao().update(aimUser);
+			json.put("res",true);
+		}
+
 		result=json.toString();
 		return "json";
 	}

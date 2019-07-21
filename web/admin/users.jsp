@@ -17,9 +17,9 @@
             <div class="panel-body">
                 <form action="${pageContext.request.contextPath}/user_admin_users" method="get">
 
-                    <div class="form-group col-xs-9 col-sm-3">
+                    <div class="form-group col-xs-9 col-sm-4">
                         <input type="text" name="key" class="form-control"
-                               placeholder="用户名、姓名查找"
+                               placeholder="用户名、姓名、邮箱、年级查找"
                                value="<s:property value="#request.key"/>">
                     </div>
 
@@ -100,7 +100,12 @@
                                 </td>
 
                                 <td>
-                                    <a href="${pageContext.request.contextPath}/user_modify?id=<s:property value="#user.id"/>" target="_blank">修改更多</a>
+<%--                                    模态框--%>
+                                    <a href="#" onclick="set_reset(<s:property value="#user.id"/>,<s:property value="#user.username"/>)"
+                                       data-toggle="modal" data-target="#modalReset">重命名</a>
+                                    /
+                                    <a href="${pageContext.request.contextPath}/user_modify?id=<s:property value="#user.id"/>" target="_blank">修改</a>
+                                    /
                                     <a href="javascript:void(0)" onclick="delete_user(<s:property value="#user.id"/>,'tr_${sta.index}')">删除</a>
                                 </td>
                             </tr>
@@ -108,6 +113,32 @@
                     </tbody>
                 </table>
             </div>
+
+<%--            模态框--%>
+            <div class="modal fade" id="modalReset" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <form id="form_reset" class="modal-content" onsubmit="return user_reset()">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">重置用户名</h4>
+                        </div>
+                        <div class="modal-body" style="overflow: auto">
+
+                            <input type="number" name="id" hidden>
+                            <div class="form-group">
+                                <label>新用户名</label>
+                                <input type="text" name="username" class="form-control"
+                                       autofocus autocomplete="off" required minlength="4">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary">确认</button>
+                        </div>
+                    </form><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+
 
         </div>
     </div>
@@ -184,6 +215,33 @@
                 }
             })
         }
+    }
+
+
+    function set_reset(id,username) {
+        $("input[name='id']").val(id);
+        $("input[name='username']").val(username);
+    }
+
+    function user_reset() {
+        $.ajax({
+            url:"${pageContext.request.contextPath}/user_user_reset",
+            type:"post",
+            data:$("#form_reset").serialize(),
+            success:function (result) {
+                result=$.parseJSON(result) //字符串转换为json
+                if(result.res==true){
+                    alert('操作成功')
+                    location.reload();
+                }else{
+                    alert(result.msg)
+                }
+            },
+            error:function (res) {
+                alert("系统错误！修改失败")
+            }
+        })
+        return false;
     }
 
 </script>

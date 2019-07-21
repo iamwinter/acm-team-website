@@ -37,9 +37,12 @@
             </div>
 
             <div class="form-group">
-                <a href="${pageContext.request.contextPath}/userpage/user_register"><span class="glyphicon glyphicon-log-in"></span>&nbsp;前往注册</a>
+                <a href="${pageContext.request.contextPath}/user_register"><span class="glyphicon glyphicon-log-in"></span>&nbsp;前往注册</a>
                 /
-                <a href="#">忘记密码</a>
+                <a href="#" data-toggle="tooltip" data-placement="top" data-original-title="暂不支持">忘记密码</a>
+                <script>
+                    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+                </script>
             </div>
 
             <div class="form-group">

@@ -47,7 +47,11 @@ public class UserDao extends BaseDao<User> {
 	}
 
 	public List<User> find_members(String key) {
-		List list=session.createQuery("from User where username like ?1 or nickName like ?1 order by grade desc")
+		List list=session.createQuery("from User where username like ?1" +
+				" or nickName like ?1" +
+				" or email like ?1" +
+				" or str(grade) like ?1" +
+				" order by grade desc")
 				.setParameter(1,"%"+key+"%").list();
 		close();
 		return list;

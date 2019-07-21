@@ -41,6 +41,7 @@ public class User {
 
 	public static String encode(String password) //获取密码的密文
 	{
+		if(password==null)return null;
 		String enPassword = null;
 		try {
 			MessageDigest md5 = MessageDigest.getInstance("MD5");

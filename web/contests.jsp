@@ -19,7 +19,8 @@
         </div>
 
         <s:if test="(#session.user.power>>3&1)==1">
-            <a href="#" onclick="add_contest()" class="btn btn-primary" data-toggle="modal" data-target="#modalAddFolder">添加竞赛</a>
+            <a href="#" onclick="add_contest()" class="btn btn-primary"
+               data-toggle="modal" data-target="#modalAddFolder">添加竞赛</a>
         </s:if>
 
         <s:if test="#request.running.size>0&&res==true">
