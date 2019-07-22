@@ -40,12 +40,12 @@ public class StudyFolderAction extends ActionSupport implements ModelDriven<Stud
 		User user_on = (User) session.get("user");
 		if(user_on==null){
 			res=false;
-			msg="请先登录!";
+			msg="请先登录!（内部成员请联系管理员设置账号）";
 			return LOGIN;
 		}
 		if((user_on.getPower()&2)==0){
 			res=false;
-			msg="抱歉，这里包含一些重要资料，不便公开！<br>如有需要，请联系我们！";
+			msg="抱歉，这里包含一些重要资料，不便公开！<br>如有需要，请联系管理员！";
 			return ERROR;
 		}
 		return SUCCESS;
