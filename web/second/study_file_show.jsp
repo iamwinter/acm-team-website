@@ -107,7 +107,7 @@
                             <input id="study_file" type="file" class="form-control" onchange="fileSelected()" multiple required>
                         </div>
                         <div class="form-group col-xs-12">
-                            <button type="submit" class="btn btn-success">上传</button>
+                            <button id="btn-up" type="submit" class="btn btn-success">上传</button>
                         </div>
                     </form>
 
@@ -196,8 +196,14 @@
 
     // form表单提交事件
     function studyUpload() {
+        $("#btn-up").attr("disabled","true")
+        window.onbeforeunload=function(e){
+            var e = window.event||e;
+            return "当前页面有上传任务，请确保已全部上传至100%再关闭页面！";
+        }
         $("#btn_show_progress").click(); //打开模态框 显示进度信息
         var files = $("#study_file")[0].files;  //获取所有文件
+        var running = false;
         for(var i=0;i<files.length;i++){
             prepareUpload(files[i],i)   //遍历文件进行上传
         }
@@ -227,18 +233,18 @@
 
     //递归上传一个文件，每层切割一小块上传
     function uploadFileWithCut(file,start,fileIndex) {
-        var xhr = new XMLHttpRequest();
-        var fd = new FormData();
-        //关联表单数据,可以是自定义参数
-        fd.append('folderId',${folderId});    //父文件夹id
-        fd.append("fileName", file.name);
-        fd.append("fileSize", file.size);
         var end = start + 1024*1024;//文件分片上传，每片1M
         var endFlag = false;
         if(end>=file.size){
             end = file.size;
             endFlag = true;
         }
+        var xhr = new XMLHttpRequest();
+        var fd = new FormData();
+        //关联表单数据,可以是自定义参数
+        fd.append('folderId',${folderId});    //父文件夹id
+        fd.append("fileName", file.name);
+        fd.append("fileSize", file.size);
         fd.append("upFile", file.slice(start,end));//上传一片文件
         fd.append("uploadSize", end);   //本次上传之后，已上传大小
 
