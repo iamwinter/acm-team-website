@@ -1,3 +1,4 @@
 web/template linguist-vendored
 lib linguist-vendored
 out linguist-vendored
+*.js linguist-vendored
