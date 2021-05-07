@@ -1,2 +1,2 @@
 web/template/* linguist-vendored
-lib/* linguist-vendored
+lib linguist-vendored
